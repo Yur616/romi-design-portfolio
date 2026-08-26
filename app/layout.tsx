@@ -27,27 +27,27 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: {
-      default: "Твоё имя — визуальный дизайнер",
-      template: "%s · Твоё имя",
+      default: "Юрий Жильников — Product & Web Designer",
+      template: "%s · Юрий Жильников",
     },
     description:
-      "Авторское портфолио визуального дизайнера: айдентика, digital и арт-дирекшн.",
+      "Портфолио Юрия Жильникова: продуктовый UX/UI-дизайн, современные сайты, дизайн-системы и интерфейсы.",
     icons: {
       icon: "/favicon.png",
       shortcut: "/favicon.png",
     },
     openGraph: {
-      title: "Твоё имя — визуальные истории",
-      description: "Айдентика, digital и арт-дирекшн для брендов с характером.",
-      images: [{ url: `${origin}/og-v2.png`, width: 1200, height: 630 }],
+      title: "Юрий Жильников — Product & Web Designer",
+      description: "Продуктовый UX/UI-дизайн, сайты, дизайн-системы и интерфейсы.",
+      images: [{ url: `${origin}/og-green.png`, width: 1792, height: 936 }],
       locale: "ru_RU",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Твоё имя — визуальные истории",
-      description: "Айдентика, digital и арт-дирекшн для брендов с характером.",
-      images: [`${origin}/og-v2.png`],
+      title: "Юрий Жильников — Product & Web Designer",
+      description: "Продуктовый UX/UI-дизайн, сайты, дизайн-системы и интерфейсы.",
+      images: [`${origin}/og-green.png`],
     },
   };
 }

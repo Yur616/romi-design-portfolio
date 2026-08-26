@@ -1,12 +1,5 @@
-import type { Metadata } from "next";
-import { PortfolioExperience } from "./portfolio-experience";
-
-export const metadata: Metadata = {
-  title: "Твоё имя — визуальный дизайнер",
-  description:
-    "Портфолио визуального дизайнера: айдентика, digital и арт-дирекшн.",
-};
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <PortfolioExperience />;
+  redirect("/portfolio.html?lang=ru");
 }

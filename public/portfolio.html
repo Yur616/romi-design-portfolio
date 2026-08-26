@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Юрий Жильников ® — Product & Web Design Portfolio | Bloom Studio</title>
+  <meta name="description" content="Портфолио Юрия Жильникова: продуктовый UX/UI дизайн, разработка современных сайтов, дизайн-системы и интерфейсы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            display: ['Unbounded', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            bloom: {
+              bg: '#08110D',
+              card: '#101B15',
+              cardHover: '#17251C',
+              border: '#26372D',
+              accent: '#86C9A3',
+              accentHover: '#6FB98E',
+              text: '#EDF5F0',
+              muted: '#97AA9D',
+              cyan: '#9AD9BC',
+              emerald: '#72C596',
+              violet: '#B1D8B7'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #08110D;
+      color: #EDF5F0;
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #86C9A3;
+      selection-color: #ffffff;
+    }
+    ::selection {
+      background: #86C9A3;
+      color: #ffffff;
+    }
+    .noise-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 99;
+    }
+    .glass-nav {
+      background: rgba(8, 17, 13, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-card {
+      background: linear-gradient(145deg, rgba(25, 25, 33, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(134, 201, 163, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(134, 201, 163, 0.15);
+    }
+    .glow-sphere {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #08110D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #26372D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #86C9A3;
+    }
+    .tag-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen text-bloom-text antialiased">
+  <div class="noise-overlay"></div>
+
+  <div class="glow-sphere w-[500px] h-[500px] bg-emerald-600/10 top-[-100px] left-[-100px]"></div>
+  <div class="glow-sphere w-[600px] h-[600px] bg-lime-600/10 top-[600px] right-[-150px]"></div>
+  <div class="glow-sphere w-[500px] h-[500px] bg-teal-600/10 bottom-[800px] left-[-100px]"></div>
+
+  <div id="progress-bar" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 z-50 transition-all duration-75 w-0"></div>
+
+  <header class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center font-display font-black text-white text-xs shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+          Ж
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-sm tracking-wider uppercase text-white flex items-center gap-1.5">
+            Юрий Жильников
+            <span class="text-[10px] text-emerald-400 font-mono">®</span>
+          </span>
+          <span class="text-[11px] text-bloom-muted font-mono tracking-tight" data-i18n="header_role">Product & Web Designer</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-bloom-muted">
+        <a href="#work" class="hover:text-white transition-colors flex items-center gap-1.5 py-1" data-i18n="nav_work">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-0 transition-opacity"></span>
+          Проекты
+        </a>
+        <a href="#about" class="hover:text-white transition-colors py-1" data-i18n="nav_about">Обо мне</a>
+        <a href="#services" class="hover:text-white transition-colors py-1" data-i18n="nav_services">Услуги</a>
+        <a href="#calculator" class="hover:text-white transition-colors py-1" data-i18n="nav_calculator">Калькулятор</a>
+        <a href="#contact" class="hover:text-white transition-colors py-1" data-i18n="nav_contact">Контакты</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-bloom-card border border-bloom-border text-xs font-mono font-medium hover:border-emerald-500/50 hover:text-white transition-all text-bloom-muted">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke-width="2"></path></svg>
+          <span id="lang-label" class="font-bold text-white">RU</span>
+          <span class="text-[10px] text-bloom-muted">/ EN</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs tracking-wide transition-all shadow-md shadow-emerald-600/20 hover:shadow-emerald-600/40">
+          <span data-i18n="header_cta">Начать проект</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-bloom-muted hover:text-white focus:outline-none" aria-label="Toggle Menu">
+          <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-white/5 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-base font-medium">
+        <a href="#work" onclick="toggleMobileMenu()" class="text-white hover:text-emerald-400 py-1" data-i18n="nav_work">Проекты</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="text-white hover:text-emerald-400 py-1" data-i18n="nav_about">Обо мне</a>
+        <a href="#services" onclick="toggleMobileMenu()" class="text-white hover:text-emerald-400 py-1" data-i18n="nav_services">Услуги</a>
+        <a href="#calculator" onclick="toggleMobileMenu()" class="text-white hover:text-emerald-400 py-1" data-i18n="nav_calculator">Калькулятор проекта</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="text-white hover:text-emerald-400 py-1" data-i18n="nav_contact">Контакты</a>
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+          <a href="#contact" onclick="toggleMobileMenu()" class="w-full text-center py-3 bg-emerald-600 rounded-lg text-white font-medium text-sm" data-i18n="header_cta">Начать проект</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="top" class="relative min-h-[100svh] flex items-center pt-24 pb-10 md:pt-24 md:pb-10 px-6 overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-bloom-card/80 border border-bloom-border text-xs font-mono mb-5 backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-bloom-muted" data-i18n="hero_status">Открыт к проектам на Q3-Q4 2026</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 flex flex-col">
+            <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-white mb-5" data-i18n="hero_title">
+              Создаю сайты и интерфейсы, которыми <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">удобно пользоваться</span> и которые растят бизнес.
+            </h1>
+            <p class="text-base sm:text-lg text-bloom-muted max-w-2xl font-light leading-relaxed mb-6" data-i18n="hero_subtitle">
+              Продуктовый UX/UI дизайнер и разработчик. Соединяю строгую аналитическую архитектуру, чистую эстетику и передовой frontend.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="#work" class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-[1.02]">
+                <span data-i18n="hero_btn_work">Смотреть проекты</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-bloom-card hover:bg-bloom-cardHover text-white border border-bloom-border hover:border-bloom-muted/50 font-semibold text-sm tracking-wide transition-all">
+                <span data-i18n="hero_btn_contact">Обсудить задачу</span>
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4">
+            <div class="glass-card rounded-2xl p-5 relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+              <div class="flex items-center justify-between pb-6 border-b border-white/5">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <span class="tag-badge text-bloom-muted">BLOOM STUDIO UI/UX</span>
+              </div>
+              <div class="py-5 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_experience">Опыт работы</span>
+                  <span class="font-display font-bold text-white">5+ лет</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_projects">Реализовано</span>
+                  <span class="font-display font-bold text-emerald-400">30+ проектов</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_stack">Стек</span>
+                  <span class="text-xs text-white font-mono">Figma / React / Next.js</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_rating">Удовлетворенность</span>
+                  <span class="font-display font-bold text-emerald-400">100% CSAT</span>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-bloom-bg/60 border border-white/5 flex items-center gap-3">
+                <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white" data-i18n="widget_focus">Фокус на конверсию</div>
+                  <div class="text-[11px] text-bloom-muted" data-i18n="widget_desc">Дизайн с опорой на данные и UX-тесты</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative py-6 bg-bloom-card/60 border-y border-bloom-border overflow-hidden whitespace-nowrap">
+      <div class="inline-flex animate-marquee gap-12 text-sm font-mono tracking-widest text-bloom-muted uppercase">
+        <span>✦ ВЕБ-ДИЗАЙН</span>
+        <span>✦ PRODUCT UX/UI</span>
+        <span>✦ FRONTEND РАЗРАБОТКА</span>
+        <span>✦ ДИЗАЙН-СИСТЕМЫ</span>
+        <span>✦ E-COMMERCE & TILDA ZERO BLOCK</span>
+        <span>✦ ГЕНЕРАТИВНЫЙ AI & АВТОМАТИЗАЦИЯ</span>
+        <span>✦ ИНТЕРАКТИВНЫЕ ПРОТОТИПЫ</span>
+        <span>✦ ВЕБ-ДИЗАЙН</span>
+        <span>✦ PRODUCT UX/UI</span>
+        <span>✦ FRONTEND РАЗРАБОТКА</span>
+        <span>✦ ДИЗАЙН-СИСТЕМЫ</span>
+        <span>✦ E-COMMERCE & TILDA ZERO BLOCK</span>
+        <span>✦ ГЕНЕРАТИВНЫЙ AI & АВТОМАТИЗАЦИЯ</span>
+        <span>✦ ИНТЕРАКТИВНЫЕ ПРОТОТИПЫ</span>
+      </div>
+    </div>
+
+    <section id="work" class="py-24 md:py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+              <span>01 // PORTFOLIO</span>
+              <span class="w-8 h-[1px] bg-emerald-500/40"></span>
+            </div>
+            <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight" data-i18n="work_heading">
+              Избранные проекты
+            </h2>
+          </div>
+          <p class="text-bloom-muted text-sm sm:text-base max-w-md font-light" data-i18n="work_subheading">
+            Каждый кейс — это продуманное решение бизнес-задач, сочетающее глубокие исследования, чистую эстетику и безупречный UX.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5 mb-12">
+<button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (6)</button>
+          <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
+          <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
+          <button onclick="filterProjects('ai')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="ai" data-i18n="filter_ai">AI & Mobile</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="product" onclick="openModal('aura')">
+            <div>
+              <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-green-950/60 via-slate-900 to-lime-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
+                <div class="w-full h-full bg-slate-950/80 rounded-lg border border-green-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                      <span class="font-display font-bold text-xs text-white">AURA Support</span>
+                    </div>
+                    <span class="tag-badge text-green-400 bg-green-500/10 px-2 py-0.5 rounded">Live Match</span>
+                  </div>
+                  <div class="space-y-2 my-auto">
+                    <div class="h-2 w-3/4 bg-green-500/30 rounded"></div>
+                    <div class="h-2 w-1/2 bg-white/10 rounded"></div>
+                    <div class="p-2.5 rounded-md bg-green-950/50 border border-green-500/30 flex items-center justify-between">
+                      <span class="text-[10px] font-mono text-green-200">Community Safety Index</span>
+                      <span class="text-[10px] font-mono text-emerald-400 font-bold">99.8%</span>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted">
+                    <span>E2E Encryption</span>
+                    <span>10k+ Daily Sessions</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
+                <span class="text-green-400 uppercase tracking-wider">01 // PRODUCT DESIGN & UX</span>
+                <span>2026</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+                AURA — Платформа взаимопомощи и поддержки
+              </h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p1_desc">
+                Комплексное проектирование цифрового сервиса анонимной взаимопомощи: сквозная архитектура, эмоциональный UI и безопасные пользовательские сценарии.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">UX Research</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Design System</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Figma</span>
+              </div>
+              <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('lapadoctor')">
+            <div>
+              <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-emerald-950/60 via-slate-900 to-teal-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
+                <div class="w-full h-full bg-slate-950/80 rounded-lg border border-emerald-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                      <span class="font-display font-bold text-xs text-white">ЛапаДоктор</span>
+                    </div>
+                    <span class="tag-badge text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Выезд 24/7</span>
+                  </div>
+                  <div class="space-y-2 my-auto">
+                    <div class="p-2 rounded bg-emerald-950/40 border border-emerald-500/20 text-[10px] font-mono text-emerald-300 flex justify-between">
+                      <span>Вызов ветеринара на дом</span>
+                      <span class="font-bold">от 15 мин</span>
+                    </div>
+                    <div class="h-2 w-2/3 bg-white/10 rounded"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted">
+                    <span>Конверсия: +42%</span>
+                    <span>Tilda & Zero Block</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
+                <span class="text-emerald-400 uppercase tracking-wider">02 // WEB DESIGN & BRANDING</span>
+                <span>2026</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+                ЛапаДоктор — Мобильная ветеринарная служба
+              </h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p2_desc">
+                Полный брендинг, интерактивный калькулятор вызова врача, адаптивный промо-лендинг и интеграция заявок с CRM для службы помощи животным.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Web Design</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Tilda Zero Block</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Branding</span>
+              </div>
+              <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="ai" onclick="openModal('flux')">
+            <div>
+              <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-lime-950/60 via-slate-900 to-emerald-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
+                <div class="w-full h-full bg-slate-950/80 rounded-lg border border-lime-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-lime-400"></span>
+                      <span class="font-display font-bold text-xs text-white">FLUX AI STUDIO</span>
+                    </div>
+                    <span class="tag-badge text-lime-400 bg-lime-500/10 px-2 py-0.5 rounded">Prompt Engine v2</span>
+                  </div>
+                  <div class="space-y-2 my-auto">
+                    <div class="p-2 rounded bg-lime-950/40 border border-lime-500/20 text-[10px] font-mono text-lime-200">
+                      Generating 4K Ultra-Real Neural Render...
+                    </div>
+                    <div class="h-1.5 w-full bg-lime-500/40 rounded-full overflow-hidden">
+                      <div class="h-full bg-lime-400 w-3/4 animate-pulse"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted">
+                    <span>Mobile First</span>
+                    <span>Gestural UX</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
+                <span class="text-lime-400 uppercase tracking-wider">03 // AI & MOBILE UX/UI</span>
+                <span>2026</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-lime-400 transition-colors mb-3">
+                FLUX AI — Мобильный интерфейс генеративного ИИ
+              </h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p3_desc">
+                Проектирование мобильного приложения нового поколения для генерации визуального контента: жестовая модель, продвинутый промпт-билдер и система пресетов.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Mobile UX</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Generative AI</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Dark Mode UI</span>
+              </div>
+              <span class="p-2 rounded-lg bg-lime-500/10 text-lime-400 group-hover:bg-lime-600 group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('kultur')">
+            <div>
+              <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-amber-950/60 via-slate-900 to-red-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
+                <div class="w-full h-full bg-slate-950/80 rounded-lg border border-amber-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                  <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                      <span class="font-display font-bold text-xs text-white">KULTUR // 日本</span>
+                    </div>
+                    <span class="tag-badge text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Editorial</span>
+                  </div>
+                  <div class="space-y-2 my-auto text-center py-2">
+                    <span class="font-display font-black text-xs tracking-widest text-amber-300">WABI-SABI AESTHETICS</span>
+                    <div class="h-1.5 w-1/3 mx-auto bg-amber-400/40 rounded"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted">
+                    <span>Kinetic Typography</span>
+                    <span>Smooth Scroll</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
+                <span class="text-amber-400 uppercase tracking-wider">04 // EDITORIAL WEB DESIGN</span>
+                <span>2026</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-amber-400 transition-colors mb-3">
+                KULTUR — Редакционный спецпроект об эстетике Японии
+              </h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p4_desc">
+                Атмосферный веб-лонгрид с кинетической типографикой, нестандартной сеткой и плавными интерактивными микро-анимациями.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Editorial</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Typography</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">GSAP Motion</span>
+              </div>
+              <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+            </div>
+          </div>
+<!-- PROJECT 5: YANDEX PET DAY -->
+<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('yandexpet')">
+<div><div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-yellow-900/60 via-slate-900 to-amber-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6"><div class="w-full h-full bg-slate-950/80 rounded-lg border border-yellow-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500"><div class="flex items-center justify-between border-b border-white/10 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="font-display font-bold text-xs text-white">Yandex Pet Day</span></div><span class="tag-badge text-yellow-400 bg-yellow-500/10 px-2 py-0.5 rounded">Event Promo</span></div><div class="my-auto"><div class="h-2 w-3/4 bg-yellow-500/20 rounded mb-2"></div><div class="h-2 w-1/2 bg-white/5 rounded"></div></div><div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted"><span>IT Conference</span><span>Interactive Grid</span></div></div></div><div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-yellow-400 uppercase tracking-wider">05 // WEB DESIGN &amp; EVENT</span><span>2026</span></div><h3 class="font-display font-bold text-2xl text-white group-hover:text-yellow-400 transition-colors mb-3">Yandex Pet Day — Промо-сайт конференции</h3><p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p5_desc">Яркий событийный лендинг для IT-конференции с интерактивной программой, интеграцией билетного сервиса и анимированными 3D-персонажами.</p></div><div class="pt-4 border-t border-white/5 flex items-center justify-between"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Event Web</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Animations</span></div><span class="p-2 rounded-lg bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-600 group-hover:text-white transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span></div></div>
+<!-- PROJECT 6: PROSTO LASER -->
+<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="product" onclick="openModal('prostolaser')">
+<div><div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-rose-950/60 via-slate-900 to-red-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6"><div class="w-full h-full bg-slate-950/80 rounded-lg border border-rose-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500"><div class="flex items-center justify-between border-b border-white/10 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span><span class="font-display font-bold text-xs text-white">Prosto Laser</span></div><span class="tag-badge text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">Medtech UI</span></div><div class="my-auto"><div class="h-2 w-full bg-rose-500/10 rounded mb-2"></div><div class="h-8 w-8 rounded-full border-2 border-rose-500/30 mx-auto animate-pulse"></div></div><div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted"><span>Commercial</span><span>Booking System</span></div></div></div><div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-rose-400 uppercase tracking-wider">06 // REDESIGN &amp; MEDTECH</span><span>2026</span></div><h3 class="font-display font-bold text-2xl text-white group-hover:text-rose-400 transition-colors mb-3">Prosto Laser — Редизайн сети клиник</h3><p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p6_desc">Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.</p></div><div class="pt-4 border-t border-white/5 flex items-center justify-between"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Commercial</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Redesign</span></div><span class="p-2 rounded-lg bg-rose-500/10 text-rose-400 group-hover:bg-rose-600 group-hover:text-white transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span></div></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 px-6 bg-bloom-card/40 border-t border-bloom-border">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          <div class="lg:col-span-6">
+            <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+              <span>02 // ABOUT</span>
+              <span class="w-8 h-[1px] bg-emerald-500/40"></span>
+            </div>
+            <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-8" data-i18n="about_heading">
+              Дизайн как инструмент роста бизнеса и удобства людей.
+            </h2>
+            <div class="space-y-5 text-bloom-muted leading-relaxed font-light text-base">
+              <p data-i18n="about_p1">
+                Привет! Меня зовут Юрий Жильников. Я проектирую цифровые продукты, интерфейсы и сайты, которые не только визуально безупречны, но и решают реальные бизнес-задачи.
+              </p>
+              <p data-i18n="about_p2">
+                Мой подход строится на пересечении глубокого UX-анализа, исследования пользовательских болей и чистого современного визуального кода. Я не верю в шаблонные решения: каждый проект получает индивидуальную дизайн-систему и архитектуру.
+              </p>
+              <p data-i18n="about_p3">
+                Помимо проектирования в Figma, я отлично понимаю техническую сторону реализации (React, Next.js, CSS, Tilda, n8n automation), что позволяет создавать решения, готовые к быстрому и бесшовному продакшену.
+              </p>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-white/5">
+              <span class="text-xs font-mono uppercase text-white block mb-4" data-i18n="skills_title">Ключевые компетенции & Стек:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Figma & FigJam</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Product UX/UI</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Design Systems</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Next.js & React</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Tailwind CSS</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Tilda Zero Block</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">n8n Automation</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Generative AI Tools</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-4">
+            <h3 class="font-display font-bold text-xl text-white mb-6" data-i18n="process_title">Как устроен рабочий процесс:</h3>
+            
+            <div class="glass-card rounded-xl p-6 relative">
+              <div class="flex items-start gap-4">
+                <span class="font-mono text-xl font-bold text-emerald-400">01</span>
+                <div>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step1_title">Исследования & Анализ</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step1_desc">Изучение целевой аудитории, аудит конкурентов, формулирование гипотез и CJM (Customer Journey Map).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 relative">
+              <div class="flex items-start gap-4">
+                <span class="font-mono text-xl font-bold text-teal-400">02</span>
+                <div>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step2_title">Информационная архитектура & Wireframes</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step2_desc">Построение логики переходов, модульной сетки и интерактивных черно-белых прототипов для проверки гипотез.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 relative">
+              <div class="flex items-start gap-4">
+                <span class="font-mono text-xl font-bold text-green-400">03</span>
+                <div>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step3_title">UI-Концепт & Дизайн-система</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step3_desc">Создание премиального визуального стиля, типографики, компонентов, адаптивных версий (Mobile/Tablet/Desktop).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 relative">
+              <div class="flex items-start gap-4">
+                <span class="font-mono text-xl font-bold text-emerald-400">04</span>
+                <div>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step4_title">Разработка, Тестирование & Релиз</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step4_desc">Верстка, интеграция анимаций, подключение CRM/форм/оплаты, финальное QA-тестирование и передача клиенту.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-24 md:py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+          <span>03 // SERVICES</span>
+          <span class="w-8 h-[1px] bg-emerald-500/40"></span>
+        </div>
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-16" data-i18n="services_heading">
+          Услуги и форматы сотрудничества
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <span class="font-mono text-xs text-emerald-400 mb-2 block">01 // LANDINGS</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s1_title">Лендинги & Сайты под ключ</h3>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s1_desc">
+                Продающие посадочные страницы, корпоративные сайты и интернет-магазины с высокой конверсией и анимациями.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
+              <div>✦ Срок: от 7-14 дней</div>
+              <div>✦ Интеграции: CRM, СБП, ЮKassa</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+              </div>
+              <span class="font-mono text-xs text-teal-400 mb-2 block">02 // PRODUCT</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s2_title">UX/UI Сервисов и SaaS</h3>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s2_desc">
+                Проектирование сложных веб-приложений, личных кабинетов, дашбордов и мобильных интерфейсов.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
+              <div>✦ Срок: от 3 недель</div>
+              <div>✦ Спецификации & UI Kit</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-lime-500/10 border border-lime-500/20 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+              </div>
+              <span class="font-mono text-xs text-lime-400 mb-2 block">03 // REDESIGN</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s3_title">Редизайн & UX-Аудит</h3>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s3_desc">
+                Глубокий анализ существующих точек оттока пользователей, устранение багов юзабилити и перезапуск визуала.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
+              <div>✦ Срок: от 5 дней</div>
+              <div>✦ Отчет + Action Plan</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-7 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <span class="font-mono text-xs text-emerald-400 mb-2 block">04 // DEV & AUTOMATION</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s4_title">Frontend & No-Code</h3>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s4_desc">
+                Чистая верстка на Next.js/Tailwind, сборка на Tilda Zero Block, автоматизация бизнес-процессов на n8n и AI-боты.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
+              <div>✦ Срок: от 5-10 дней</div>
+              <div>✦ 100% Mobile Responsive</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="py-20 px-6 bg-bloom-card/30 border-y border-bloom-border">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="tag-badge text-emerald-400 mb-2 inline-block">INTERACTIVE ESTIMATOR</span>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3" data-i18n="calc_heading">
+            Калькулятор стоимости и сроков проекта
+          </h2>
+          <p class="text-bloom-muted text-sm max-w-lg mx-auto font-light" data-i18n="calc_subheading">
+            Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 space-y-8">
+          <div>
+            <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_type_label">1. Тип проекта:</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button type="button" onclick="setCalcOption('type', 'landing', 45000, 10)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
+                <div class="font-bold text-sm text-white">Лендинг / Промо</div>
+                <div class="text-[11px] text-bloom-muted font-mono">от 45 000 ₽ • 7-10 дней</div>
+              </button>
+              <button type="button" onclick="setCalcOption('type', 'corp', 85000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
+                <div class="font-bold text-sm text-white">Многостраничный сайт</div>
+                <div class="text-[11px] text-bloom-muted font-mono">от 85 000 ₽ • 14-20 дней</div>
+              </button>
+              <button type="button" onclick="setCalcOption('type', 'saas', 140000, 30)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="saas">
+                <div class="font-bold text-sm text-white">Веб-сервис / UX/UI SaaS</div>
+                <div class="text-[11px] text-bloom-muted font-mono">от 140 000 ₽ • 3-5 недель</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_scope_label">2. Дополнительные опции:</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
+                <input type="checkbox" onchange="toggleAddon('dev', 25000, 5, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
+                <div>
+                  <div class="text-sm font-semibold text-white">Верстка / Сборка (Tilda / Next.js)</div>
+                  <div class="text-[11px] text-bloom-muted font-mono">+25 000 ₽ • +5 дней</div>
+                </div>
+              </label>
+              <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
+                <input type="checkbox" onchange="toggleAddon('branding', 20000, 3, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
+                <div>
+                  <div class="text-sm font-semibold text-white">Фирменный стиль & Логотип</div>
+                  <div class="text-[11px] text-bloom-muted font-mono">+20 000 ₽ • +3 дня</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl bg-emerald-600/10 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <div class="text-xs font-mono text-emerald-400 uppercase tracking-wide">Предварительная оценка:</div>
+              <div class="flex items-baseline gap-4 mt-1">
+                <span id="calc-price" class="font-display font-black text-2xl sm:text-3xl text-white">45 000 ₽</span>
+                <span id="calc-time" class="font-mono text-sm text-bloom-muted">~10 рабочих дней</span>
+              </div>
+            </div>
+            <button onclick="applyCalcToContact()" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-md">
+              Применить к заявке ↓
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3 justify-center">
+          <span>FAQ</span>
+        </div>
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-white text-center mb-12" data-i18n="faq_heading">
+          Часто задаваемые вопросы
+        </h2>
+
+        <div class="space-y-4">
+          
+          <div class="glass-card rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between text-white font-medium hover:text-emerald-400 transition-colors">
+              <span data-i18n="faq_q1">Как строится оплата проекта?</span>
+              <svg id="faq-icon-1" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="faq-ans-1" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a1">
+              Работаем по прозрачной поэтапной схеме: 50% предоплата перед стартом этапа проектирования и 50% после утверждения финальных макетов и передачи исходников (или 30/40/30 для крупных проектов).
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex items-center justify-between text-white font-medium hover:text-emerald-400 transition-colors">
+              <span data-i18n="faq_q2">В каком формате передаются исходники?</span>
+              <svg id="faq-icon-2" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="faq-ans-2" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a2">
+              Вся работа ведется в Figma с идеальным порядком: Auto Layout, дизайн-токены, UI Kit компонентов, адаптивные фреймы (Desktop 1440px / Mobile 375px) и интерактивные кликабельные прототипы.
+            </div>
+          </div>
+
+          <div class="glass-card rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex items-center justify-between text-white font-medium hover:text-emerald-400 transition-colors">
+              <span data-i18n="faq_q3">Что если мне нужна разработка под ключ?</span>
+              <svg id="faq-icon-3" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="faq-ans-3" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a3">
+              Да, я выполняю полный цикл: от UX-исследований до готового рабочего сайта на Tilda Zero Block (с кодом и анимациями) или на современном стеке Next.js / Tailwind CSS / Vercel с подключением домена, почты и аналитики.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 md:py-32 px-6 bg-bloom-card/60 border-t border-bloom-border">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+                <span>04 // CONTACTS</span>
+                <span class="w-8 h-[1px] bg-emerald-500/40"></span>
+              </div>
+              <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-6" data-i18n="contact_heading">
+                Давайте создадим что-то выдающееся вместе.
+              </h2>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-8 font-light" data-i18n="contact_subheading">
+                Есть проект, идея или задача на редизайн? Напишите мне, и я вернусь с экспертным предложением и предварительной оценкой в течение 24 часов.
+              </p>
+
+              <div class="space-y-4">
+                <div class="p-4 rounded-xl glass-card flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="text-[10px] font-mono text-bloom-muted uppercase">Email</div>
+                      <a href="mailto:zhilnikov_yuriy@mail.ru" class="text-sm font-mono font-medium text-white hover:text-emerald-400 transition-colors">zhilnikov_yuriy@mail.ru</a>
+                    </div>
+                  </div>
+                  <button onclick="copyToClipboard('zhilnikov_yuriy@mail.ru', 'Email скопирован!')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all text-xs font-mono" title="Копировать Email">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                  </button>
+                </div>
+
+                <div class="p-4 rounded-xl glass-card flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-lg bg-teal-500/10 text-teal-400">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.943z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-[10px] font-mono text-bloom-muted uppercase">Telegram</div>
+                      <span class="text-sm font-mono font-medium text-white">@zhilnikov_design</span>
+                    </div>
+                  </div>
+                  <button onclick="copyToClipboard('@zhilnikov_design', 'Telegram скопирован!')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all text-xs font-mono" title="Копировать Telegram">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-bloom-muted">
+              <div>📍 Москва / GMT+3</div>
+              <div id="live-clock">04:50 MSK</div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <form id="project-form" onsubmit="handleFormSubmit(event)" class="glass-card rounded-2xl p-8 space-y-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" data-i18n="form_title">Заполнить бриф</h3>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_name">Ваше имя *</label>
+                  <input type="text" id="form-name" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_contact">Email или Telegram *</label>
+                  <input type="text" id="form-contact" required placeholder="@username или mail@company.com" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_service">Тип проекта</label>
+                <select id="form-service" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                  <option value="Лендинг / Промо-сайт">Лендинг / Промо-сайт</option>
+                  <option value="UX/UI Дизайн веб-сервиса / SaaS">UX/UI Дизайн веб-сервиса / SaaS</option>
+                  <option value="Редизайн существующего продукта">Редизайн существующего продукта</option>
+                  <option value="Frontend-разработка & Tilda Zero Block">Frontend-разработка & Tilda Zero Block</option>
+                  <option value="Комплексный проект под ключ">Комплексный проект под ключ</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_message">Описание задачи и пожелания</label>
+                <textarea id="form-message" rows="4" placeholder="Расскажите о проекте, целях, текущих ссылках и сроках..." class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50">
+                <span data-i18n="form_submit">Отправить заявку</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 px-6 border-t border-white/5 text-xs text-bloom-muted font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-white">BLOOM STUDIO</span>
+        <span>© 2026 Юрий Жильников. Все права защищены.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#work" class="hover:text-white transition-colors" data-i18n="nav_work">Проекты</a>
+        <a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">Обо мне</a>
+        <a href="#services" class="hover:text-white transition-colors" data-i18n="nav_services">Услуги</a>
+        <a href="#top" class="text-emerald-400 hover:underline flex items-center gap-1">
+          <span>↑ Наверх</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="case-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-bloom-card border border-bloom-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <div id="modal-content" class="space-y-6">
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none px-4 py-3 rounded-xl bg-emerald-600 text-white text-xs font-mono shadow-2xl flex items-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    <span id="toast-msg">Успешно!</span>
+  </div>
+
+  <script>
+    const i18n = {
+      ru: {
+        header_role: "Product & Web Designer",
+        nav_work: "Проекты",
+        nav_about: "Обо мне",
+        nav_services: "Услуги",
+        nav_calculator: "Калькулятор",
+        nav_contact: "Контакты",
+        header_cta: "Начать проект",
+        hero_status: "Открыт к проектам на Q3-Q4 2026",
+        hero_title: "Создаю сайты и интерфейсы, которыми <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>удобно пользоваться</span> и которые растят бизнес.",
+        hero_subtitle: "Продуктовый UX/UI дизайнер и разработчик. Соединяю строгую аналитическую архитектуру, чистую эстетику и передовой frontend.",
+        hero_btn_work: "Смотреть проекты",
+        hero_btn_contact: "Обсудить задачу",
+        stat_experience: "Опыт работы",
+        stat_projects: "Реализовано",
+        stat_stack: "Стек",
+        stat_rating: "Удовлетворенность",
+        widget_focus: "Фокус на конверсию",
+        widget_desc: "Дизайн с опорой на данные и UX-тесты",
+        work_heading: "Избранные проекты",
+        work_subheading: "Каждый кейс — это продуманное решение бизнес-задач, сочетающее глубокие исследования, чистую эстетику и безупречный UX.",
+filter_all: "Все (6)",
+        filter_product: "UX/UI & Продукт",
+        filter_web: "Веб-сервисы & Сайты",
+        filter_ai: "AI & Mobile",
+        p1_desc: "Комплексное проектирование цифрового сервиса анонимной взаимопомощи: сквозная архитектура, эмоциональный UI и безопасные пользовательские сценарии.",
+        p2_desc: "Полный брендинг, интерактивный калькулятор вызова врача, адаптивный промо-лендинг и интеграция заявок с CRM для службы помощи животным.",
+        p3_desc: "Проектирование мобильного приложения нового поколения для генерации визуального контента: жестовая модель, продвинутый промпт-билдер и система пресетов.",
+        p4_desc: "Атмосферный веб-лонгрид с кинетической типографикой, нестандартной сеткой и плавными интерактивными микро-анимациями.",
+p5_desc: "Яркий событийный лендинг для IT-конференции с интерактивной программой, интеграцией билетного сервиса и анимированными 3D-персонажами.",
+p6_desc: "Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.",
+        about_heading: "Дизайн как инструмент роста бизнеса и удобства людей.",
+        about_p1: "Привет! Меня зовут Юрий Жильников. Я проектирую цифровые продукты, интерфейсы и сайты, которые не только визуально безупречны, но и решают реальные бизнес-задачи.",
+        about_p2: "Мой подход строится на пересечении глубокого UX-анализа, исследования пользовательских болей и чистого современного визуального кода. Я не верю в шаблонные решения: каждый проект получает индивидуальную дизайн-систему и архитектуру.",
+        about_p3: "Помимо проектирования в Figma, я отлично понимаю техническую сторону реализации (React, Next.js, CSS, Tilda, n8n automation), что позволяет создавать решения, готовые к быстрому и бесшовному продакшену.",
+        skills_title: "Ключевые компетенции & Стек:",
+        process_title: "Как устроен рабочий процесс:",
+        step1_title: "Исследования & Анализ",
+        step1_desc: "Изучение целевой аудитории, аудит конкурентов, формулирование гипотез и CJM.",
+        step2_title: "Информационная архитектура & Wireframes",
+        step2_desc: "Построение логики переходов, модульной сетки и интерактивных черно-белых прототипов для проверки гипотез.",
+        step3_title: "UI-Концепт & Дизайн-система",
+        step3_desc: "Создание премиального визуального стиля, типографики, компонентов, адаптивных версий.",
+        step4_title: "Разработка, Тестирование & Релиз",
+        step4_desc: "Верстка, интеграция анимаций, подключение CRM/форм/оплаты, финальное QA-тестирование и передача клиенту.",
+        services_heading: "Услуги и форматы сотрудничества",
+        s1_title: "Лендинги & Сайты под ключ",
+        s1_desc: "Продающие посадочные страницы, корпоративные сайты и интернет-магазины с высокой конверсией и анимациями.",
+        s2_title: "UX/UI Сервисов и SaaS",
+        s2_desc: "Проектирование сложных веб-приложений, личных кабинетов, дашбордов и мобильных интерфейсов.",
+        s3_title: "Редизайн & UX-Аудит",
+        s3_desc: "Глубокий анализ существующих точек оттока пользователей, устранение багов юзабилити и перезапуск визуала.",
+        s4_title: "Frontend & No-Code",
+        s4_desc: "Чистая верстка на Next.js/Tailwind, сборка на Tilda Zero Block, автоматизация бизнес-процессов на n8n и AI-боты.",
+        calc_heading: "Калькулятор стоимости и сроков проекта",
+        calc_subheading: "Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.",
+        calc_type_label: "1. Тип проекта:",
+        calc_scope_label: "2. Дополнительные опции:",
+        faq_heading: "Часто задаваемые вопросы",
+        faq_q1: "Как строится оплата проекта?",
+        faq_a1: "Работаем по прозрачной поэтапной схеме: 50% предоплата перед стартом этапа проектирования и 50% после утверждения финальных макетов и передачи исходников (или 30/40/30 для крупных проектов).",
+        faq_q2: "В каком формате передаются исходники?",
+        faq_a2: "Вся работа ведется в Figma с идеальным порядком: Auto Layout, дизайн-токены, UI Kit компонентов, адаптивные фреймы (Desktop 1440px / Mobile 375px) и интерактивные кликабельные прототипы.",
+        faq_q3: "Что если мне нужна разработка под ключ?",
+        faq_a3: "Да, я выполняю полный цикл: от UX-исследований до готового рабочего сайта на Tilda Zero Block (с кодом и анимациями) или на современном стеке Next.js / Tailwind CSS / Vercel с подключением домена, почты и аналитики.",
+        contact_heading: "Давайте создадим что-то выдающееся вместе.",
+        contact_subheading: "Есть проект, идея или задача на редизайн? Напишите мне, и я вернусь с экспертным предложением и предварительной оценкой в течение 24 часов.",
+        form_title: "Заполнить бриф",
+        form_name: "Ваше имя *",
+        form_contact: "Email или Telegram *",
+        form_service: "Тип проекта",
+        form_message: "Описание задачи и пожелания",
+        form_submit: "Отправить заявку"
+      },
+      en: {
+        header_role: "Product & Web Designer",
+        nav_work: "Projects",
+        nav_about: "About",
+        nav_services: "Services",
+        nav_calculator: "Calculator",
+        nav_contact: "Contact",
+        header_cta: "Start Project",
+        hero_status: "Open for Q3-Q4 2026 projects",
+        hero_title: "Crafting digital products and websites that are <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>effortless to use</span> and drive business growth.",
+        hero_subtitle: "Product UX/UI Designer & Frontend Developer. Blending analytical rigor, clean aesthetics, and state-of-the-art web technologies.",
+        hero_btn_work: "View Projects",
+        hero_btn_contact: "Discuss Project",
+        stat_experience: "Experience",
+        stat_projects: "Delivered",
+        stat_stack: "Tech Stack",
+        stat_rating: "Client Satisfaction",
+        widget_focus: "Conversion Focused",
+        widget_desc: "Data-driven UI/UX and usability testing",
+        work_heading: "Selected Case Studies",
+        work_subheading: "Each project is an end-to-end digital solution uniting deep research, aesthetic elegance, and flawless UX.",
+filter_all: "All (6)",
+        filter_product: "UX/UI & Product",
+        filter_web: "Web Services & Sites",
+        filter_ai: "AI & Mobile",
+        p1_desc: "Comprehensive design of an anonymous peer support platform: end-to-end UX architecture, emotional UI, and bulletproof user security.",
+        p2_desc: "Complete branding, interactive home-visit booking calculator, responsive landing page, and CRM lead integration for mobile vet clinic.",
+        p3_desc: "Next-generation mobile app UI for generative AI visual creation: gestural navigation, prompt builder engine, and dark mode design system.",
+        p4_desc: "Atmospheric editorial web longread exploring Japanese aesthetics (Wabi-Sabi) with kinetic typography, custom layouts, and smooth animations.",
+        about_heading: "Design as a precision tool for business growth and human clarity.",
+        about_p1: "Hello! I am Yuriy Zhilnikov. I design digital products, interfaces, and websites that are not only aesthetically striking, but also solve real business problems.",
+        about_p2: "My approach combines deep UX research, user pain point discovery, and modern visual design. No cookie-cutter templates: every project gets a bespoke design system and architecture.",
+        about_p3: "Beyond Figma prototyping, I have a deep understanding of code (React, Next.js, CSS, Tilda, n8n), ensuring seamless handover and production fidelity.",
+        skills_title: "Core Competencies & Stack:",
+        process_title: "How the design process works:",
+        step1_title: "Research & Discovery",
+        step1_desc: "User interviews, competitive audit, hypothesis validation, and Customer Journey Mapping.",
+        step2_title: "Information Architecture & Wireframes",
+        step2_desc: "Page hierarchy, navigation logic, and low-fidelity prototypes to test key interaction flows.",
+        step3_title: "UI Concept & Design System",
+        step3_desc: "Bespoke typography, color palettes, atomic components, and responsive layouts across all viewports.",
+        step4_title: "Development, QA & Launch",
+        step4_desc: "Frontend build, interactive animations, CRM/payment hookup, QA cross-browser testing, and handover.",
+        services_heading: "Services & Engagement Models",
+        s1_title: "Turnkey Landing Pages & Websites",
+        s1_desc: "High-converting promo pages, corporate websites, and e-commerce stores with bespoke animations.",
+        s2_title: "SaaS & Web App UX/UI",
+        s2_desc: "Complex dashboards, user accounts, SaaS portals, and mobile-friendly web application interfaces.",
+        s3_title: "Redesign & UX Audit",
+        s3_desc: "In-depth heuristic evaluation, identifying conversion bottlenecks, and modernizing visual systems.",
+        s4_title: "Frontend & Automation",
+        s4_desc: "Next.js/Tailwind development, Tilda Zero Block master builds, n8n workflow automations, and AI agents.",
+        calc_heading: "Project Budget & Timeline Estimator",
+        calc_subheading: "Select your project requirements to calculate an instant estimated timeline and budget scope.",
+        calc_type_label: "1. Project Scope:",
+        calc_scope_label: "2. Add-ons & Extra Services:",
+        faq_heading: "Frequently Asked Questions",
+        faq_q1: "How are project payments structured?",
+        faq_a1: "Milestone-based: 50% upfront before design discovery, and 50% upon final sign-off and Figma/code asset delivery (or 30/40/30 for larger engagements).",
+        faq_q2: "What deliverable formats do you provide?",
+        faq_a2: "Organized Figma source files: Auto Layout 5.0, design tokens, component library, responsive frames (Desktop 1440px / Mobile 375px), and interactive prototypes.",
+        faq_q3: "Can you provide full turnkey development?",
+        faq_a3: "Yes! Full-stack delivery: from Figma UX/UI design to a live deployed site on Tilda Zero Block or Next.js / Tailwind / Vercel with custom domain and analytics.",
+        contact_heading: "Let's build something remarkable together.",
+p5_desc: "Vibrant event landing page for an IT conference featuring an interactive schedule, ticket service integration, and animated 3D characters.",
+p6_desc: "Large-scale redesign of a commercial interface and booking system for a laser hair removal clinic chain: from UX audit to aesthetic modernization.",
+        contact_subheading: "Have a new project, redesign, or idea in mind? Reach out and I will get back to you with an estimate and proposal within 24 hours.",
+        form_title: "Project Brief Form",
+        form_name: "Your Name *",
+        form_contact: "Email or Telegram *",
+        form_service: "Project Type",
+        form_message: "Project Details & Scope",
+        form_submit: "Submit Request"
+      }
+    };
+
+    let currentLang = 'ru';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.getElementById('lang-label').innerText = lang.toUpperCase();
+      document.documentElement.lang = lang;
+      
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+    }
+
+    function toggleLanguage() {
+      const nextLang = currentLang === 'ru' ? 'en' : 'ru';
+      setLanguage(nextLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      if (langParam === 'en' || langParam === 'ru') {
+        setLanguage(langParam);
+      } else {
+        setLanguage('ru');
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+    });
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const burger = document.getElementById('burger-icon');
+      const close = document.getElementById('close-icon');
+      menu.classList.toggle('hidden');
+      burger.classList.toggle('hidden');
+      close.classList.toggle('hidden');
+    }
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    function filterProjects(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === cat) {
+          btn.classList.add('border-emerald-500', 'bg-emerald-500/10', 'text-white');
+          btn.classList.remove('border-bloom-border', 'bg-bloom-card', 'text-bloom-muted');
+        } else {
+          btn.classList.remove('border-emerald-500', 'bg-emerald-500/10', 'text-white');
+          btn.classList.add('border-bloom-border', 'bg-bloom-card', 'text-bloom-muted');
+        }
+      });
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    const caseData = {
+      aura: {
+        title: "AURA — Платформа взаимопомощи и поддержки",
+        role: "Lead UX/UI Designer • 2026",
+        challenge: "Создать цифровую среду для анонимной психологической поддержки и шеринга историй, где пользователи чувствуют 100% безопасность, конфиденциальность и отсутствие осуждения.",
+        solution: "Разработана трехуровневая система анонимности, алгоритм безопасного мэтчинга по схожести переживаний, успокаивающая глубокая цветовая гамма и интуитивная навигация без перегруженных форм.",
+        deliverables: "UX-исследования (18 глубинных интервью), CJM, Дизайн-система в Figma (80+ компонентов), Кликабельный прототип для iOS и Web.",
+        result: "CSAT 98.4%, время до первой сессии поддержки снижено до 45 секунд, конверсия в регулярное использование составила 64%."
+      },
+      lapadoctor: {
+        title: "ЛапаДоктор — Мобильная ветеринарная служба",
+        role: "Web Designer & Developer • 2026",
+        challenge: "Владельцы домашних животных в экстренной ситуации испытывают сильный стресс. Требовалось спроектировать лендинг с мгновенным калькулятором вызова врача на дом за 2 шага.",
+        solution: "Создан чистый визуальный стиль, дружелюбная айдентика, интерактивный пошаговый виджет выбора симптомов и интеграция с Telegram/CRM ветеринаров.",
+        deliverables: "Фирменный стиль, Логотип, UX-прототип, Верстка на Tilda Zero Block с кастомным JS, Интеграция с Яндекс.Метрикой и CRM.",
+        result: "Рост конверсии в вызов врача на +42%, среднее время оформления заявки сократилось до 1.5 минут."
+      },
+      flux: {
+        title: "FLUX AI — Мобильный интерфейс генеративного ИИ",
+        role: "Mobile UX/UI Specialist • 2026",
+        challenge: "Интерфейсы большинства нейросетей перегружены техническими параметрами (CFG, Sampler, Seed), что отпугивает обычных пользователей мобильных устройств.",
+        solution: "Спроектирован интуитивный жестовый интерфейс с системой визуальных пресетов, умным автодополнением промптов и быстрой предпросмотровой лентой 60fps.",
+        deliverables: "Mobile UI Kit (Dark Theme), Анимации взаимодействия в After Effects / Lottie, Прототип в ProtoPie, Спецификации для iOS разработчиков.",
+        result: "Увеличение Retention D7 на +35%, сокращение времени создания первого арта в 3 раза."
+      },
+      kultur: {
+        title: "KULTUR — Редакционный лонгрид об эстетике Японии",
+        role: "Art Director & Frontend Developer • 2026",
+        challenge: "Передать философию японского минимализма и ваби-саби через призму интерактивного веба, не перегружая читателя стандартными сетками.",
+        solution: "Использована кинетическая типографика, асимметричная сетка с акцентом на воздух, плавный скроллинг Lenis и микро-интеракции на GSAP.",
+        deliverables: "Арт-дирекшн, Типографическая концепция, Интерактивный лонгрид на Next.js / Tailwind CSS, Аудио-атмосферные эффекты.",
+        result: "Награда Site of the Day на дизайнерских платформах, среднее время на странице: 6.5 минут."
+      }
+, yandexpet: { title: "Yandex Pet Day — Промо-сайт конференции", role: "UI/UX & Web Designer • 2026", challenge: "Спроектировать вовлекающий промо-сайт для крупного IT-ивента, сохранив корпоративный стиль Яндекса, но добавив игровой элемент.", solution: "Использование нестандартной сетки, кастомных SVG-анимаций и системы фильтрации докладов по категориям.", deliverables: "Арт-дирекшн, UI Kit, Верстка лендинга, n8n интеграция с ботом.", result: "Более 5000 регистраций через сайт за неделю, высокая оценка визуального стиля от дизайн-комьюнити." }, prostolaser: { title: "Prosto Laser — Редизайн сети клиник", role: "Product Designer • 2026", challenge: "Устаревший интерфейс мешал пользователям быстро записываться на процедуры, что приводило к потере до 20% трафика.", solution: "Полное перепроектирование воронки записи (Booking Flow), внедрение светлой медицинской эстетики и оптимизация под mobile.", deliverables: "UX-аудит, Прототипы высокого разрешения, Система управления контентом, Интеграция с Yclients.", result: "Снижение показателя отказов на 15%, рост онлайн-записей на +28% в первый месяц после запуска." }
+    };
+
+    function openModal(id) {
+      const data = caseData[id];
+      if (!data) return;
+      const container = document.getElementById('modal-content');
+      container.innerHTML = `
+        <div class="border-b border-white/10 pb-4">
+          <div class="text-xs font-mono text-emerald-400 mb-1">${data.role}</div>
+          <h3 class="font-display font-bold text-2xl text-white">${data.title}</h3>
+        </div>
+        <div class="space-y-4 text-sm font-light text-bloom-muted leading-relaxed">
+          <div>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Задача и контекст:</span>
+            <p>${data.challenge}</p>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Решение:</span>
+            <p>${data.solution}</p>
+          </div>
+          <div>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Что было сделано:</span>
+            <p>${data.deliverables}</p>
+          </div>
+          <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-white">
+            <span class="font-mono text-xs text-emerald-400 uppercase font-bold block mb-1">Результат:</span>
+            <p class="font-medium">${data.result}</p>
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end">
+          <a href="#contact" onclick="closeModal()" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-bold uppercase transition-all">Обсудить аналогичный проект</a>
+        </div>
+      `;
+      document.getElementById('case-modal').classList.remove('hidden');
+      document.getElementById('case-modal').classList.add('flex');
+    }
+
+    function closeModal() {
+      document.getElementById('case-modal').classList.add('hidden');
+      document.getElementById('case-modal').classList.remove('flex');
+    }
+
+    let basePrice = 45000;
+    let baseDays = 10;
+    let addonsPrice = 0;
+    let addonsDays = 0;
+    let selectedTypeName = "Лендинг / Промо";
+
+    function setCalcOption(group, val, price, days) {
+      basePrice = price;
+      baseDays = days;
+      if (val === 'landing') selectedTypeName = "Лендинг / Промо";
+      if (val === 'corp') selectedTypeName = "Многостраничный сайт";
+      if (val === 'saas') selectedTypeName = "Веб-сервис / SaaS";
+
+      document.querySelectorAll(`[data-group="${group}"]`).forEach(btn => {
+        if (btn.getAttribute('data-val') === val) {
+          btn.classList.add('border-emerald-500', 'bg-emerald-500/10');
+          btn.classList.remove('border-bloom-border', 'bg-bloom-bg/60');
+        } else {
+          btn.classList.remove('border-emerald-500', 'bg-emerald-500/10');
+          btn.classList.add('border-bloom-border', 'bg-bloom-bg/60');
+        }
+      });
+      updateCalcResult();
+    }
+
+    function toggleAddon(addon, price, days, isChecked) {
+      if (isChecked) {
+        addonsPrice += price;
+        addonsDays += days;
+      } else {
+        addonsPrice -= price;
+        addonsDays -= days;
+      }
+      updateCalcResult();
+    }
+
+    function updateCalcResult() {
+      const total = basePrice + addonsPrice;
+      const days = baseDays + addonsDays;
+      document.getElementById('calc-price').innerText = total.toLocaleString('ru-RU') + ' ₽';
+      document.getElementById('calc-time').innerText = `~${days} рабочих дней`;
+    }
+
+    function applyCalcToContact() {
+      const serviceSelect = document.getElementById('form-service');
+      const msgInput = document.getElementById('form-message');
+      const priceText = document.getElementById('calc-price').innerText;
+      const timeText = document.getElementById('calc-time').innerText;
+
+      if (serviceSelect) {
+        serviceSelect.value = "Комплексный проект под ключ";
+      }
+      if (msgInput) {
+        msgInput.value = `Здравствуйте! Меня интересует: ${selectedTypeName}. Оценка по калькулятору: ${priceText} (${timeText}). Хочу обсудить детали.`;
+      }
+      window.location.hash = '#contact';
+      showToast('Параметры перенесены в форму заявки!');
+    }
+
+    function toggleFaq(id) {
+      const ans = document.getElementById(`faq-ans-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      ans.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    function copyToClipboard(text, successMsg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      }).catch(() => {
+        showToast(text);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toast-msg');
+      msgEl.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      const timeString = now.toLocaleTimeString('ru-RU', options);
+      const clockEl = document.getElementById('live-clock');
+      if (clockEl) clockEl.innerText = `${timeString} MSK`;
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const contact = document.getElementById('form-contact').value;
+      const service = document.getElementById('form-service').value;
+      const msg = document.getElementById('form-message').value;
+
+      showToast(`Спасибо, ${name}! Заявка отправлена. Скоро свяжусь с вами.`);
+      document.getElementById('project-form').reset();
+    }
+  </script>
+</body>
+</html>
