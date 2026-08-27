@@ -269,10 +269,8 @@
       pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
-      border: 1px solid rgba(126, 167, 138, 0.22);
-      border-radius: 1.75rem;
-      background: #D7B18F;
-      box-shadow: 0 20px 42px -26px rgba(55, 88, 65, 0.34);
+      background: transparent;
+      filter: drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
     }
   </style>
 </head>
@@ -372,7 +370,7 @@
 
         <div id="bear-stage" class="bear-stage relative my-3 sm:my-4 flex items-center justify-center" aria-hidden="true">
           <div class="absolute w-44 h-36 rounded-full bg-emerald-500/10 blur-2xl"></div>
-          <video id="bear-video-scrubber" class="bear-video relative z-10" preload="auto" muted playsinline poster="/bear-look-poster.jpg" tabindex="-1">
+          <video id="bear-video-scrubber" class="bear-video relative z-10" preload="auto" muted playsinline poster="/bear-look-poster.png" tabindex="-1">
             <source src="/bear-look.webm" type="video/webm">
           </video>
         </div>

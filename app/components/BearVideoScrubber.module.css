@@ -2,11 +2,8 @@
   position: relative;
   width: min(100%, 22rem);
   aspect-ratio: 1;
-  overflow: hidden;
-  border: 1px solid rgba(126, 167, 138, 0.22);
-  border-radius: 2rem;
-  background: #d7b18f;
-  box-shadow: 0 24px 50px -30px rgba(55, 88, 65, 0.34);
+  overflow: visible;
+  background: transparent;
   contain: paint;
 }
 
@@ -17,12 +14,12 @@
   object-fit: cover;
   pointer-events: none;
   user-select: none;
+  filter: drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
 }
 
 @media (max-width: 640px) {
   .frame {
     width: min(72vw, 18rem);
-    border-radius: 1.5rem;
   }
 }
 
