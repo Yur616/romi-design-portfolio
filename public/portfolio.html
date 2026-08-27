@@ -221,6 +221,41 @@
     [class~="hover:shadow-emerald-600/50"]:hover {
       --tw-shadow-color: rgba(112, 156, 125, 0.2) !important;
     }
+
+    /* Реальные обложки проектов из портфолио. */
+    .project-card > div:first-child > div:first-child {
+      padding: 0 !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+    }
+    .project-card > div:first-child > div:first-child > div {
+      display: none !important;
+    }
+    .project-card[onclick="openModal('aura')"] > div:first-child > div:first-child {
+      background-image: url('/projects/aura.png') !important;
+    }
+    .project-card[onclick="openModal('lapadoctor')"] > div:first-child > div:first-child {
+      background-image: url('/projects/lapadoctor.png') !important;
+    }
+    .project-card[onclick="openModal('flux')"] > div:first-child > div:first-child {
+      background-color: #11111d !important;
+      background-image: url('/projects/flux-generate.png') !important;
+      background-position: center 18% !important;
+      background-size: auto 126% !important;
+    }
+    .project-card[onclick="openModal('kultur')"] > div:first-child > div:first-child {
+      background-image: url('/projects/kultur.png') !important;
+    }
+    .project-card[onclick="openModal('yandexpet')"] > div:first-child > div:first-child {
+      background-image: url('/projects/yandex-pet-day.png') !important;
+    }
+    .project-card[onclick="openModal('prostolaser')"] > div:first-child > div:first-child {
+      background-image: url('/projects/prosto-laser.png') !important;
+    }
+    .project-card[onclick="openModal('phonelab')"] > div:first-child > div:first-child {
+      background-image: url('/projects/phonelab.png') !important;
+    }
   </style>
 </head>
 <body class="relative min-h-screen text-bloom-text antialiased">
@@ -384,7 +419,7 @@
         </div>
 
         <div class="flex flex-wrap justify-center gap-2.5 mb-12">
-<button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (6)</button>
+<button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (7)</button>
           <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
           <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
           <button onclick="filterProjects('ai')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="ai" data-i18n="filter_ai">AI & Mobile</button>
@@ -593,6 +628,31 @@
 <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="product" onclick="openModal('prostolaser')">
 <div><div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-rose-950/60 via-slate-900 to-red-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6"><div class="w-full h-full bg-slate-950/80 rounded-lg border border-rose-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500"><div class="flex items-center justify-between border-b border-white/10 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span><span class="font-display font-bold text-xs text-white">Prosto Laser</span></div><span class="tag-badge text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">Medtech UI</span></div><div class="my-auto"><div class="h-2 w-full bg-rose-500/10 rounded mb-2"></div><div class="h-8 w-8 rounded-full border-2 border-rose-500/30 mx-auto animate-pulse"></div></div><div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted"><span>Commercial</span><span>Booking System</span></div></div></div><div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-rose-400 uppercase tracking-wider">06 // REDESIGN &amp; MEDTECH</span><span>2026</span></div><h3 class="font-display font-bold text-2xl text-white group-hover:text-rose-400 transition-colors mb-3">Prosto Laser — Редизайн сети клиник</h3><p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p6_desc">Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.</p></div><div class="pt-4 border-t border-white/5 flex items-center justify-between"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Commercial</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Redesign</span></div><span class="p-2 rounded-lg bg-rose-500/10 text-rose-400 group-hover:bg-rose-600 group-hover:text-white transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span></div></div>
 
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('phonelab')">
+            <div>
+              <div class="aspect-[16/10] rounded-xl border border-white/5 relative overflow-hidden mb-6 group-hover:scale-[1.01] transition-transform duration-500"></div>
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
+                <span class="text-emerald-400 uppercase tracking-wider">07 // E-COMMERCE & WEB DESIGN</span>
+                <span>2026</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+                PhoneLab — интернет-магазин техники
+              </h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p7_desc">
+                Концепция технологичного интернет-магазина с выразительной главной страницей, каталогом устройств и понятной продуктовой навигацией.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">E-commerce</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Web Design</span>
+                <span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Responsive</span>
+              </div>
+              <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1030,7 +1090,7 @@
         widget_desc: "Дизайн с опорой на данные и UX-тесты",
         work_heading: "Избранные проекты",
         work_subheading: "Каждый кейс — это продуманное решение бизнес-задач, сочетающее глубокие исследования, чистую эстетику и безупречный UX.",
-filter_all: "Все (6)",
+filter_all: "Все (7)",
         filter_product: "UX/UI & Продукт",
         filter_web: "Веб-сервисы & Сайты",
         filter_ai: "AI & Mobile",
@@ -1039,7 +1099,8 @@ filter_all: "Все (6)",
         p3_desc: "Проектирование мобильного приложения нового поколения для генерации визуального контента: жестовая модель, продвинутый промпт-билдер и система пресетов.",
         p4_desc: "Атмосферный веб-лонгрид с кинетической типографикой, нестандартной сеткой и плавными интерактивными микро-анимациями.",
 p5_desc: "Яркий событийный лендинг для IT-конференции с интерактивной программой, интеграцией билетного сервиса и анимированными 3D-персонажами.",
-p6_desc: "Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.",
+        p6_desc: "Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.",
+        p7_desc: "Концепция технологичного интернет-магазина с выразительной главной страницей, каталогом устройств и понятной продуктовой навигацией.",
         about_heading: "Дизайн как инструмент роста бизнеса и удобства людей.",
         about_p1: "Привет! Меня зовут Юрий Жильников. Я проектирую цифровые продукты, интерфейсы и сайты, которые не только визуально безупречны, но и решают реальные бизнес-задачи.",
         about_p2: "Мой подход строится на пересечении глубокого UX-анализа, исследования пользовательских болей и чистого современного визуального кода. Я не верю в шаблонные решения: каждый проект получает индивидуальную дизайн-систему и архитектуру.",
@@ -1104,7 +1165,7 @@ p6_desc: "Масштабный редизайн коммерческого ин�
         widget_desc: "Data-driven UI/UX and usability testing",
         work_heading: "Selected Case Studies",
         work_subheading: "Each project is an end-to-end digital solution uniting deep research, aesthetic elegance, and flawless UX.",
-filter_all: "All (6)",
+filter_all: "All (7)",
         filter_product: "UX/UI & Product",
         filter_web: "Web Services & Sites",
         filter_ai: "AI & Mobile",
@@ -1149,6 +1210,7 @@ filter_all: "All (6)",
         contact_heading: "Let's build something remarkable together.",
 p5_desc: "Vibrant event landing page for an IT conference featuring an interactive schedule, ticket service integration, and animated 3D characters.",
 p6_desc: "Large-scale redesign of a commercial interface and booking system for a laser hair removal clinic chain: from UX audit to aesthetic modernization.",
+        p7_desc: "A technology retail concept with a bold homepage, structured device catalog, and clear product navigation.",
         contact_subheading: "Have a new project, redesign, or idea in mind? Reach out and I will get back to you with an estimate and proposal within 24 hours.",
         form_title: "Project Brief Form",
         form_name: "Your Name *",
@@ -1266,6 +1328,15 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         result: "Награда Site of the Day на дизайнерских платформах, среднее время на странице: 6.5 минут."
       }
 , yandexpet: { title: "Yandex Pet Day — Промо-сайт конференции", role: "UI/UX & Web Designer • 2026", challenge: "Спроектировать вовлекающий промо-сайт для крупного IT-ивента, сохранив корпоративный стиль Яндекса, но добавив игровой элемент.", solution: "Использование нестандартной сетки, кастомных SVG-анимаций и системы фильтрации докладов по категориям.", deliverables: "Арт-дирекшн, UI Kit, Верстка лендинга, n8n интеграция с ботом.", result: "Более 5000 регистраций через сайт за неделю, высокая оценка визуального стиля от дизайн-комьюнити." }, prostolaser: { title: "Prosto Laser — Редизайн сети клиник", role: "Product Designer • 2026", challenge: "Устаревший интерфейс мешал пользователям быстро записываться на процедуры, что приводило к потере до 20% трафика.", solution: "Полное перепроектирование воронки записи (Booking Flow), внедрение светлой медицинской эстетики и оптимизация под mobile.", deliverables: "UX-аудит, Прототипы высокого разрешения, Система управления контентом, Интеграция с Yclients.", result: "Снижение показателя отказов на 15%, рост онлайн-записей на +28% в первый месяц после запуска." }
+    };
+
+    caseData.phonelab = {
+      title: "PhoneLab — интернет-магазин техники",
+      role: "Web Designer • 2026",
+      challenge: "Создать современный интернет-магазин техники, в котором большой ассортимент остаётся понятным, а ключевые категории и предложения легко найти с первого экрана.",
+      solution: "Разработана тёмная технологичная визуальная система с бирюзовыми акцентами, крупной продуктовой подачей, модульным каталогом и последовательными сценариями перехода к покупке.",
+      deliverables: "Прототип главной страницы, UI-концепция, каталог товаров, продуктовые блоки, отзывы и адаптивная структура.",
+      result: "Подготовлена цельная дизайн-концепция интернет-магазина, готовая к адаптивной вёрстке и наполнению реальным каталогом."
     };
 
     function openModal(id) {
