@@ -21,17 +21,17 @@
           },
           colors: {
             bloom: {
-              bg: '#08110D',
-              card: '#101B15',
-              cardHover: '#17251C',
-              border: '#26372D',
-              accent: '#86C9A3',
-              accentHover: '#6FB98E',
-              text: '#EDF5F0',
-              muted: '#97AA9D',
-              cyan: '#9AD9BC',
-              emerald: '#72C596',
-              violet: '#B1D8B7'
+              bg: '#FFFFFF',
+              card: '#F6FAF7',
+              cardHover: '#EEF7F1',
+              border: '#DDEBE1',
+              accent: '#B7DEC2',
+              accentHover: '#8FC7A0',
+              text: '#20362A',
+              muted: '#708278',
+              cyan: '#CBEAD7',
+              emerald: '#A8D7B6',
+              violet: '#D7E8D6'
             }
           },
           animation: {
@@ -50,41 +50,41 @@
   </script>
   <style>
     body {
-      background-color: #08110D;
-      color: #EDF5F0;
+      background-color: #FFFFFF;
+      color: #20362A;
       font-family: 'Manrope', sans-serif;
       overflow-x: hidden;
-      selection-background-color: #86C9A3;
-      selection-color: #ffffff;
+      selection-background-color: #B7DEC2;
+      selection-color: #20362A;
     }
     ::selection {
-      background: #86C9A3;
-      color: #ffffff;
+      background: #B7DEC2;
+      color: #20362A;
     }
     .noise-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-image: radial-gradient(rgba(99, 139, 111, 0.055) 1px, transparent 0);
       background-size: 24px 24px;
       pointer-events: none;
       z-index: 99;
     }
     .glass-nav {
-      background: rgba(8, 17, 13, 0.82);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid rgba(117, 158, 129, 0.18);
     }
     .glass-card {
-      background: linear-gradient(145deg, rgba(25, 25, 33, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 249, 244, 0.92) 100%);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(117, 158, 129, 0.18);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .glass-card:hover {
-      border-color: rgba(134, 201, 163, 0.4);
+      border-color: rgba(143, 199, 160, 0.58);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(134, 201, 163, 0.15);
+      box-shadow: 0 20px 48px -22px rgba(55, 88, 65, 0.24), 0 0 24px -8px rgba(183, 222, 194, 0.5);
     }
     .glow-sphere {
       position: absolute;
@@ -97,19 +97,129 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #08110D;
+      background: #FFFFFF;
     }
     ::-webkit-scrollbar-thumb {
-      background: #26372D;
+      background: #DDEBE1;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #86C9A3;
+      background: #9BCDAA;
     }
     .tag-badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       letter-spacing: 0.05em;
+    }
+
+    /* Светлая мятная тема для утилит исходного тёмного макета. */
+    [class~="text-white"] { color: #20362A !important; }
+    [class~="hover:text-white"]:hover { color: #20362A !important; }
+    [class~="text-emerald-300"],
+    [class~="text-emerald-400"],
+    [class~="text-emerald-600"],
+    [class~="text-green-200"],
+    [class~="text-green-400"],
+    [class~="text-lime-200"],
+    [class~="text-lime-400"],
+    [class~="text-teal-400"],
+    [class~="text-yellow-400"],
+    [class~="text-amber-400"],
+    [class~="text-rose-400"] { color: #679979 !important; }
+    [class~="hover:text-emerald-400"]:hover,
+    [class~="hover:text-lime-400"]:hover,
+    [class~="hover:text-yellow-400"]:hover,
+    [class~="hover:text-amber-400"]:hover,
+    [class~="hover:text-rose-400"]:hover { color: #4F8061 !important; }
+
+    [class~="bg-emerald-600"],
+    [class~="bg-lime-600"],
+    [class~="bg-yellow-600"],
+    [class~="bg-rose-600"] { background-color: #B7DEC2 !important; }
+    [class~="hover:bg-emerald-500"]:hover,
+    [class~="hover:bg-emerald-600"]:hover,
+    [class~="hover:bg-lime-600"]:hover,
+    [class~="hover:bg-yellow-600"]:hover,
+    [class~="hover:bg-rose-600"]:hover { background-color: #A5D3B2 !important; }
+    [class~="bg-emerald-500"],
+    [class~="bg-green-500"] { background-color: #9FCFAE !important; }
+    [class~="bg-emerald-400"],
+    [class~="bg-lime-400"],
+    [class~="bg-yellow-400"],
+    [class~="bg-amber-400"],
+    [class~="bg-rose-400"] { background-color: #A9D8B6 !important; }
+    [class~="bg-emerald-500/10"],
+    [class~="bg-emerald-600/10"],
+    [class~="bg-green-500/10"],
+    [class~="bg-lime-500/10"],
+    [class~="bg-teal-500/10"],
+    [class~="bg-yellow-500/10"],
+    [class~="bg-amber-500/10"],
+    [class~="bg-rose-500/10"] { background-color: rgba(183, 222, 194, 0.26) !important; }
+    [class~="bg-emerald-500/40"],
+    [class~="bg-green-500/30"],
+    [class~="bg-green-500/40"],
+    [class~="bg-lime-500/40"],
+    [class~="bg-yellow-500/20"],
+    [class~="bg-rose-500/20"] { background-color: rgba(159, 207, 174, 0.48) !important; }
+    [class~="bg-white/5"] { background-color: rgba(126, 167, 138, 0.08) !important; }
+    [class~="bg-white/10"] { background-color: rgba(126, 167, 138, 0.13) !important; }
+    [class~="hover:bg-white/10"]:hover { background-color: rgba(126, 167, 138, 0.18) !important; }
+
+    [class~="border-white/5"],
+    [class~="border-white/10"] { border-color: rgba(126, 167, 138, 0.18) !important; }
+    [class~="hover:border-white/20"]:hover { border-color: rgba(126, 167, 138, 0.34) !important; }
+    [class~="border-emerald-500"],
+    [class~="border-emerald-500/20"],
+    [class~="border-emerald-500/30"],
+    [class~="border-green-500/20"],
+    [class~="border-green-500/30"],
+    [class~="border-lime-500/20"],
+    [class~="border-teal-500/20"],
+    [class~="border-yellow-500/20"],
+    [class~="border-amber-500/20"],
+    [class~="border-rose-500/20"] { border-color: rgba(126, 167, 138, 0.3) !important; }
+
+    [class~="bg-slate-950/80"] {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 16px 40px -24px rgba(58, 94, 69, 0.3) !important;
+    }
+    [class~="from-green-950/60"],
+    [class~="from-emerald-950/60"],
+    [class~="from-lime-950/60"],
+    [class~="from-amber-950/60"],
+    [class~="from-yellow-900/60"],
+    [class~="from-rose-950/60"] {
+      background-image: linear-gradient(135deg, #EEF8F1 0%, #FBFDFC 52%, #E6F3EA 100%) !important;
+    }
+    [class~="from-emerald-400"] {
+      --tw-gradient-from: #629273 var(--tw-gradient-from-position) !important;
+      --tw-gradient-to: rgb(98 146 115 / 0) var(--tw-gradient-to-position) !important;
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+    }
+    [class~="via-teal-300"] {
+      --tw-gradient-to: rgb(143 199 160 / 0) var(--tw-gradient-to-position) !important;
+      --tw-gradient-stops: var(--tw-gradient-from), #8FC7A0 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+    }
+    [class~="to-green-400"] { --tw-gradient-to: #75AA86 var(--tw-gradient-to-position) !important; }
+    [class~="from-emerald-500"],
+    [class~="from-emerald-600"] {
+      --tw-gradient-from: #A9D8B6 var(--tw-gradient-from-position) !important;
+      --tw-gradient-to: rgb(169 216 182 / 0) var(--tw-gradient-to-position) !important;
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+    }
+    [class~="via-teal-400"] {
+      --tw-gradient-to: rgb(183 222 194 / 0) var(--tw-gradient-to-position) !important;
+      --tw-gradient-stops: var(--tw-gradient-from), #B7DEC2 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+    }
+    [class~="to-teal-400"],
+    [class~="to-green-500"] { --tw-gradient-to: #8FC7A0 var(--tw-gradient-to-position) !important; }
+    [class~="shadow-emerald-500/20"],
+    [class~="shadow-emerald-600/20"],
+    [class~="shadow-emerald-600/30"],
+    [class~="hover:shadow-emerald-600/40"]:hover,
+    [class~="hover:shadow-emerald-600/50"]:hover {
+      --tw-shadow-color: rgba(112, 156, 125, 0.2) !important;
     }
   </style>
 </head>
@@ -182,73 +292,56 @@
   </header>
 
   <main>
-    <section id="top" class="relative min-h-[100svh] flex items-center pt-24 pb-10 md:pt-24 md:pb-10 px-6 overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-bloom-card/80 border border-bloom-border text-xs font-mono mb-5 backdrop-blur-md">
+    <section id="top" class="relative min-h-[100svh] flex items-center pt-24 pb-8 px-6 overflow-hidden">
+      <div class="max-w-6xl w-full mx-auto flex flex-col items-center text-center">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-bloom-card/80 border border-bloom-border text-xs font-mono mb-4 backdrop-blur-md">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span class="text-bloom-muted" data-i18n="hero_status">Открыт к проектам на Q3-Q4 2026</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 flex flex-col">
-            <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-white mb-5" data-i18n="hero_title">
-              Создаю сайты и интерфейсы, которыми <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">удобно пользоваться</span> и которые растят бизнес.
-            </h1>
-            <p class="text-base sm:text-lg text-bloom-muted max-w-2xl font-light leading-relaxed mb-6" data-i18n="hero_subtitle">
-              Продуктовый UX/UI дизайнер и разработчик. Соединяю строгую аналитическую архитектуру, чистую эстетику и передовой frontend.
-            </p>
+        <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.08] tracking-tight text-white max-w-5xl mb-4" data-i18n="hero_title">
+          Создаю сайты и интерфейсы, которыми <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">удобно пользоваться</span> и которые растят бизнес.
+        </h1>
+        <p class="text-sm sm:text-base text-bloom-muted max-w-2xl mx-auto font-light leading-relaxed mb-5" data-i18n="hero_subtitle">
+          Продуктовый UX/UI дизайнер и разработчик. Соединяю строгую аналитическую архитектуру, чистую эстетику и передовой frontend.
+        </p>
 
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="#work" class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-[1.02]">
-                <span data-i18n="hero_btn_work">Смотреть проекты</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-              </a>
-              <a href="#contact" class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-bloom-card hover:bg-bloom-cardHover text-white border border-bloom-border hover:border-bloom-muted/50 font-semibold text-sm tracking-wide transition-all">
-                <span data-i18n="hero_btn_contact">Обсудить задачу</span>
-                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"></path></svg>
-              </a>
-            </div>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#work" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-[1.02]">
+            <span data-i18n="hero_btn_work">Смотреть проекты</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-bloom-card hover:bg-bloom-cardHover text-white border border-bloom-border hover:border-bloom-muted/50 font-semibold text-sm tracking-wide transition-all">
+            <span data-i18n="hero_btn_contact">Обсудить задачу</span>
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"></path></svg>
+          </a>
+        </div>
+
+        <div class="relative my-4 sm:my-5 flex items-center justify-center" aria-label="Место для фирменного персонажа">
+          <div class="absolute w-40 h-40 sm:w-44 sm:h-44 rounded-full bg-emerald-500/10 blur-2xl"></div>
+          <div class="glass-card relative w-32 h-32 sm:w-36 sm:h-36 rounded-[2rem] flex flex-col items-center justify-center overflow-hidden">
+            <div class="absolute inset-3 rounded-[1.5rem] border border-emerald-500/20"></div>
+            <span class="font-display font-black text-4xl text-emerald-400">Ж</span>
+            <span class="mt-2 text-[9px] font-mono tracking-[0.22em] text-bloom-muted uppercase">Bloom mascot</span>
           </div>
+        </div>
 
-          <div class="lg:col-span-4">
-            <div class="glass-card rounded-2xl p-5 relative overflow-hidden group">
-              <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
-              <div class="flex items-center justify-between pb-6 border-b border-white/5">
-                <div class="flex items-center gap-2">
-                  <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                </div>
-                <span class="tag-badge text-bloom-muted">BLOOM STUDIO UI/UX</span>
-              </div>
-              <div class="py-5 space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_experience">Опыт работы</span>
-                  <span class="font-display font-bold text-white">5+ лет</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_projects">Реализовано</span>
-                  <span class="font-display font-bold text-emerald-400">30+ проектов</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_stack">Стек</span>
-                  <span class="text-xs text-white font-mono">Figma / React / Next.js</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-xs text-bloom-muted font-mono" data-i18n="stat_rating">Удовлетворенность</span>
-                  <span class="font-display font-bold text-emerald-400">100% CSAT</span>
-                </div>
-              </div>
-              <div class="p-4 rounded-xl bg-bloom-bg/60 border border-white/5 flex items-center gap-3">
-                <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <div>
-                  <div class="text-xs font-bold text-white" data-i18n="widget_focus">Фокус на конверсию</div>
-                  <div class="text-[11px] text-bloom-muted" data-i18n="widget_desc">Дизайн с опорой на данные и UX-тесты</div>
-                </div>
-              </div>
-            </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full max-w-5xl">
+          <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_experience">Опыт работы</span>
+            <span class="font-display font-bold text-lg text-white mt-1">5+ лет</span>
+          </div>
+          <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_projects">Реализовано</span>
+            <span class="font-display font-bold text-lg text-emerald-400 mt-1">30+ проектов</span>
+          </div>
+          <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_stack">Стек</span>
+            <span class="text-xs text-white font-mono mt-1">Figma / React / Next.js</span>
+          </div>
+          <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_rating">Удовлетворенность</span>
+            <span class="font-display font-bold text-lg text-emerald-400 mt-1">100% CSAT</span>
           </div>
         </div>
       </div>
@@ -275,9 +368,9 @@
 
     <section id="work" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <div class="flex flex-col items-center text-center mb-14 gap-4">
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
               <span>01 // PORTFOLIO</span>
               <span class="w-8 h-[1px] bg-emerald-500/40"></span>
             </div>
@@ -285,12 +378,12 @@
               Избранные проекты
             </h2>
           </div>
-          <p class="text-bloom-muted text-sm sm:text-base max-w-md font-light" data-i18n="work_subheading">
+          <p class="text-bloom-muted text-sm sm:text-base max-w-2xl font-light leading-relaxed" data-i18n="work_subheading">
             Каждый кейс — это продуманное решение бизнес-задач, сочетающее глубокие исследования, чистую эстетику и безупречный UX.
           </p>
         </div>
 
-        <div class="flex flex-wrap gap-2.5 mb-12">
+        <div class="flex flex-wrap justify-center gap-2.5 mb-12">
 <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (6)</button>
           <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
           <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
@@ -594,11 +687,11 @@
 
     <section id="services" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <div class="flex items-center justify-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
           <span>03 // SERVICES</span>
           <span class="w-8 h-[1px] bg-emerald-500/40"></span>
         </div>
-        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-16" data-i18n="services_heading">
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-center mb-16" data-i18n="services_heading">
           Услуги и форматы сотрудничества
         </h2>
 
@@ -691,7 +784,7 @@
         <div class="glass-card rounded-2xl p-8 space-y-8">
           <div>
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_type_label">1. Тип проекта:</label>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button type="button" onclick="setCalcOption('type', 'landing', 45000, 10)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
                 <div class="font-bold text-sm text-white">Лендинг / Промо</div>
                 <div class="text-[11px] text-bloom-muted font-mono">от 45 000 ₽ • 7-10 дней</div>
@@ -699,10 +792,6 @@
               <button type="button" onclick="setCalcOption('type', 'corp', 85000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
                 <div class="font-bold text-sm text-white">Многостраничный сайт</div>
                 <div class="text-[11px] text-bloom-muted font-mono">от 85 000 ₽ • 14-20 дней</div>
-              </button>
-              <button type="button" onclick="setCalcOption('type', 'saas', 140000, 30)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="saas">
-                <div class="font-bold text-sm text-white">Веб-сервис / UX/UI SaaS</div>
-                <div class="text-[11px] text-bloom-muted font-mono">от 140 000 ₽ • 3-5 недель</div>
               </button>
             </div>
           </div>
@@ -1230,7 +1319,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       baseDays = days;
       if (val === 'landing') selectedTypeName = "Лендинг / Промо";
       if (val === 'corp') selectedTypeName = "Многостраничный сайт";
-      if (val === 'saas') selectedTypeName = "Веб-сервис / SaaS";
 
       document.querySelectorAll(`[data-group="${group}"]`).forEach(btn => {
         if (btn.getAttribute('data-val') === val) {

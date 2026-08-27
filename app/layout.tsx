@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Юрий Жильников — Product & Web Designer",
       description: "Продуктовый UX/UI-дизайн, сайты, дизайн-системы и интерфейсы.",
-      images: [{ url: `${origin}/og-green.png`, width: 1792, height: 936 }],
+      images: [{ url: `${origin}/og.png`, width: 1731, height: 909 }],
       locale: "ru_RU",
       type: "website",
     },
@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Юрий Жильников — Product & Web Designer",
       description: "Продуктовый UX/UI-дизайн, сайты, дизайн-системы и интерфейсы.",
-      images: [`${origin}/og-green.png`],
+      images: [`${origin}/og.png`],
     },
   };
 }
