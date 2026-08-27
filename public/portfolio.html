@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Юрий Жильников ® — Product & Web Design Portfolio | Bloom Studio</title>
-  <meta name="description" content="Портфолио Юрия Жильникова: продуктовый UX/UI дизайн, разработка современных сайтов, дизайн-системы и интерфейсы.">
+  <title>Юрий Жильников — веб-дизайн и сайты на Tilda</title>
+  <meta name="description" content="Портфолио Юрия Жильникова: лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -225,35 +225,42 @@
     /* Реальные обложки проектов из портфолио. */
     .project-card > div:first-child > div:first-child {
       padding: 0 !important;
-      background-position: center top !important;
+      background-color: #f4f7f5 !important;
+      background-position: center !important;
       background-repeat: no-repeat !important;
-      background-size: cover !important;
+      background-size: calc(100% - 24px) auto !important;
     }
     .project-card > div:first-child > div:first-child > div {
       display: none !important;
     }
     .project-card[onclick="openModal('aura')"] > div:first-child > div:first-child {
+      background-color: #050505 !important;
       background-image: url('/projects/aura.png') !important;
     }
     .project-card[onclick="openModal('lapadoctor')"] > div:first-child > div:first-child {
+      background-color: #6a4b38 !important;
       background-image: url('/projects/lapadoctor.png') !important;
     }
     .project-card[onclick="openModal('flux')"] > div:first-child > div:first-child {
       background-color: #11111d !important;
       background-image: url('/projects/flux-generate.png') !important;
-      background-position: center 18% !important;
-      background-size: auto 126% !important;
+      background-position: center !important;
+      background-size: auto calc(100% - 24px) !important;
     }
     .project-card[onclick="openModal('kultur')"] > div:first-child > div:first-child {
+      background-color: #e8e3da !important;
       background-image: url('/projects/kultur.png') !important;
     }
     .project-card[onclick="openModal('yandexpet')"] > div:first-child > div:first-child {
+      background-color: #111111 !important;
       background-image: url('/projects/yandex-pet-day.png') !important;
     }
     .project-card[onclick="openModal('prostolaser')"] > div:first-child > div:first-child {
+      background-color: #ffffff !important;
       background-image: url('/projects/prosto-laser.png') !important;
     }
     .project-card[onclick="openModal('phonelab')"] > div:first-child > div:first-child {
+      background-color: #102033 !important;
       background-image: url('/projects/phonelab.png') !important;
     }
     .bear-stage {
@@ -298,7 +305,7 @@
           Ж
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-sm tracking-wider uppercase text-white flex items-center gap-1.5">
+          <span class="font-display font-bold text-sm tracking-wider uppercase text-white flex items-center gap-1.5" data-i18n="header_name">
             Юрий Жильников
             <span class="text-[10px] text-emerald-400 font-mono">®</span>
           </span>
@@ -355,14 +362,14 @@
       <div class="max-w-6xl w-full mx-auto flex flex-col items-center text-center">
         <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-bloom-card/80 border border-bloom-border text-xs font-mono mb-4 backdrop-blur-md">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-bloom-muted" data-i18n="hero_status">Открыт к проектам на Q3-Q4 2026</span>
+          <span class="text-bloom-muted" data-i18n="hero_status">Беру новые проекты</span>
         </div>
 
         <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.08] tracking-tight text-white max-w-5xl mb-4" data-i18n="hero_title">
-          Создаю сайты и интерфейсы, которыми <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">удобно пользоваться</span> и которые растят бизнес.
+          Дизайн и сайты, которые помогают <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">бизнесу продавать.</span>
         </h1>
         <p class="text-sm sm:text-base text-bloom-muted max-w-2xl mx-auto font-light leading-relaxed mb-5" data-i18n="hero_subtitle">
-          Продуктовый UX/UI дизайнер и разработчик. Соединяю строгую аналитическую архитектуру, чистую эстетику и передовой frontend.
+          Проектирую и собираю лендинги, многостраничные сайты и интернет-магазины на Tilda.
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-3">
@@ -386,49 +393,36 @@
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full max-w-5xl">
           <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
-            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_experience">Опыт работы</span>
-            <span class="font-display font-bold text-lg text-white mt-1">5+ лет</span>
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_format">Формат</span>
+            <span class="font-display font-bold text-base sm:text-lg text-white mt-1" data-i18n="stat_format_value">Сайты под ключ</span>
           </div>
           <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
-            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_projects">Реализовано</span>
-            <span class="font-display font-bold text-lg text-emerald-400 mt-1">30+ проектов</span>
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_platform">Платформа</span>
+            <span class="font-display font-bold text-base sm:text-lg text-emerald-400 mt-1" data-i18n="stat_platform_value">Tilda</span>
           </div>
           <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
-            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_stack">Стек</span>
-            <span class="text-xs text-white font-mono mt-1">Figma / React / Next.js</span>
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_types">Типы сайтов</span>
+            <span class="text-[11px] sm:text-xs text-white font-mono mt-1" data-i18n="stat_types_value">Лендинги • Многостраничники</span>
           </div>
           <div class="glass-card rounded-xl px-4 py-3 min-h-20 flex flex-col items-center justify-center">
-            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_rating">Удовлетворенность</span>
-            <span class="font-display font-bold text-lg text-emerald-400 mt-1">100% CSAT</span>
+            <span class="text-[10px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="stat_store">E-commerce</span>
+            <span class="font-display font-bold text-base sm:text-lg text-emerald-400 mt-1" data-i18n="stat_store_value">Интернет-магазины</span>
           </div>
         </div>
       </div>
     </section>
 
     <div class="relative py-6 bg-bloom-card/60 border-y border-bloom-border overflow-hidden whitespace-nowrap">
-      <div class="inline-flex animate-marquee gap-12 text-sm font-mono tracking-widest text-bloom-muted uppercase">
-        <span>✦ ВЕБ-ДИЗАЙН</span>
-        <span>✦ PRODUCT UX/UI</span>
-        <span>✦ FRONTEND РАЗРАБОТКА</span>
-        <span>✦ ДИЗАЙН-СИСТЕМЫ</span>
-        <span>✦ E-COMMERCE & TILDA ZERO BLOCK</span>
-        <span>✦ ГЕНЕРАТИВНЫЙ AI & АВТОМАТИЗАЦИЯ</span>
-        <span>✦ ИНТЕРАКТИВНЫЕ ПРОТОТИПЫ</span>
-        <span>✦ ВЕБ-ДИЗАЙН</span>
-        <span>✦ PRODUCT UX/UI</span>
-        <span>✦ FRONTEND РАЗРАБОТКА</span>
-        <span>✦ ДИЗАЙН-СИСТЕМЫ</span>
-        <span>✦ E-COMMERCE & TILDA ZERO BLOCK</span>
-        <span>✦ ГЕНЕРАТИВНЫЙ AI & АВТОМАТИЗАЦИЯ</span>
-        <span>✦ ИНТЕРАКТИВНЫЕ ПРОТОТИПЫ</span>
+      <div class="inline-flex animate-marquee gap-12 text-sm font-mono tracking-widest text-bloom-muted uppercase" data-i18n="marquee">
+        <span>✦ ВЕБ-ДИЗАЙН</span><span>✦ TILDA ZERO BLOCK</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ИНТЕРНЕТ-МАГАЗИНЫ</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span><span>✦ ВЕБ-ДИЗАЙН</span><span>✦ TILDA ZERO BLOCK</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ИНТЕРНЕТ-МАГАЗИНЫ</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span>
       </div>
     </div>
 
     <section id="work" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col items-center text-center mb-14 gap-4">
-          <div class="flex flex-col items-center">
-            <div class="flex items-center justify-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <div class="flex flex-col items-start text-left mb-14 gap-4">
+          <div class="flex flex-col items-start">
+            <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
               <span>01 // PORTFOLIO</span>
               <span class="w-8 h-[1px] bg-emerald-500/40"></span>
             </div>
@@ -441,7 +435,7 @@
           </p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-2.5 mb-12">
+        <div class="flex flex-wrap justify-start gap-2.5 mb-12">
 <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (7)</button>
           <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
           <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
@@ -480,7 +474,7 @@
                 <span class="text-green-400 uppercase tracking-wider">01 // PRODUCT DESIGN & UX</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="p1_title">
                 AURA — Платформа взаимопомощи и поддержки
               </h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p1_desc">
@@ -529,7 +523,7 @@
                 <span class="text-emerald-400 uppercase tracking-wider">02 // WEB DESIGN & BRANDING</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="p2_title">
                 ЛапаДоктор — Мобильная ветеринарная служба
               </h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p2_desc">
@@ -579,7 +573,7 @@
                 <span class="text-lime-400 uppercase tracking-wider">03 // AI & MOBILE UX/UI</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white group-hover:text-lime-400 transition-colors mb-3">
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-lime-400 transition-colors mb-3" data-i18n="p3_title">
                 FLUX AI — Мобильный интерфейс генеративного ИИ
               </h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p3_desc">
@@ -625,7 +619,7 @@
                 <span class="text-amber-400 uppercase tracking-wider">04 // EDITORIAL WEB DESIGN</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white group-hover:text-amber-400 transition-colors mb-3">
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-amber-400 transition-colors mb-3" data-i18n="p4_title">
                 KULTUR — Редакционный спецпроект об эстетике Японии
               </h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p4_desc">
@@ -658,7 +652,7 @@
                 <span class="text-emerald-400 uppercase tracking-wider">07 // E-COMMERCE & WEB DESIGN</span>
                 <span>2026</span>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3">
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="p7_title">
                 PhoneLab — интернет-магазин техники
               </h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p7_desc">
@@ -690,31 +684,31 @@
               <span class="w-8 h-[1px] bg-emerald-500/40"></span>
             </div>
             <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-8" data-i18n="about_heading">
-              Дизайн как инструмент роста бизнеса и удобства людей.
+              Веб-дизайн и сборка сайтов на Tilda.
             </h2>
             <div class="space-y-5 text-bloom-muted leading-relaxed font-light text-base">
               <p data-i18n="about_p1">
-                Привет! Меня зовут Юрий Жильников. Я проектирую цифровые продукты, интерфейсы и сайты, которые не только визуально безупречны, но и решают реальные бизнес-задачи.
+                Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.
               </p>
               <p data-i18n="about_p2">
-                Мой подход строится на пересечении глубокого UX-анализа, исследования пользовательских болей и чистого современного визуального кода. Я не верю в шаблонные решения: каждый проект получает индивидуальную дизайн-систему и архитектуру.
+                Проектирую структуру, создаю визуальную концепцию и адаптивные макеты, затем собираю сайт на Tilda.
               </p>
               <p data-i18n="about_p3">
-                Помимо проектирования в Figma, я отлично понимаю техническую сторону реализации (React, Next.js, CSS, Tilda, n8n automation), что позволяет создавать решения, готовые к быстрому и бесшовному продакшену.
+                Работаю с лендингами, промо-сайтами, многостраничниками, редизайном и интернет-магазинами. Делаю понятную подачу и аккуратный адаптив для всех экранов.
               </p>
             </div>
 
             <div class="mt-10 pt-8 border-t border-white/5">
-              <span class="text-xs font-mono uppercase text-white block mb-4" data-i18n="skills_title">Ключевые компетенции & Стек:</span>
+              <span class="text-xs font-mono uppercase text-white block mb-4" data-i18n="skills_title">Что я делаю:</span>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Figma & FigJam</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Product UX/UI</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Design Systems</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Next.js & React</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Tailwind CSS</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Tilda Zero Block</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">n8n Automation</span>
-                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Generative AI Tools</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Figma</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white" data-i18n="skill_web_design">Веб-дизайн</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white" data-i18n="skill_prototypes">Прототипы</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white" data-i18n="skill_adaptive">Адаптивный дизайн</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Tilda</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white">Zero Block</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white" data-i18n="skill_ecommerce">Интернет-магазины</span>
+                <span class="px-3 py-1.5 rounded-lg bg-bloom-card border border-bloom-border text-xs font-mono text-white" data-i18n="skill_redesign">Редизайн</span>
               </div>
             </div>
           </div>
@@ -726,8 +720,8 @@
               <div class="flex items-start gap-4">
                 <span class="font-mono text-xl font-bold text-emerald-400">01</span>
                 <div>
-                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step1_title">Исследования & Анализ</h4>
-                  <p class="text-sm text-bloom-muted font-light" data-i18n="step1_desc">Изучение целевой аудитории, аудит конкурентов, формулирование гипотез и CJM (Customer Journey Map).</p>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step1_title">Бриф и цели</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step1_desc">Обсуждаем задачу, аудиторию, содержание, сроки и желаемый результат.</p>
                 </div>
               </div>
             </div>
@@ -736,8 +730,8 @@
               <div class="flex items-start gap-4">
                 <span class="font-mono text-xl font-bold text-teal-400">02</span>
                 <div>
-                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step2_title">Информационная архитектура & Wireframes</h4>
-                  <p class="text-sm text-bloom-muted font-light" data-i18n="step2_desc">Построение логики переходов, модульной сетки и интерактивных черно-белых прототипов для проверки гипотез.</p>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step2_title">Структура и прототип</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step2_desc">Собираю логику страниц и показываю, как пользователь пройдёт к нужному действию.</p>
                 </div>
               </div>
             </div>
@@ -746,8 +740,8 @@
               <div class="flex items-start gap-4">
                 <span class="font-mono text-xl font-bold text-green-400">03</span>
                 <div>
-                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step3_title">UI-Концепт & Дизайн-система</h4>
-                  <p class="text-sm text-bloom-muted font-light" data-i18n="step3_desc">Создание премиального визуального стиля, типографики, компонентов, адаптивных версий (Mobile/Tablet/Desktop).</p>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step3_title">Дизайн и адаптив</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step3_desc">Создаю визуальную концепцию и продумываю отображение сайта на компьютере, планшете и телефоне.</p>
                 </div>
               </div>
             </div>
@@ -756,8 +750,8 @@
               <div class="flex items-start gap-4">
                 <span class="font-mono text-xl font-bold text-emerald-400">04</span>
                 <div>
-                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step4_title">Разработка, Тестирование & Релиз</h4>
-                  <p class="text-sm text-bloom-muted font-light" data-i18n="step4_desc">Верстка, интеграция анимаций, подключение CRM/форм/оплаты, финальное QA-тестирование и передача клиенту.</p>
+                  <h4 class="font-display font-bold text-base text-white mb-1" data-i18n="step4_title">Сборка на Tilda и запуск</h4>
+                  <p class="text-sm text-bloom-muted font-light" data-i18n="step4_desc">Собираю страницы, настраиваю базовые формы и интеграции, проверяю адаптив и готовлю сайт к публикации.</p>
                 </div>
               </div>
             </div>
@@ -770,11 +764,11 @@
 
     <section id="services" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="flex items-center justify-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
+        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
           <span>03 // SERVICES</span>
           <span class="w-8 h-[1px] bg-emerald-500/40"></span>
         </div>
-        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-center mb-16" data-i18n="services_heading">
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-left mb-16" data-i18n="services_heading">
           Услуги и форматы сотрудничества
         </h2>
 
@@ -786,14 +780,14 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <span class="font-mono text-xs text-emerald-400 mb-2 block">01 // LANDINGS</span>
-              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s1_title">Лендинги & Сайты под ключ</h3>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s1_title">Лендинги и промо-сайты</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s1_desc">
-                Продающие посадочные страницы, корпоративные сайты и интернет-магазины с высокой конверсией и анимациями.
+                Компактные сайты для запуска продукта, услуги, события или рекламной кампании.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
-              <div>✦ Срок: от 7-14 дней</div>
-              <div>✦ Интеграции: CRM, СБП, ЮKassa</div>
+              <div data-i18n="s1_meta1">✦ Дизайн и адаптив</div>
+              <div data-i18n="s1_meta2">✦ Сборка на Tilda</div>
             </div>
           </div>
 
@@ -802,15 +796,15 @@
               <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
               </div>
-              <span class="font-mono text-xs text-teal-400 mb-2 block">02 // PRODUCT</span>
-              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s2_title">UX/UI Сервисов и SaaS</h3>
+              <span class="font-mono text-xs text-teal-400 mb-2 block">02 // MULTIPAGE</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s2_title">Многостраничные сайты</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s2_desc">
-                Проектирование сложных веб-приложений, личных кабинетов, дашбордов и мобильных интерфейсов.
+                Сайты с продуманной структурой, навигацией и отдельными страницами под услуги или направления.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
-              <div>✦ Срок: от 3 недель</div>
-              <div>✦ Спецификации & UI Kit</div>
+              <div data-i18n="s2_meta1">✦ Структура и прототип</div>
+              <div data-i18n="s2_meta2">✦ Адаптивные страницы</div>
             </div>
           </div>
 
@@ -819,15 +813,15 @@
               <div class="w-12 h-12 rounded-xl bg-lime-500/10 border border-lime-500/20 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
               </div>
-              <span class="font-mono text-xs text-lime-400 mb-2 block">03 // REDESIGN</span>
-              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s3_title">Редизайн & UX-Аудит</h3>
+              <span class="font-mono text-xs text-lime-400 mb-2 block">03 // E-COMMERCE</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s3_title">Интернет-магазины на Tilda</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s3_desc">
-                Глубокий анализ существующих точек оттока пользователей, устранение багов юзабилити и перезапуск визуала.
+                Витрина, карточки товаров, каталог, корзина и оформление заказа в едином визуальном стиле.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
-              <div>✦ Срок: от 5 дней</div>
-              <div>✦ Отчет + Action Plan</div>
+              <div data-i18n="s3_meta1">✦ Каталог и карточки товаров</div>
+              <div data-i18n="s3_meta2">✦ Корзина и подключение оплаты</div>
             </div>
           </div>
 
@@ -836,15 +830,15 @@
               <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
-              <span class="font-mono text-xs text-emerald-400 mb-2 block">04 // DEV & AUTOMATION</span>
-              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s4_title">Frontend & No-Code</h3>
+              <span class="font-mono text-xs text-emerald-400 mb-2 block">04 // REDESIGN & BUILD</span>
+              <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s4_title">Редизайн и сборка</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s4_desc">
-                Чистая верстка на Next.js/Tailwind, сборка на Tilda Zero Block, автоматизация бизнес-процессов на n8n и AI-боты.
+                Обновление существующего сайта или аккуратная сборка готового дизайна в Tilda Zero Block.
               </p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
-              <div>✦ Срок: от 5-10 дней</div>
-              <div>✦ 100% Mobile Responsive</div>
+              <div data-i18n="s4_meta1">✦ Перенос дизайна в Tilda</div>
+              <div data-i18n="s4_meta2">✦ Проверка адаптива</div>
             </div>
           </div>
 
@@ -853,28 +847,32 @@
     </section>
 
     <section id="calculator" class="py-20 px-6 bg-bloom-card/30 border-y border-bloom-border">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-left mb-12">
           <span class="tag-badge text-emerald-400 mb-2 inline-block">INTERACTIVE ESTIMATOR</span>
           <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3" data-i18n="calc_heading">
             Калькулятор стоимости и сроков проекта
           </h2>
-          <p class="text-bloom-muted text-sm max-w-lg mx-auto font-light" data-i18n="calc_subheading">
+          <p class="text-bloom-muted text-sm max-w-lg font-light" data-i18n="calc_subheading">
             Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.
           </p>
         </div>
 
-        <div class="glass-card rounded-2xl p-8 space-y-8">
+        <div class="glass-card rounded-2xl p-8 space-y-8 max-w-4xl">
           <div>
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_type_label">1. Тип проекта:</label>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <button type="button" onclick="setCalcOption('type', 'landing', 45000, 10)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
-                <div class="font-bold text-sm text-white">Лендинг / Промо</div>
-                <div class="text-[11px] text-bloom-muted font-mono">от 45 000 ₽ • 7-10 дней</div>
+                <div class="font-bold text-sm text-white" data-i18n="calc_landing">Лендинг / Промо</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_landing_meta">от 45 000 ₽ • 7–10 дней</div>
               </button>
               <button type="button" onclick="setCalcOption('type', 'corp', 85000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
-                <div class="font-bold text-sm text-white">Многостраничный сайт</div>
-                <div class="text-[11px] text-bloom-muted font-mono">от 85 000 ₽ • 14-20 дней</div>
+                <div class="font-bold text-sm text-white" data-i18n="calc_multipage">Многостраничный сайт</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_multipage_meta">от 85 000 ₽ • 14–20 дней</div>
+              </button>
+              <button type="button" onclick="setCalcOption('type', 'store', 110000, 25)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="store">
+                <div class="font-bold text-sm text-white" data-i18n="calc_store">Магазин на Tilda</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_store_meta">от 110 000 ₽ • 20–30 дней</div>
               </button>
             </div>
           </div>
@@ -885,15 +883,15 @@
               <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
                 <input type="checkbox" onchange="toggleAddon('dev', 25000, 5, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
                 <div>
-                  <div class="text-sm font-semibold text-white">Верстка / Сборка (Tilda / Next.js)</div>
-                  <div class="text-[11px] text-bloom-muted font-mono">+25 000 ₽ • +5 дней</div>
+                  <div class="text-sm font-semibold text-white" data-i18n="calc_tilda_build">Сборка на Tilda</div>
+                  <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_tilda_build_meta">+25 000 ₽ • +5 дней</div>
                 </div>
               </label>
               <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
                 <input type="checkbox" onchange="toggleAddon('branding', 20000, 3, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
                 <div>
-                  <div class="text-sm font-semibold text-white">Фирменный стиль & Логотип</div>
-                  <div class="text-[11px] text-bloom-muted font-mono">+20 000 ₽ • +3 дня</div>
+                  <div class="text-sm font-semibold text-white" data-i18n="calc_branding">Фирменный стиль и логотип</div>
+                  <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_branding_meta">+20 000 ₽ • +3 дня</div>
                 </div>
               </label>
             </div>
@@ -901,14 +899,14 @@
 
           <div class="p-6 rounded-xl bg-emerald-600/10 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <div class="text-xs font-mono text-emerald-400 uppercase tracking-wide">Предварительная оценка:</div>
+              <div class="text-xs font-mono text-emerald-400 uppercase tracking-wide" data-i18n="calc_estimate">Предварительная оценка:</div>
               <div class="flex items-baseline gap-4 mt-1">
                 <span id="calc-price" class="font-display font-black text-2xl sm:text-3xl text-white">45 000 ₽</span>
                 <span id="calc-time" class="font-mono text-sm text-bloom-muted">~10 рабочих дней</span>
               </div>
             </div>
             <button onclick="applyCalcToContact()" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-md">
-              Применить к заявке ↓
+              <span data-i18n="calc_apply">Применить к заявке ↓</span>
             </button>
           </div>
         </div>
@@ -916,15 +914,15 @@
     </section>
 
     <section class="py-20 px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3 justify-center">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
           <span>FAQ</span>
         </div>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-white text-center mb-12" data-i18n="faq_heading">
+        <h2 class="font-display font-bold text-2xl sm:text-3xl text-white text-left mb-12" data-i18n="faq_heading">
           Часто задаваемые вопросы
         </h2>
 
-        <div class="space-y-4">
+        <div class="space-y-4 max-w-4xl">
           
           <div class="glass-card rounded-xl overflow-hidden">
             <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between text-white font-medium hover:text-emerald-400 transition-colors">
@@ -942,17 +940,17 @@
               <svg id="faq-icon-2" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="faq-ans-2" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a2">
-              Вся работа ведется в Figma с идеальным порядком: Auto Layout, дизайн-токены, UI Kit компонентов, адаптивные фреймы (Desktop 1440px / Mobile 375px) и интерактивные кликабельные прототипы.
+              Передаю аккуратно собранный макет в Figma: структура страниц, адаптивные версии и необходимые материалы для дальнейшей работы.
             </div>
           </div>
 
           <div class="glass-card rounded-xl overflow-hidden">
             <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex items-center justify-between text-white font-medium hover:text-emerald-400 transition-colors">
-              <span data-i18n="faq_q3">Что если мне нужна разработка под ключ?</span>
+              <span data-i18n="faq_q3">Можно заказать сайт под ключ?</span>
               <svg id="faq-icon-3" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="faq-ans-3" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a3">
-              Да, я выполняю полный цикл: от UX-исследований до готового рабочего сайта на Tilda Zero Block (с кодом и анимациями) или на современном стеке Next.js / Tailwind CSS / Vercel с подключением домена, почты и аналитики.
+              Да. Подготовлю дизайн, адаптивные версии и соберу сайт на Tilda, подключу домен, формы, базовые интеграции и аналитику.
             </div>
           </div>
 
@@ -971,10 +969,10 @@
                 <span class="w-8 h-[1px] bg-emerald-500/40"></span>
               </div>
               <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-6" data-i18n="contact_heading">
-                Давайте создадим что-то выдающееся вместе.
+                Обсудим ваш сайт.
               </h2>
               <p class="text-bloom-muted text-sm leading-relaxed mb-8 font-light" data-i18n="contact_subheading">
-                Есть проект, идея или задача на редизайн? Напишите мне, и я вернусь с экспертным предложением и предварительной оценкой в течение 24 часов.
+                Расскажите, что нужно сделать. Я уточню детали и предложу подходящий формат работы.
               </p>
 
               <div class="space-y-4">
@@ -988,30 +986,16 @@
                       <a href="mailto:zhilnikov_yuriy@mail.ru" class="text-sm font-mono font-medium text-white hover:text-emerald-400 transition-colors">zhilnikov_yuriy@mail.ru</a>
                     </div>
                   </div>
-                  <button onclick="copyToClipboard('zhilnikov_yuriy@mail.ru', 'Email скопирован!')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all text-xs font-mono" title="Копировать Email">
+                  <button onclick="copyToClipboard('zhilnikov_yuriy@mail.ru', i18n[currentLang].email_copied)" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all text-xs font-mono" title="Copy Email">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                   </button>
                 </div>
 
-                <div class="p-4 rounded-xl glass-card flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <div class="p-2 rounded-lg bg-teal-500/10 text-teal-400">
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.943z"/></svg>
-                    </div>
-                    <div>
-                      <div class="text-[10px] font-mono text-bloom-muted uppercase">Telegram</div>
-                      <span class="text-sm font-mono font-medium text-white">@zhilnikov_design</span>
-                    </div>
-                  </div>
-                  <button onclick="copyToClipboard('@zhilnikov_design', 'Telegram скопирован!')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-bloom-muted hover:text-white transition-all text-xs font-mono" title="Копировать Telegram">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                  </button>
-                </div>
               </div>
             </div>
 
             <div class="mt-8 pt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-bloom-muted">
-              <div>📍 Москва / GMT+3</div>
+              <div data-i18n="location">📍 Санкт-Петербург / MSK</div>
               <div id="live-clock">04:50 MSK</div>
             </div>
           </div>
@@ -1023,28 +1007,28 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_name">Ваше имя *</label>
-                  <input type="text" id="form-name" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                  <input type="text" id="form-name" required placeholder="Ваше имя" data-i18n-placeholder="form_name_placeholder" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
                 </div>
                 <div>
                   <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_contact">Email или Telegram *</label>
-                  <input type="text" id="form-contact" required placeholder="@username или mail@company.com" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                  <input type="text" id="form-contact" required placeholder="@username или email" data-i18n-placeholder="form_contact_placeholder" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors">
                 </div>
               </div>
 
               <div>
                 <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_service">Тип проекта</label>
                 <select id="form-service" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
-                  <option value="Лендинг / Промо-сайт">Лендинг / Промо-сайт</option>
-                  <option value="UX/UI Дизайн веб-сервиса / SaaS">UX/UI Дизайн веб-сервиса / SaaS</option>
-                  <option value="Редизайн существующего продукта">Редизайн существующего продукта</option>
-                  <option value="Frontend-разработка & Tilda Zero Block">Frontend-разработка & Tilda Zero Block</option>
-                  <option value="Комплексный проект под ключ">Комплексный проект под ключ</option>
+                  <option value="landing" data-i18n="form_option_landing">Лендинг / промо-сайт</option>
+                  <option value="multipage" data-i18n="form_option_multipage">Многостраничный сайт</option>
+                  <option value="store" data-i18n="form_option_store">Интернет-магазин на Tilda</option>
+                  <option value="redesign" data-i18n="form_option_redesign">Редизайн сайта</option>
+                  <option value="tilda" data-i18n="form_option_tilda">Дизайн и сборка на Tilda</option>
                 </select>
               </div>
 
               <div>
                 <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_message">Описание задачи и пожелания</label>
-                <textarea id="form-message" rows="4" placeholder="Расскажите о проекте, целях, текущих ссылках и сроках..." class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                <textarea id="form-message" rows="4" placeholder="Расскажите о проекте, целях и сроках..." data-i18n-placeholder="form_message_placeholder" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
               </div>
 
               <button type="submit" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50">
@@ -1062,14 +1046,14 @@
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-2">
         <span class="font-bold text-white">BLOOM STUDIO</span>
-        <span>© 2026 Юрий Жильников. Все права защищены.</span>
+        <span data-i18n="footer_rights">© 2026 Юрий Жильников. Все права защищены.</span>
       </div>
       <div class="flex items-center gap-6">
         <a href="#work" class="hover:text-white transition-colors" data-i18n="nav_work">Проекты</a>
         <a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">Обо мне</a>
         <a href="#services" class="hover:text-white transition-colors" data-i18n="nav_services">Услуги</a>
         <a href="#top" class="text-emerald-400 hover:underline flex items-center gap-1">
-          <span>↑ Наверх</span>
+          <span data-i18n="footer_top">↑ Наверх</span>
         </a>
       </div>
     </div>
@@ -1127,7 +1111,7 @@ p5_desc: "Яркий событийный лендинг для IT-конфер�
         about_heading: "Дизайн как инструмент роста бизнеса и удобства людей.",
         about_p1: "Привет! Меня зовут Юрий Жильников. Я проектирую цифровые продукты, интерфейсы и сайты, которые не только визуально безупречны, но и решают реальные бизнес-задачи.",
         about_p2: "Мой подход строится на пересечении глубокого UX-анализа, исследования пользовательских болей и чистого современного визуального кода. Я не верю в шаблонные решения: каждый проект получает индивидуальную дизайн-систему и архитектуру.",
-        about_p3: "Помимо проектирования в Figma, я отлично понимаю техническую сторону реализации (React, Next.js, CSS, Tilda, n8n automation), что позволяет создавать решения, готовые к быстрому и бесшовному продакшену.",
+        about_p3: "Работаю с лендингами, промо-сайтами, многостраничниками, редизайном и интернет-магазинами. Делаю понятную подачу и аккуратный адаптив для всех экранов.",
         skills_title: "Ключевые компетенции & Стек:",
         process_title: "Как устроен рабочий процесс:",
         step1_title: "Исследования & Анализ",
@@ -1141,12 +1125,12 @@ p5_desc: "Яркий событийный лендинг для IT-конфер�
         services_heading: "Услуги и форматы сотрудничества",
         s1_title: "Лендинги & Сайты под ключ",
         s1_desc: "Продающие посадочные страницы, корпоративные сайты и интернет-магазины с высокой конверсией и анимациями.",
-        s2_title: "UX/UI Сервисов и SaaS",
-        s2_desc: "Проектирование сложных веб-приложений, личных кабинетов, дашбордов и мобильных интерфейсов.",
+        s2_title: "Многостраничные сайты",
+        s2_desc: "Сайты с продуманной структурой, навигацией и отдельными страницами под услуги или направления.",
         s3_title: "Редизайн & UX-Аудит",
         s3_desc: "Глубокий анализ существующих точек оттока пользователей, устранение багов юзабилити и перезапуск визуала.",
-        s4_title: "Frontend & No-Code",
-        s4_desc: "Чистая верстка на Next.js/Tailwind, сборка на Tilda Zero Block, автоматизация бизнес-процессов на n8n и AI-боты.",
+        s4_title: "Редизайн и сборка",
+        s4_desc: "Обновление существующего сайта или аккуратная сборка готового дизайна в Tilda Zero Block.",
         calc_heading: "Калькулятор стоимости и сроков проекта",
         calc_subheading: "Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.",
         calc_type_label: "1. Тип проекта:",
@@ -1157,7 +1141,7 @@ p5_desc: "Яркий событийный лендинг для IT-конфер�
         faq_q2: "В каком формате передаются исходники?",
         faq_a2: "Вся работа ведется в Figma с идеальным порядком: Auto Layout, дизайн-токены, UI Kit компонентов, адаптивные фреймы (Desktop 1440px / Mobile 375px) и интерактивные кликабельные прототипы.",
         faq_q3: "Что если мне нужна разработка под ключ?",
-        faq_a3: "Да, я выполняю полный цикл: от UX-исследований до готового рабочего сайта на Tilda Zero Block (с кодом и анимациями) или на современном стеке Next.js / Tailwind CSS / Vercel с подключением домена, почты и аналитики.",
+        faq_a3: "Да. Подготовлю дизайн, адаптивные версии и соберу сайт на Tilda, подключу домен, формы, базовые интеграции и аналитику.",
         contact_heading: "Давайте создадим что-то выдающееся вместе.",
         contact_subheading: "Есть проект, идея или задача на редизайн? Напишите мне, и я вернусь с экспертным предложением и предварительной оценкой в течение 24 часов.",
         form_title: "Заполнить бриф",
@@ -1177,7 +1161,7 @@ p5_desc: "Яркий событийный лендинг для IT-конфер�
         header_cta: "Start Project",
         hero_status: "Open for Q3-Q4 2026 projects",
         hero_title: "Crafting digital products and websites that are <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>effortless to use</span> and drive business growth.",
-        hero_subtitle: "Product UX/UI Designer & Frontend Developer. Blending analytical rigor, clean aesthetics, and state-of-the-art web technologies.",
+        hero_subtitle: "I design and build landing pages, multi-page websites, and online stores on Tilda.",
         hero_btn_work: "View Projects",
         hero_btn_contact: "Discuss Project",
         stat_experience: "Experience",
@@ -1199,7 +1183,7 @@ filter_all: "All (7)",
         about_heading: "Design as a precision tool for business growth and human clarity.",
         about_p1: "Hello! I am Yuriy Zhilnikov. I design digital products, interfaces, and websites that are not only aesthetically striking, but also solve real business problems.",
         about_p2: "My approach combines deep UX research, user pain point discovery, and modern visual design. No cookie-cutter templates: every project gets a bespoke design system and architecture.",
-        about_p3: "Beyond Figma prototyping, I have a deep understanding of code (React, Next.js, CSS, Tilda, n8n), ensuring seamless handover and production fidelity.",
+        about_p3: "I work on landing pages, promo websites, multi-page websites, redesigns, and online stores, with a focus on clear communication and responsive design.",
         skills_title: "Core Competencies & Stack:",
         process_title: "How the design process works:",
         step1_title: "Research & Discovery",
@@ -1209,16 +1193,16 @@ filter_all: "All (7)",
         step3_title: "UI Concept & Design System",
         step3_desc: "Bespoke typography, color palettes, atomic components, and responsive layouts across all viewports.",
         step4_title: "Development, QA & Launch",
-        step4_desc: "Frontend build, interactive animations, CRM/payment hookup, QA cross-browser testing, and handover.",
+        step4_desc: "Tilda build, basic forms and integrations, responsive QA, and launch preparation.",
         services_heading: "Services & Engagement Models",
         s1_title: "Turnkey Landing Pages & Websites",
         s1_desc: "High-converting promo pages, corporate websites, and e-commerce stores with bespoke animations.",
-        s2_title: "SaaS & Web App UX/UI",
-        s2_desc: "Complex dashboards, user accounts, SaaS portals, and mobile-friendly web application interfaces.",
+        s2_title: "Multi-page Websites",
+        s2_desc: "Structured websites with clear navigation and separate pages for services or business areas.",
         s3_title: "Redesign & UX Audit",
         s3_desc: "In-depth heuristic evaluation, identifying conversion bottlenecks, and modernizing visual systems.",
-        s4_title: "Frontend & Automation",
-        s4_desc: "Next.js/Tailwind development, Tilda Zero Block master builds, n8n workflow automations, and AI agents.",
+        s4_title: "Redesign and Tilda Build",
+        s4_desc: "A redesign of an existing website or a careful Tilda Zero Block build from approved layouts.",
         calc_heading: "Project Budget & Timeline Estimator",
         calc_subheading: "Select your project requirements to calculate an instant estimated timeline and budget scope.",
         calc_type_label: "1. Project Scope:",
@@ -1229,7 +1213,7 @@ filter_all: "All (7)",
         faq_q2: "What deliverable formats do you provide?",
         faq_a2: "Organized Figma source files: Auto Layout 5.0, design tokens, component library, responsive frames (Desktop 1440px / Mobile 375px), and interactive prototypes.",
         faq_q3: "Can you provide full turnkey development?",
-        faq_a3: "Yes! Full-stack delivery: from Figma UX/UI design to a live deployed site on Tilda Zero Block or Next.js / Tailwind / Vercel with custom domain and analytics.",
+        faq_a3: "Yes. I can prepare the design and responsive layouts, build the site on Tilda, and connect the domain, forms, basic integrations, and analytics.",
         contact_heading: "Let's build something remarkable together.",
 p5_desc: "Vibrant event landing page for an IT conference featuring an interactive schedule, ticket service integration, and animated 3D characters.",
 p6_desc: "Large-scale redesign of a commercial interface and booking system for a laser hair removal clinic chain: from UX audit to aesthetic modernization.",
@@ -1244,12 +1228,230 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }
     };
 
+    Object.assign(i18n.ru, {
+      meta_title: "Юрий Жильников — веб-дизайн и сайты на Tilda",
+      meta_description: "Портфолио Юрия Жильникова: лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.",
+      header_name: "Юрий Жильников <span class='text-[10px] text-emerald-400 font-mono'>®</span>",
+      header_role: "Веб-дизайнер • Tilda",
+      hero_status: "Беру новые проекты",
+      hero_title: "Дизайн и сайты, которые помогают <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>бизнесу продавать.</span>",
+      hero_subtitle: "Проектирую и собираю лендинги, многостраничные сайты и интернет-магазины на Tilda.",
+      stat_format: "Формат",
+      stat_format_value: "Сайты под ключ",
+      stat_platform: "Платформа",
+      stat_platform_value: "Tilda",
+      stat_types: "Типы сайтов",
+      stat_types_value: "Лендинги • Многостраничники",
+      stat_store: "E-commerce",
+      stat_store_value: "Интернет-магазины",
+      marquee: "<span>✦ ВЕБ-ДИЗАЙН</span><span>✦ TILDA ZERO BLOCK</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ИНТЕРНЕТ-МАГАЗИНЫ</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span><span>✦ ВЕБ-ДИЗАЙН</span><span>✦ TILDA ZERO BLOCK</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ИНТЕРНЕТ-МАГАЗИНЫ</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span>",
+      work_subheading: "Лендинги, многостраничные сайты, магазины и концепты — в каждом показываю задачу и визуальное решение.",
+      filter_all: "Все проекты",
+      filter_product: "Концепты",
+      filter_web: "Сайты",
+      filter_ai: "Интерфейсы",
+      p1_title: "AURA — платформа взаимопомощи",
+      p2_title: "ЛапаДоктор — сайт ветеринарной службы",
+      p3_title: "FLUX AI — мобильный интерфейс",
+      p4_title: "KULTUR — спецпроект о Японии",
+      p5_title: "Yandex Pet Day — промо-сайт конференции",
+      p6_title: "Prosto Laser — редизайн сайта клиники",
+      p7_title: "PhoneLab — интернет-магазин техники",
+      about_heading: "Веб-дизайн и сборка сайтов на Tilda.",
+      about_p1: "Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.",
+      about_p2: "Проектирую структуру, создаю визуальную концепцию и адаптивные макеты, затем собираю сайт на Tilda.",
+      about_p3: "Работаю с лендингами, промо-сайтами, многостраничниками, редизайном и интернет-магазинами. Делаю понятную подачу и аккуратный адаптив для всех экранов.",
+      skills_title: "Что я делаю:",
+      skill_web_design: "Веб-дизайн",
+      skill_prototypes: "Прототипы",
+      skill_adaptive: "Адаптивный дизайн",
+      skill_ecommerce: "Интернет-магазины",
+      skill_redesign: "Редизайн",
+      process_title: "Как устроена работа:",
+      step1_title: "Бриф и цели",
+      step1_desc: "Обсуждаем задачу, аудиторию, содержание, сроки и желаемый результат.",
+      step2_title: "Структура и прототип",
+      step2_desc: "Собираю логику страниц и показываю, как пользователь пройдёт к нужному действию.",
+      step3_title: "Дизайн и адаптив",
+      step3_desc: "Создаю визуальную концепцию и продумываю отображение сайта на компьютере, планшете и телефоне.",
+      step4_title: "Сборка на Tilda и запуск",
+      step4_desc: "Собираю страницы, настраиваю базовые формы и интеграции, проверяю адаптив и готовлю сайт к публикации.",
+      services_heading: "Услуги и форматы работы",
+      s1_title: "Лендинги и промо-сайты",
+      s1_desc: "Компактные сайты для запуска продукта, услуги, события или рекламной кампании.",
+      s1_meta1: "✦ Дизайн и адаптив",
+      s1_meta2: "✦ Сборка на Tilda",
+      s2_title: "Многостраничные сайты",
+      s2_desc: "Сайты с продуманной структурой, навигацией и отдельными страницами под услуги или направления.",
+      s2_meta1: "✦ Структура и прототип",
+      s2_meta2: "✦ Адаптивные страницы",
+      s3_title: "Интернет-магазины на Tilda",
+      s3_desc: "Витрина, карточки товаров, каталог, корзина и оформление заказа в едином визуальном стиле.",
+      s3_meta1: "✦ Каталог и карточки товаров",
+      s3_meta2: "✦ Корзина и подключение оплаты",
+      s4_title: "Редизайн и сборка",
+      s4_desc: "Обновление существующего сайта или аккуратная сборка готового дизайна в Tilda Zero Block.",
+      s4_meta1: "✦ Перенос дизайна в Tilda",
+      s4_meta2: "✦ Проверка адаптива",
+      calc_landing: "Лендинг / Промо",
+      calc_landing_meta: "от 45 000 ₽ • 7–10 дней",
+      calc_multipage: "Многостраничный сайт",
+      calc_multipage_meta: "от 85 000 ₽ • 14–20 дней",
+      calc_store: "Магазин на Tilda",
+      calc_store_meta: "от 110 000 ₽ • 20–30 дней",
+      calc_tilda_build: "Сборка на Tilda",
+      calc_tilda_build_meta: "+25 000 ₽ • +5 дней",
+      calc_branding: "Фирменный стиль и логотип",
+      calc_branding_meta: "+20 000 ₽ • +3 дня",
+      calc_estimate: "Предварительная оценка:",
+      calc_apply: "Применить к заявке ↓",
+      calc_days: "рабочих дней",
+      faq_q3: "Можно заказать сайт под ключ?",
+      faq_a2: "Передаю аккуратно собранный макет в Figma: структура страниц, адаптивные версии и необходимые материалы для дальнейшей работы.",
+      faq_a3: "Да. Подготовлю дизайн, адаптивные версии и соберу сайт на Tilda, подключу домен, формы, базовые интеграции и аналитику.",
+      contact_heading: "Обсудим ваш сайт.",
+      contact_subheading: "Расскажите, что нужно сделать. Я уточню детали и предложу подходящий формат работы.",
+      location: "📍 Санкт-Петербург / MSK",
+      form_name_placeholder: "Ваше имя",
+      form_contact_placeholder: "@username или email",
+      form_message_placeholder: "Расскажите о проекте, целях и сроках...",
+      form_option_landing: "Лендинг / промо-сайт",
+      form_option_multipage: "Многостраничный сайт",
+      form_option_store: "Интернет-магазин на Tilda",
+      form_option_redesign: "Редизайн сайта",
+      form_option_tilda: "Дизайн и сборка на Tilda",
+      footer_rights: "© 2026 Юрий Жильников. Все права защищены.",
+      footer_top: "↑ Наверх",
+      email_copied: "Email скопирован!",
+      modal_challenge: "Задача:",
+      modal_solution: "Решение:",
+      modal_deliverables: "Что сделано:",
+      modal_result: "Итог:",
+      modal_cta: "Обсудить похожий проект",
+      calc_apply_message: "Здравствуйте! Меня интересует: {type}. Оценка по калькулятору: {price} ({time}). Хочу обсудить детали.",
+      calc_applied: "Параметры перенесены в форму заявки!",
+      form_success: "Спасибо, {name}! Заявка отправлена. Скоро свяжусь с вами."
+    });
+
+    Object.assign(i18n.en, {
+      meta_title: "Yuriy Zhilnikov — Web Design and Tilda Websites",
+      meta_description: "Yuriy Zhilnikov's portfolio: landing pages, multi-page websites, online stores, redesign, and Tilda builds.",
+      header_name: "Yuriy Zhilnikov <span class='text-[10px] text-emerald-400 font-mono'>®</span>",
+      header_role: "Web Designer • Tilda",
+      hero_status: "Available for new projects",
+      hero_title: "Design and websites that help <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>businesses sell.</span>",
+      hero_subtitle: "I design and build landing pages, multi-page websites, and online stores on Tilda.",
+      stat_format: "Format",
+      stat_format_value: "Turnkey websites",
+      stat_platform: "Platform",
+      stat_platform_value: "Tilda",
+      stat_types: "Website types",
+      stat_types_value: "Landing • Multi-page",
+      stat_store: "E-commerce",
+      stat_store_value: "Online stores",
+      marquee: "<span>✦ WEB DESIGN</span><span>✦ TILDA ZERO BLOCK</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ONLINE STORES</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span><span>✦ WEB DESIGN</span><span>✦ TILDA ZERO BLOCK</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ONLINE STORES</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span>",
+      work_heading: "Selected Projects",
+      work_subheading: "Landing pages, multi-page websites, stores, and concepts — each focused on a clear task and visual solution.",
+      filter_all: "All projects",
+      filter_product: "Concepts",
+      filter_web: "Websites",
+      filter_ai: "Interfaces",
+      p1_title: "AURA — Peer Support Platform",
+      p2_title: "LapaDoctor — Veterinary Service Website",
+      p3_title: "FLUX AI — Mobile Interface",
+      p4_title: "KULTUR — Japan Editorial Project",
+      p5_title: "Yandex Pet Day — Conference Promo Site",
+      p6_title: "Prosto Laser — Clinic Website Redesign",
+      p7_title: "PhoneLab — Technology Online Store",
+      about_heading: "Web design and Tilda website builds.",
+      about_p1: "My name is Yuriy Zhilnikov. I am a web designer based in Saint Petersburg.",
+      about_p2: "I plan the structure, create the visual concept and responsive layouts, then build the website on Tilda.",
+      about_p3: "I work on landing pages, promo websites, multi-page websites, redesigns, and online stores. My focus is clear communication and polished responsive design.",
+      skills_title: "What I do:",
+      skill_web_design: "Web design",
+      skill_prototypes: "Prototypes",
+      skill_adaptive: "Responsive design",
+      skill_ecommerce: "Online stores",
+      skill_redesign: "Redesign",
+      process_title: "How I work:",
+      step1_title: "Brief and goals",
+      step1_desc: "We discuss the task, audience, content, timeline, and desired outcome.",
+      step2_title: "Structure and prototype",
+      step2_desc: "I map the page logic and show how visitors will reach the key action.",
+      step3_title: "Design and responsive layouts",
+      step3_desc: "I create the visual concept and adapt it for desktop, tablet, and mobile screens.",
+      step4_title: "Tilda build and launch",
+      step4_desc: "I build the pages, connect basic forms and integrations, test responsive layouts, and prepare the site for launch.",
+      services_heading: "Services and Work Formats",
+      s1_title: "Landing Pages and Promo Sites",
+      s1_desc: "Focused websites for launching a product, service, event, or advertising campaign.",
+      s1_meta1: "✦ Design and responsive layouts",
+      s1_meta2: "✦ Tilda build",
+      s2_title: "Multi-page Websites",
+      s2_desc: "Structured websites with clear navigation and separate pages for services or business areas.",
+      s2_meta1: "✦ Structure and prototype",
+      s2_meta2: "✦ Responsive pages",
+      s3_title: "Tilda Online Stores",
+      s3_desc: "Storefront, product pages, catalog, cart, and checkout in one consistent visual system.",
+      s3_meta1: "✦ Catalog and product pages",
+      s3_meta2: "✦ Cart and payment setup",
+      s4_title: "Redesign and Tilda Build",
+      s4_desc: "A redesign of an existing website or a careful Tilda Zero Block build from approved layouts.",
+      s4_meta1: "✦ Design transfer to Tilda",
+      s4_meta2: "✦ Responsive QA",
+      calc_heading: "Project Cost and Timeline Calculator",
+      calc_subheading: "Choose the project type and options to get a preliminary estimate.",
+      calc_type_label: "1. Project type:",
+      calc_scope_label: "2. Additional options:",
+      calc_landing: "Landing / Promo",
+      calc_landing_meta: "from ₽45,000 • 7–10 days",
+      calc_multipage: "Multi-page website",
+      calc_multipage_meta: "from ₽85,000 • 14–20 days",
+      calc_store: "Tilda online store",
+      calc_store_meta: "from ₽110,000 • 20–30 days",
+      calc_tilda_build: "Tilda build",
+      calc_tilda_build_meta: "+₽25,000 • +5 days",
+      calc_branding: "Visual identity and logo",
+      calc_branding_meta: "+₽20,000 • +3 days",
+      calc_estimate: "Preliminary estimate:",
+      calc_apply: "Add to brief ↓",
+      calc_days: "business days",
+      faq_q3: "Can I order a turnkey website?",
+      faq_a2: "I provide an organized Figma file with page structure, responsive layouts, and the assets needed for further work.",
+      faq_a3: "Yes. I can prepare the design and responsive layouts, build the site on Tilda, and connect the domain, forms, basic integrations, and analytics.",
+      contact_heading: "Let's discuss your website.",
+      contact_subheading: "Tell me what you need. I will clarify the details and suggest the right work format.",
+      location: "📍 Saint Petersburg / MSK",
+      form_name_placeholder: "Your name",
+      form_contact_placeholder: "@username or email",
+      form_message_placeholder: "Tell me about the project, goals, and timeline...",
+      form_option_landing: "Landing / promo site",
+      form_option_multipage: "Multi-page website",
+      form_option_store: "Tilda online store",
+      form_option_redesign: "Website redesign",
+      form_option_tilda: "Design and Tilda build",
+      footer_rights: "© 2026 Yuriy Zhilnikov. All rights reserved.",
+      footer_top: "↑ Back to top",
+      email_copied: "Email copied!",
+      modal_challenge: "Task:",
+      modal_solution: "Solution:",
+      modal_deliverables: "What was done:",
+      modal_result: "Outcome:",
+      modal_cta: "Discuss a similar project",
+      calc_apply_message: "Hello! I am interested in: {type}. Calculator estimate: {price} ({time}). I would like to discuss the details.",
+      calc_applied: "The estimate has been added to the brief!",
+      form_success: "Thank you, {name}! Your request has been sent. I will contact you soon."
+    });
+
     let currentLang = 'ru';
 
     function setLanguage(lang) {
       currentLang = lang;
       document.getElementById('lang-label').innerText = lang.toUpperCase();
       document.documentElement.lang = lang;
+      document.title = i18n[lang].meta_title;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', i18n[lang].meta_description);
       
       const elements = document.querySelectorAll('[data-i18n]');
       elements.forEach(el => {
@@ -1258,6 +1460,29 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
           el.innerHTML = i18n[lang][key];
         }
       });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.setAttribute('placeholder', i18n[lang][key]);
+        }
+      });
+
+      const projectTitleKeys = {
+        aura: 'p1_title',
+        lapadoctor: 'p2_title',
+        flux: 'p3_title',
+        kultur: 'p4_title',
+        yandexpet: 'p5_title',
+        prostolaser: 'p6_title',
+        phonelab: 'p7_title'
+      };
+      Object.entries(projectTitleKeys).forEach(([id, key]) => {
+        const title = document.querySelector(`.project-card[onclick="openModal('${id}')"] h3`);
+        if (title && i18n[lang][key]) title.innerHTML = i18n[lang][key];
+      });
+
+      updateCalcResult();
 
       const url = new URL(window.location);
       url.searchParams.set('lang', lang);
@@ -1450,8 +1675,29 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       result: "Подготовлена цельная дизайн-концепция интернет-магазина, готовая к адаптивной вёрстке и наполнению реальным каталогом."
     };
 
+    const caseDataSafe = {
+      ru: {
+        aura: { title: "AURA — платформа взаимопомощи", role: "UX/UI-концепция", challenge: "Сделать сервис взаимопомощи спокойным, понятным и визуально безопасным.", solution: "Собрана ясная структура сервиса, мягкая визуальная система и последовательные сценарии взаимодействия.", deliverables: "Структура, ключевые экраны, UI-концепция и адаптивный прототип.", result: "Подготовлена цельная концепция цифрового сервиса для дальнейшего развития." },
+        lapadoctor: { title: "ЛапаДоктор — сайт ветеринарной службы", role: "Веб-дизайн • Tilda", challenge: "Упростить запись на выезд ветеринара и быстро объяснить формат услуги.", solution: "Создана понятная главная страница с заметным действием, спокойной подачей и адаптивной структурой.", deliverables: "Структура, визуальная концепция, адаптивные макеты и подготовка к сборке на Tilda.", result: "Готов сайт-концепт, который последовательно ведёт пользователя к записи." },
+        flux: { title: "FLUX AI — мобильный интерфейс", role: "Концепция мобильного интерфейса", challenge: "Сделать генерацию изображений понятной на небольшом экране.", solution: "Основной сценарий собран вокруг крупного превью, короткого запроса и заметной кнопки действия.", deliverables: "Мобильная структура, ключевой экран, визуальная система и сценарий генерации.", result: "Подготовлена цельная концепция мобильного продукта." },
+        kultur: { title: "KULTUR — спецпроект о Японии", role: "Веб-дизайн-концепция", challenge: "Передать атмосферу путешествия по Японии и сохранить удобное чтение.", solution: "Использованы крупные изображения, спокойная типографика и воздушная композиция.", deliverables: "Главная страница, визуальная концепция и направление для адаптивных версий.", result: "Создан выразительный концепт редакционного сайта." },
+        yandexpet: { title: "Yandex Pet Day — промо-сайт конференции", role: "Промо-сайт события", challenge: "Быстро показать программу и характер конференции о цифровых продуктах для питомцев.", solution: "Информация собрана в яркую модульную сетку с крупными смысловыми блоками.", deliverables: "Структура лендинга, UI-концепция, программа и адаптивные блоки.", result: "Подготовлен заметный промо-концепт для события." },
+        prostolaser: { title: "Prosto Laser — редизайн сайта клиники", role: "Редизайн сайта", challenge: "Сделать предложение клиники понятнее и вывести запись на первый план.", solution: "Обновлены иерархия, типографика, карточка предложения и основные действия.", deliverables: "Аудит главной страницы, новая структура и визуальная концепция.", result: "Создан светлый и понятный вариант главной страницы клиники." },
+        phonelab: { title: "PhoneLab — интернет-магазин техники", role: "Дизайн интернет-магазина", challenge: "Показать большой ассортимент без перегруженной навигации.", solution: "Категории, ключевой товар и переход в каталог собраны в понятную модульную композицию.", deliverables: "Главная страница, каталог, продуктовые блоки и адаптивная структура.", result: "Подготовлена цельная концепция магазина для дальнейшей сборки." }
+      },
+      en: {
+        aura: { title: "AURA — Peer Support Platform", role: "UX/UI concept", challenge: "Make a peer-support service feel calm, clear, and visually safe.", solution: "A clear service structure, soft visual system, and consistent interaction flows were created.", deliverables: "Structure, key screens, UI concept, and responsive prototype.", result: "A cohesive digital service concept ready for further development." },
+        lapadoctor: { title: "LapaDoctor — Veterinary Service Website", role: "Web design • Tilda", challenge: "Make booking a home veterinarian simple and explain the service immediately.", solution: "A clear homepage with a prominent action, calm presentation, and responsive structure was designed.", deliverables: "Structure, visual concept, responsive layouts, and preparation for a Tilda build.", result: "A website concept that guides visitors consistently toward booking." },
+        flux: { title: "FLUX AI — Mobile Interface", role: "Mobile interface concept", challenge: "Make image generation easy to understand on a small screen.", solution: "The main flow centers on a large preview, short prompt, and prominent action button.", deliverables: "Mobile structure, key screen, visual system, and generation flow.", result: "A cohesive mobile product concept." },
+        kultur: { title: "KULTUR — Japan Editorial Project", role: "Web design concept", challenge: "Convey the atmosphere of travel in Japan while keeping the page easy to read.", solution: "Large imagery, calm typography, and spacious composition create the visual rhythm.", deliverables: "Homepage, visual concept, and direction for responsive layouts.", result: "An expressive editorial website concept." },
+        yandexpet: { title: "Yandex Pet Day — Conference Promo Site", role: "Event promo website", challenge: "Present the schedule and personality of a pet-tech conference at a glance.", solution: "The information is organized into a bold modular grid with large content blocks.", deliverables: "Landing structure, UI concept, program blocks, and responsive direction.", result: "A distinctive promo concept for the event." },
+        prostolaser: { title: "Prosto Laser — Clinic Website Redesign", role: "Website redesign", challenge: "Clarify the clinic offer and make booking the primary action.", solution: "The hierarchy, typography, offer card, and key actions were redesigned.", deliverables: "Homepage review, new structure, and visual concept.", result: "A light and clear homepage direction for the clinic." },
+        phonelab: { title: "PhoneLab — Technology Online Store", role: "Online store design", challenge: "Present a broad product range without overwhelming navigation.", solution: "Categories, the featured product, and catalog entry points are organized into a clear modular composition.", deliverables: "Homepage, catalog, product blocks, and responsive structure.", result: "A cohesive store concept ready for further build work." }
+      }
+    };
+
     function openModal(id) {
-      const data = caseData[id];
+      const data = caseDataSafe[currentLang]?.[id] || caseDataSafe.ru[id];
       if (!data) return;
       const container = document.getElementById('modal-content');
       container.innerHTML = `
@@ -1461,24 +1707,24 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         </div>
         <div class="space-y-4 text-sm font-light text-bloom-muted leading-relaxed">
           <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Задача и контекст:</span>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_challenge}</span>
             <p>${data.challenge}</p>
           </div>
           <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Решение:</span>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_solution}</span>
             <p>${data.solution}</p>
           </div>
           <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">Что было сделано:</span>
+            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_deliverables}</span>
             <p>${data.deliverables}</p>
           </div>
           <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-white">
-            <span class="font-mono text-xs text-emerald-400 uppercase font-bold block mb-1">Результат:</span>
+            <span class="font-mono text-xs text-emerald-400 uppercase font-bold block mb-1">${i18n[currentLang].modal_result}</span>
             <p class="font-medium">${data.result}</p>
           </div>
         </div>
         <div class="pt-4 flex justify-end">
-          <a href="#contact" onclick="closeModal()" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-bold uppercase transition-all">Обсудить аналогичный проект</a>
+          <a href="#contact" onclick="closeModal()" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-bold uppercase transition-all">${i18n[currentLang].modal_cta}</a>
         </div>
       `;
       document.getElementById('case-modal').classList.remove('hidden');
@@ -1494,13 +1740,12 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     let baseDays = 10;
     let addonsPrice = 0;
     let addonsDays = 0;
-    let selectedTypeName = "Лендинг / Промо";
+    let selectedType = "landing";
 
     function setCalcOption(group, val, price, days) {
       basePrice = price;
       baseDays = days;
-      if (val === 'landing') selectedTypeName = "Лендинг / Промо";
-      if (val === 'corp') selectedTypeName = "Многостраничный сайт";
+      selectedType = val;
 
       document.querySelectorAll(`[data-group="${group}"]`).forEach(btn => {
         if (btn.getAttribute('data-val') === val) {
@@ -1528,8 +1773,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     function updateCalcResult() {
       const total = basePrice + addonsPrice;
       const days = baseDays + addonsDays;
-      document.getElementById('calc-price').innerText = total.toLocaleString('ru-RU') + ' ₽';
-      document.getElementById('calc-time').innerText = `~${days} рабочих дней`;
+      const locale = currentLang === 'en' ? 'en-US' : 'ru-RU';
+      document.getElementById('calc-price').innerText = total.toLocaleString(locale) + ' ₽';
+      document.getElementById('calc-time').innerText = `~${days} ${i18n[currentLang].calc_days}`;
     }
 
     function applyCalcToContact() {
@@ -1537,15 +1783,20 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const msgInput = document.getElementById('form-message');
       const priceText = document.getElementById('calc-price').innerText;
       const timeText = document.getElementById('calc-time').innerText;
+      const typeKeys = { landing: 'calc_landing', corp: 'calc_multipage', store: 'calc_store' };
+      const selectedTypeName = i18n[currentLang][typeKeys[selectedType]];
 
       if (serviceSelect) {
-        serviceSelect.value = "Комплексный проект под ключ";
+        serviceSelect.value = selectedType === 'corp' ? 'multipage' : selectedType;
       }
       if (msgInput) {
-        msgInput.value = `Здравствуйте! Меня интересует: ${selectedTypeName}. Оценка по калькулятору: ${priceText} (${timeText}). Хочу обсудить детали.`;
+        msgInput.value = i18n[currentLang].calc_apply_message
+          .replace('{type}', selectedTypeName)
+          .replace('{price}', priceText)
+          .replace('{time}', timeText);
       }
       window.location.hash = '#contact';
-      showToast('Параметры перенесены в форму заявки!');
+      showToast(i18n[currentLang].calc_applied);
     }
 
     function toggleFaq(id) {
@@ -1576,7 +1827,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     function updateClock() {
       const now = new Date();
       const options = { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      const timeString = now.toLocaleTimeString('ru-RU', options);
+      const timeString = now.toLocaleTimeString(currentLang === 'en' ? 'en-GB' : 'ru-RU', options);
       const clockEl = document.getElementById('live-clock');
       if (clockEl) clockEl.innerText = `${timeString} MSK`;
     }
@@ -1588,7 +1839,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const service = document.getElementById('form-service').value;
       const msg = document.getElementById('form-message').value;
 
-      showToast(`Спасибо, ${name}! Заявка отправлена. Скоро свяжусь с вами.`);
+      showToast(i18n[currentLang].form_success.replace('{name}', name));
       document.getElementById('project-form').reset();
     }
   </script>
