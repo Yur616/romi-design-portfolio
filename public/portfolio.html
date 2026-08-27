@@ -271,6 +271,15 @@
       -webkit-user-drag: none;
       background: transparent;
       filter: drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
+      -webkit-mask-image: url('/bear-look-mask-v2.png');
+      mask-image: url('/bear-look-mask-v2.png');
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      mask-mode: alpha;
     }
   </style>
 </head>
@@ -370,8 +379,8 @@
 
         <div id="bear-stage" class="bear-stage relative my-3 sm:my-4 flex items-center justify-center" aria-hidden="true">
           <div class="absolute w-44 h-36 rounded-full bg-emerald-500/10 blur-2xl"></div>
-          <video id="bear-video-scrubber" class="bear-video relative z-10" preload="auto" muted playsinline poster="/bear-look-poster.png?v=clean-2" tabindex="-1">
-            <source src="/bear-look.webm?v=clean-2" type="video/webm">
+          <video id="bear-video-scrubber" class="bear-video relative z-10" preload="auto" muted playsinline poster="/bear-look-mask-v2.png" tabindex="-1">
+            <source src="/bear-look-v2.webm" type="video/webm">
           </video>
         </div>
 
