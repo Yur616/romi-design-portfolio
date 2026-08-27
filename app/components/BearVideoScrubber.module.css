@@ -3,8 +3,8 @@
   width: min(100%, 22rem);
   aspect-ratio: 1;
   overflow: visible;
-  background: transparent;
-  contain: paint;
+  background-color: transparent;
+  isolation: auto;
 }
 
 .canvas {
@@ -13,7 +13,9 @@
   height: 100%;
   pointer-events: none;
   user-select: none;
-  filter: drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
+  mix-blend-mode: multiply;
+  filter: contrast(110%) drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
+  background-color: transparent !important;
 }
 
 .video {
