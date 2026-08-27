@@ -19,10 +19,36 @@ export function BearVideoScrubber({
   poster = "/bear-look-mask-v2.png",
 }: BearVideoScrubberProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    if (!video || !canvas || !context) return;
+
+    const silhouette = new Image();
+    let silhouetteReady = false;
+    silhouette.decoding = "async";
+    silhouette.src = poster;
+    silhouette.addEventListener("load", () => {
+      silhouetteReady = true;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(silhouette, 0, 0, canvas.width, canvas.height);
+    });
+
+    const drawCutoutFrame = () => {
+      if (!silhouetteReady || video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+        return;
+      }
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.globalCompositeOperation = "source-over";
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      context.globalCompositeOperation = "destination-in";
+      context.drawImage(silhouette, 0, 0, canvas.width, canvas.height);
+      context.globalCompositeOperation = "source-over";
+    };
 
     const touchDevice =
       navigator.maxTouchPoints > 0 ||
@@ -48,7 +74,15 @@ export function BearVideoScrubber({
         video.addEventListener("canplay", startMobilePlayback, { once: true });
       }
 
+      let mobileAnimationFrame = 0;
+      const drawMobileFrame = () => {
+        drawCutoutFrame();
+        mobileAnimationFrame = window.requestAnimationFrame(drawMobileFrame);
+      };
+      mobileAnimationFrame = window.requestAnimationFrame(drawMobileFrame);
+
       return () => {
+        window.cancelAnimationFrame(mobileAnimationFrame);
         video.removeEventListener("canplay", startMobilePlayback);
         video.pause();
       };
@@ -99,6 +133,7 @@ export function BearVideoScrubber({
         if (!video.seeking && Math.abs(video.currentTime - smoothTime) > 1 / 60) {
           video.currentTime = smoothTime;
         }
+        drawCutoutFrame();
       }
 
       animationFrame = window.requestAnimationFrame(animate);
@@ -121,12 +156,14 @@ export function BearVideoScrubber({
       document.documentElement.removeEventListener("mouseleave", returnToNeutralFrame);
       window.removeEventListener("blur", returnToNeutralFrame);
       video.removeEventListener("loadedmetadata", setInitialFrame);
+      silhouette.replaceWith();
       video.pause();
     };
-  }, []);
+  }, [poster]);
 
   return (
     <div className={`${styles.frame} ${className}`.trim()} aria-hidden="true">
+      <canvas ref={canvasRef} className={styles.canvas} width={720} height={720} />
       <video
         ref={videoRef}
         className={styles.video}
