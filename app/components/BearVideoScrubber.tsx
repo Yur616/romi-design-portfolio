@@ -15,8 +15,8 @@ const lerp = (from: number, to: number, amount: number) =>
 
 export function BearVideoScrubber({
   className = "",
-  src = "/bear-look.webm",
-  poster = "/bear-look-poster.png",
+  src = "/bear-look.webm?v=clean-2",
+  poster = "/bear-look-poster.png?v=clean-2",
 }: BearVideoScrubberProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
