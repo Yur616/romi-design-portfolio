@@ -357,6 +357,11 @@
     </div>
   </header>
 
+  <a id="floating-cta" href="#contact" class="fixed z-40 right-4 sm:right-6 bottom-4 sm:bottom-6 inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm shadow-2xl shadow-emerald-950/60 border border-emerald-300/30 opacity-0 translate-y-4 pointer-events-none transition-all duration-300" aria-hidden="true">
+    <span data-i18n="floating_cta">Обсудить проект</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17 17 7M17 7H7m10 0v10"></path></svg>
+  </a>
+
   <main>
     <section id="top" class="relative min-h-[100svh] flex items-center pt-24 pb-8 px-6 overflow-hidden">
       <div class="max-w-6xl w-full mx-auto flex flex-col items-center text-center">
@@ -424,7 +429,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="product" onclick="openModal('aura')">
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="product" onclick="openModal('aura')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'aura')">
             <div>
               <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-green-950/60 via-slate-900 to-lime-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
                 <div class="w-full h-full bg-slate-950/80 rounded-lg border border-green-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
@@ -474,7 +479,7 @@
             </div>
           </div>
 
-          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('lapadoctor')">
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('lapadoctor')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'lapadoctor')">
             <div>
               <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-emerald-950/60 via-slate-900 to-teal-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
                 <div class="w-full h-full bg-slate-950/80 rounded-lg border border-emerald-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
@@ -523,7 +528,7 @@
             </div>
           </div>
 
-          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="ai" onclick="openModal('flux')">
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="ai" onclick="openModal('flux')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'flux')">
             <div>
               <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-lime-950/60 via-slate-900 to-emerald-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
                 <div class="w-full h-full bg-slate-950/80 rounded-lg border border-lime-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
@@ -573,7 +578,7 @@
             </div>
           </div>
 
-          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('kultur')">
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('kultur')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'kultur')">
             <div>
               <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-amber-950/60 via-slate-900 to-red-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6">
                 <div class="w-full h-full bg-slate-950/80 rounded-lg border border-amber-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500">
@@ -619,13 +624,13 @@
             </div>
           </div>
 <!-- PROJECT 5: YANDEX PET DAY -->
-<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('yandexpet')">
+<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('yandexpet')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'yandexpet')">
 <div><div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-yellow-900/60 via-slate-900 to-amber-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6"><div class="w-full h-full bg-slate-950/80 rounded-lg border border-yellow-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500"><div class="flex items-center justify-between border-b border-white/10 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="font-display font-bold text-xs text-white">Yandex Pet Day</span></div><span class="tag-badge text-yellow-400 bg-yellow-500/10 px-2 py-0.5 rounded">Event Promo</span></div><div class="my-auto"><div class="h-2 w-3/4 bg-yellow-500/20 rounded mb-2"></div><div class="h-2 w-1/2 bg-white/5 rounded"></div></div><div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted"><span>IT Conference</span><span>Interactive Grid</span></div></div></div><div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-yellow-400 uppercase tracking-wider">05 // WEB DESIGN &amp; EVENT</span><span>2026</span></div><h3 class="font-display font-bold text-2xl text-white group-hover:text-yellow-400 transition-colors mb-3">Yandex Pet Day — Промо-сайт конференции</h3><p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p5_desc">Яркий событийный лендинг для IT-конференции с интерактивной программой, интеграцией билетного сервиса и анимированными 3D-персонажами.</p></div><div class="pt-4 border-t border-white/5 flex items-center justify-between"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Event Web</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Animations</span></div><span class="p-2 rounded-lg bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-600 group-hover:text-white transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span></div></div>
 <!-- PROJECT 6: PROSTO LASER -->
-<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="product" onclick="openModal('prostolaser')">
+<div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="product" onclick="openModal('prostolaser')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'prostolaser')">
 <div><div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-rose-950/60 via-slate-900 to-red-950/40 border border-white/5 relative overflow-hidden mb-6 flex items-center justify-center p-6"><div class="w-full h-full bg-slate-950/80 rounded-lg border border-rose-500/20 p-4 flex flex-col justify-between shadow-2xl group-hover:scale-105 transition-transform duration-500"><div class="flex items-center justify-between border-b border-white/10 pb-2"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span><span class="font-display font-bold text-xs text-white">Prosto Laser</span></div><span class="tag-badge text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">Medtech UI</span></div><div class="my-auto"><div class="h-2 w-full bg-rose-500/10 rounded mb-2"></div><div class="h-8 w-8 rounded-full border-2 border-rose-500/30 mx-auto animate-pulse"></div></div><div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted"><span>Commercial</span><span>Booking System</span></div></div></div><div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-rose-400 uppercase tracking-wider">06 // REDESIGN &amp; MEDTECH</span><span>2026</span></div><h3 class="font-display font-bold text-2xl text-white group-hover:text-rose-400 transition-colors mb-3">Prosto Laser — Редизайн сети клиник</h3><p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p6_desc">Масштабный редизайн коммерческого интерфейса и системы записи для сети студий лазерной эпиляции: от UX-аудита до внедрения новой эстетики.</p></div><div class="pt-4 border-t border-white/5 flex items-center justify-between"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Commercial</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Redesign</span></div><span class="p-2 rounded-lg bg-rose-500/10 text-rose-400 group-hover:bg-rose-600 group-hover:text-white transition-all"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span></div></div>
 
-          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer" data-category="web" onclick="openModal('phonelab')">
+          <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('phonelab')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'phonelab')">
             <div>
               <div class="aspect-[16/10] rounded-xl border border-white/5 relative overflow-hidden mb-6 group-hover:scale-[1.01] transition-transform duration-500"></div>
               <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3">
@@ -666,6 +671,20 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start max-w-6xl mx-auto">
           
           <div class="lg:col-span-6">
+            <div class="glass-card rounded-2xl p-5 mb-8 flex items-center gap-4">
+              <div class="relative w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-700 p-[2px] shadow-lg shadow-emerald-900/30">
+                <div class="w-full h-full rounded-[14px] bg-bloom-bg flex items-center justify-center font-display font-black text-2xl text-white" aria-label="Место для фотографии Юрия Жильникова">ЮЖ</div>
+                <span class="absolute -right-1 -bottom-1 w-5 h-5 rounded-full bg-emerald-400 border-4 border-bloom-card" aria-hidden="true"></span>
+              </div>
+              <div>
+                <div class="font-display font-bold text-lg text-white">Юрий Жильников</div>
+                <div class="text-sm text-bloom-muted" data-i18n="about_role">Веб-дизайнер • Санкт-Петербург</div>
+                <div class="inline-flex items-center gap-2 mt-2 text-xs font-mono text-emerald-400">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span data-i18n="about_available">Открыт к новым проектам</span>
+                </div>
+              </div>
+            </div>
             <div class="space-y-5 text-bloom-muted leading-relaxed font-light text-base">
               <p data-i18n="about_p1">
                 Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.
@@ -738,6 +757,28 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <section id="proof" class="py-20 px-6 border-t border-bloom-border">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-4">
+          <span>PROJECTS // PROOF</span>
+          <span class="w-8 h-[1px] bg-emerald-500/40"></span>
+        </div>
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-center mb-4" data-i18n="proof_heading">Проекты и отзывы</h2>
+        <p class="text-bloom-muted text-sm max-w-2xl mx-auto text-center font-light mb-10" data-i18n="proof_subheading">Показываю работы из портфолио. Отзывы публикую только с согласия клиентов — без выдуманных цитат и цифр.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" aria-label="Проекты из портфолио">
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">AURA</div>
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">ЛапаДоктор</div>
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">FLUX AI</div>
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">KULTUR</div>
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">Yandex Pet Day</div>
+          <div class="glass-card rounded-xl min-h-20 px-4 flex items-center justify-center font-display font-bold text-white text-center">Prosto Laser</div>
+        </div>
+
+        <div id="reviews-grid" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite"></div>
       </div>
     </section>
 
@@ -860,32 +901,40 @@
           <div>
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_scope_label">2. Дополнительные опции:</label>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
-                <input type="checkbox" onchange="toggleAddon('dev', 8000, 4, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
-                <div>
+              <div class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 hover:border-white/20 transition-all">
+                <input id="addon-tilda" type="checkbox" onchange="toggleAddon('dev', 8000, 4, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
+                <label for="addon-tilda" class="flex-1 cursor-pointer">
                   <div class="text-sm font-semibold text-white" data-i18n="calc_tilda_build">Сборка на Tilda</div>
                   <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_tilda_build_meta">+8 000 ₽ • +4 дня</div>
+                </label>
+                <div class="relative group/tooltip shrink-0">
+                  <button type="button" class="w-7 h-7 rounded-full border border-emerald-400/40 text-emerald-300 text-xs font-bold hover:bg-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Подробнее о сборке на Tilda">?</button>
+                  <div role="tooltip" class="absolute z-30 bottom-full right-0 mb-3 w-64 rounded-xl bg-slate-950 border border-emerald-500/30 p-3 text-xs text-bloom-muted leading-relaxed shadow-2xl opacity-0 translate-y-1 pointer-events-none transition-all group-hover/tooltip:opacity-100 group-hover/tooltip:translate-y-0 group-focus-within/tooltip:opacity-100 group-focus-within/tooltip:translate-y-0" data-i18n="calc_tilda_tip">Перенесу утверждённый дизайн в Zero Block, настрою адаптив, формы и базовые подключения — сайт будет готов к публикации.</div>
                 </div>
-              </label>
-              <label class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 cursor-pointer hover:border-white/20 transition-all">
-                <input type="checkbox" onchange="toggleAddon('branding', 10000, 3, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
-                <div>
+              </div>
+              <div class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 hover:border-white/20 transition-all">
+                <input id="addon-branding" type="checkbox" onchange="toggleAddon('branding', 10000, 3, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
+                <label for="addon-branding" class="flex-1 cursor-pointer">
                   <div class="text-sm font-semibold text-white" data-i18n="calc_branding">Фирменный стиль и логотип</div>
                   <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_branding_meta">+10 000 ₽ • +3 дня</div>
+                </label>
+                <div class="relative group/tooltip shrink-0">
+                  <button type="button" class="w-7 h-7 rounded-full border border-emerald-400/40 text-emerald-300 text-xs font-bold hover:bg-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Подробнее о фирменном стиле">?</button>
+                  <div role="tooltip" class="absolute z-30 bottom-full right-0 mb-3 w-64 rounded-xl bg-slate-950 border border-emerald-500/30 p-3 text-xs text-bloom-muted leading-relaxed shadow-2xl opacity-0 translate-y-1 pointer-events-none transition-all group-hover/tooltip:opacity-100 group-hover/tooltip:translate-y-0 group-focus-within/tooltip:opacity-100 group-focus-within/tooltip:translate-y-0" data-i18n="calc_branding_tip">Подберу базовую визуальную систему: цвета, шрифты и знак, чтобы сайт выглядел цельно и узнаваемо.</div>
                 </div>
-              </label>
+              </div>
             </div>
           </div>
 
-          <div class="p-6 rounded-xl bg-emerald-600/10 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="sticky bottom-4 z-20 p-6 rounded-2xl bg-emerald-600 border border-emerald-300/60 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl shadow-emerald-950/50" aria-live="polite">
             <div>
-              <div class="text-xs font-mono text-emerald-400 uppercase tracking-wide" data-i18n="calc_estimate">Предварительная оценка:</div>
+              <div class="text-xs font-mono text-emerald-50 uppercase tracking-wide" data-i18n="calc_estimate">Предварительная оценка:</div>
               <div class="flex items-baseline gap-4 mt-1">
                 <span id="calc-price" class="font-display font-black text-2xl sm:text-3xl text-white">от 18 000 ₽</span>
-                <span id="calc-time" class="font-mono text-sm text-bloom-muted">~8 рабочих дней</span>
+                <span id="calc-time" class="font-mono text-sm text-emerald-50">~8 рабочих дней</span>
               </div>
             </div>
-            <button onclick="applyCalcToContact()" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-md">
+            <button onclick="applyCalcToContact()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-lg">
               <span data-i18n="calc_apply">Применить к заявке ↓</span>
             </button>
           </div>
@@ -1020,14 +1069,20 @@
                 </select>
               </div>
 
+              <div id="form-calc-summary-wrap" class="hidden">
+                <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_calc_summary">Расчёт из калькулятора</label>
+                <input type="text" id="form-calc-summary" readonly class="w-full px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 text-sm font-mono focus:outline-none">
+              </div>
+
               <div>
                 <label class="block text-xs font-mono text-bloom-muted mb-2" data-i18n="form_message">Описание задачи и пожелания</label>
                 <textarea id="form-message" rows="4" placeholder="Расскажите о проекте, целях и сроках..." data-i18n-placeholder="form_message_placeholder" class="w-full px-4 py-3 rounded-xl bg-bloom-bg border border-bloom-border text-white placeholder-bloom-muted/50 text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
               </div>
 
               <button type="submit" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50">
-                <span data-i18n="form_submit">Отправить заявку</span>
+                <span data-i18n="form_submit">Обсудить проект</span>
               </button>
+              <p class="text-center text-xs text-bloom-muted font-mono" data-i18n="form_response_time">Отвечу в Telegram или по почте в течение 2 часов</p>
             </form>
           </div>
 
@@ -1255,6 +1310,11 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       about_p1: "Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.",
       about_p2: "Создаю понятные сайты для небольших бизнесов и личных брендов: от структуры и прототипа до дизайна и сборки на Tilda.",
       about_p3: "Берусь за лендинги, многостраничные сайты, редизайн и небольшие интернет-магазины. В работе ценю ясную подачу, аккуратный визуал и удобство на разных экранах.",
+      about_role: "Веб-дизайнер • Санкт-Петербург",
+      about_available: "Открыт к новым проектам",
+      proof_heading: "Проекты и отзывы",
+      proof_subheading: "Показываю работы из портфолио. Отзывы публикую только с согласия клиентов — без выдуманных цитат и цифр.",
+      floating_cta: "Обсудить проект",
       skills_title: "Что я делаю:",
       skill_web_design: "Веб-дизайн",
       skill_prototypes: "Прототипы",
@@ -1295,8 +1355,10 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       calc_store_meta: "от 40 000 ₽ • 18–25 дней",
       calc_tilda_build: "Сборка на Tilda",
       calc_tilda_build_meta: "+8 000 ₽ • +4 дня",
+      calc_tilda_tip: "Перенесу утверждённый дизайн в Zero Block, настрою адаптив, формы и базовые подключения — сайт будет готов к публикации.",
       calc_branding: "Фирменный стиль и логотип",
       calc_branding_meta: "+10 000 ₽ • +3 дня",
+      calc_branding_tip: "Подберу базовую визуальную систему: цвета, шрифты и знак, чтобы сайт выглядел цельно и узнаваемо.",
       calc_note: "Если бюджет ограничен, подберём подходящий объём работ.",
       calc_from: "от ",
       calc_estimate: "Предварительная оценка:",
@@ -1316,6 +1378,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       form_option_store: "Интернет-магазин на Tilda",
       form_option_redesign: "Редизайн сайта",
       form_option_tilda: "Дизайн и сборка на Tilda",
+      form_calc_summary: "Расчёт из калькулятора",
+      form_submit: "Обсудить проект",
+      form_response_time: "Отвечу в Telegram или по почте в течение 2 часов",
       footer_rights: "© 2026 Юрий Жильников. Все права защищены.",
       footer_top: "↑ Наверх",
       email_copied: "Email скопирован!",
@@ -1324,7 +1389,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       modal_deliverables: "Что сделано:",
       modal_result: "Итог:",
       modal_cta: "Обсудить похожий проект",
-      calc_apply_message: "Здравствуйте! Меня интересует: {type}. Оценка по калькулятору: {price} ({time}). Хочу обсудить детали.",
+      calc_apply_message: "Здравствуйте! Меня интересует: {type}. Дополнительные опции: {addons}. Оценка по калькулятору: {price} ({time}). Хочу обсудить детали.",
+      calc_no_addons: "без дополнительных опций",
       calc_applied: "Параметры перенесены в форму заявки!",
       form_success: "Спасибо, {name}! Заявка отправлена. Скоро свяжусь с вами."
     });
@@ -1363,6 +1429,11 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       about_p1: "My name is Yuriy Zhilnikov. I am a web designer based in Saint Petersburg.",
       about_p2: "I create clear websites for small businesses and personal brands, from structure and prototype to design and Tilda build.",
       about_p3: "I take on landing pages, multi-page websites, redesigns, and small online stores. I value clear communication, polished visuals, and usability across screen sizes.",
+      about_role: "Web Designer • Saint Petersburg",
+      about_available: "Available for new projects",
+      proof_heading: "Projects and Testimonials",
+      proof_subheading: "I show work from my portfolio and publish testimonials only with client approval — no invented quotes or numbers.",
+      floating_cta: "Discuss a project",
       skills_title: "What I do:",
       skill_web_design: "Web design",
       skill_prototypes: "Prototypes",
@@ -1407,8 +1478,10 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       calc_store_meta: "from ₽40,000 • 18–25 days",
       calc_tilda_build: "Tilda build",
       calc_tilda_build_meta: "+₽8,000 • +4 days",
+      calc_tilda_tip: "I will transfer the approved design to Zero Block, configure responsive layouts, forms, and basic connections so the site is ready to publish.",
       calc_branding: "Visual identity and logo",
       calc_branding_meta: "+₽10,000 • +3 days",
+      calc_branding_tip: "I will create a basic visual system with colors, typography, and a mark so the website feels consistent and recognizable.",
       calc_note: "If the budget is limited, we can adjust the scope to fit.",
       calc_from: "from ",
       calc_estimate: "Preliminary estimate:",
@@ -1428,6 +1501,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       form_option_store: "Tilda online store",
       form_option_redesign: "Website redesign",
       form_option_tilda: "Design and Tilda build",
+      form_calc_summary: "Calculator estimate",
+      form_submit: "Discuss a Project",
+      form_response_time: "I will reply via Telegram or email within 2 hours",
       footer_rights: "© 2026 Yuriy Zhilnikov. All rights reserved.",
       footer_top: "↑ Back to top",
       email_copied: "Email copied!",
@@ -1436,7 +1512,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       modal_deliverables: "What was done:",
       modal_result: "Outcome:",
       modal_cta: "Discuss a similar project",
-      calc_apply_message: "Hello! I am interested in: {type}. Calculator estimate: {price} ({time}). I would like to discuss the details.",
+      calc_apply_message: "Hello! I am interested in: {type}. Additional options: {addons}. Calculator estimate: {price} ({time}). I would like to discuss the details.",
+      calc_no_addons: "no additional options",
       calc_applied: "The estimate has been added to the brief!",
       form_success: "Thank you, {name}! Your request has been sent. I will contact you soon."
     });
@@ -1503,7 +1580,66 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       updateClock();
       setInterval(updateClock, 1000);
       initBearVideoScrubber();
+      initFloatingCta();
+      renderReviews();
     });
+
+    // Реальные отзывы добавляются только после согласования; пустой контейнер не показывается.
+    const approvedReviews = [];
+
+    function renderReviews() {
+      const container = document.getElementById('reviews-grid');
+      if (!container || approvedReviews.length === 0) return;
+
+      container.innerHTML = approvedReviews.map(review => `
+        <article class="glass-card rounded-2xl p-6 flex flex-col justify-between min-h-56">
+          <blockquote class="text-white leading-relaxed">“${review.quote}”</blockquote>
+          <footer class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-4">
+            <div>
+              <div class="font-display font-bold text-white">${review.author}</div>
+              <div class="text-xs text-bloom-muted">${review.role}</div>
+            </div>
+            <div class="text-xs font-mono text-emerald-400">${review.project}</div>
+          </footer>
+        </article>
+      `).join('');
+      container.classList.remove('hidden');
+    }
+
+    // CTA появляется после Hero и скрывается возле формы, чтобы не дублировать действие.
+    function initFloatingCta() {
+      const hero = document.getElementById('top');
+      const calculator = document.getElementById('calculator');
+      const contactSection = document.getElementById('contact');
+      const cta = document.getElementById('floating-cta');
+      if (!hero || !calculator || !contactSection || !cta) return;
+
+      let heroVisible = true;
+      let calculatorVisible = false;
+      let contactVisible = false;
+      const updateVisibility = () => {
+        const shouldShow = !heroVisible && !calculatorVisible && !contactVisible;
+        cta.classList.toggle('opacity-0', !shouldShow);
+        cta.classList.toggle('translate-y-4', !shouldShow);
+        cta.classList.toggle('pointer-events-none', !shouldShow);
+        cta.setAttribute('aria-hidden', String(!shouldShow));
+      };
+
+      new IntersectionObserver(([entry]) => {
+        heroVisible = entry.isIntersecting;
+        updateVisibility();
+      }, { threshold: 0.08 }).observe(hero);
+
+      new IntersectionObserver(([entry]) => {
+        calculatorVisible = entry.isIntersecting;
+        updateVisibility();
+      }, { threshold: 0.15 }).observe(calculator);
+
+      new IntersectionObserver(([entry]) => {
+        contactVisible = entry.isIntersecting;
+        updateVisibility();
+      }, { threshold: 0.15 }).observe(contactSection);
+    }
 
     function initBearVideoScrubber() {
       const video = document.getElementById('bear-video-scrubber');
@@ -1729,6 +1865,13 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       document.getElementById('case-modal').classList.add('flex');
     }
 
+    // Делает всю карточку проекта доступной не только мышью, но и клавиатурой.
+    function handleProjectCardKey(event, id) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openModal(id);
+    }
+
     function closeModal() {
       document.getElementById('case-modal').classList.add('hidden');
       document.getElementById('case-modal').classList.remove('flex');
@@ -1739,6 +1882,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     let addonsPrice = 0;
     let addonsDays = 0;
     let selectedType = "landing";
+    const selectedAddons = new Set();
 
     function setCalcOption(group, val, price, days) {
       basePrice = price;
@@ -1757,13 +1901,16 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       updateCalcResult();
     }
 
+    // Синхронизирует выбранные дополнения с итогом и будущей заявкой.
     function toggleAddon(addon, price, days, isChecked) {
       if (isChecked) {
         addonsPrice += price;
         addonsDays += days;
+        selectedAddons.add(addon);
       } else {
         addonsPrice -= price;
         addonsDays -= days;
+        selectedAddons.delete(addon);
       }
       updateCalcResult();
     }
@@ -1776,13 +1923,20 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       document.getElementById('calc-time').innerText = `~${days} ${i18n[currentLang].calc_days}`;
     }
 
+    // Переносит тип проекта, дополнения, цену и срок в видимые поля формы.
     function applyCalcToContact() {
       const serviceSelect = document.getElementById('form-service');
       const msgInput = document.getElementById('form-message');
+      const summaryWrap = document.getElementById('form-calc-summary-wrap');
+      const summaryInput = document.getElementById('form-calc-summary');
       const priceText = document.getElementById('calc-price').innerText;
       const timeText = document.getElementById('calc-time').innerText;
       const typeKeys = { landing: 'calc_landing', corp: 'calc_multipage', store: 'calc_store' };
+      const addonKeys = { dev: 'calc_tilda_build', branding: 'calc_branding' };
       const selectedTypeName = i18n[currentLang][typeKeys[selectedType]];
+      const addonsText = [...selectedAddons]
+        .map(addon => i18n[currentLang][addonKeys[addon]])
+        .join(', ') || i18n[currentLang].calc_no_addons;
 
       if (serviceSelect) {
         serviceSelect.value = selectedType === 'corp' ? 'multipage' : selectedType;
@@ -1790,10 +1944,16 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       if (msgInput) {
         msgInput.value = i18n[currentLang].calc_apply_message
           .replace('{type}', selectedTypeName)
+          .replace('{addons}', addonsText)
           .replace('{price}', priceText)
           .replace('{time}', timeText);
       }
+      if (summaryWrap && summaryInput) {
+        summaryInput.value = `${selectedTypeName} • ${addonsText} • ${priceText} • ${timeText}`;
+        summaryWrap.classList.remove('hidden');
+      }
       window.location.hash = '#contact';
+      setTimeout(() => document.getElementById('form-contact')?.focus(), 450);
       showToast(i18n[currentLang].calc_applied);
     }
 
@@ -1839,6 +1999,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
       showToast(i18n[currentLang].form_success.replace('{name}', name));
       document.getElementById('project-form').reset();
+      document.getElementById('form-calc-summary-wrap')?.classList.add('hidden');
     }
   </script>
 </body>
