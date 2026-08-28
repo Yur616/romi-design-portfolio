@@ -273,28 +273,50 @@
       background-image: url('/cases/phonelab.webp') !important;
     }
     .bear-stage {
-      height: clamp(8.75rem, 21vh, 11.25rem);
-      isolation: auto;
+      height: clamp(11rem, 25vh, 14.5rem);
+      isolation: isolate;
       background-color: transparent;
     }
-    .bear-canvas {
-      display: block;
-      width: min(42vw, 11.25rem);
-      height: 100%;
+    .bear-circle {
+      position: relative;
+      width: clamp(10.5rem, 22vw, 14rem);
       aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid rgba(112, 156, 125, 0.24);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 38% 26%, rgba(255, 255, 255, 0.72), transparent 34%),
+        linear-gradient(145deg, #e4f4e8 0%, #cce9d3 58%, #b8ddc1 100%);
+      box-shadow:
+        0 22px 55px -32px rgba(55, 88, 65, 0.58),
+        inset 0 0 0 10px rgba(255, 255, 255, 0.22);
+    }
+    .bear-circle::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .bear-video-element {
+      display: block;
+      width: 112%;
+      height: 112%;
+      margin: -6%;
+      object-fit: cover;
+      object-position: center;
       pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
       mix-blend-mode: multiply;
-      filter: contrast(110%) drop-shadow(0 18px 18px rgba(55, 88, 65, 0.18));
+      filter: contrast(108%) saturate(96%);
       background-color: transparent !important;
     }
-    .bear-video-source {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
+    @media (max-width: 640px) {
+      .bear-stage { height: 10.75rem; }
+      .bear-circle { width: 10.25rem; }
     }
   </style>
 </head>
@@ -391,11 +413,12 @@
         </div>
 
         <div id="bear-stage" class="bear-stage relative my-3 sm:my-4 flex items-center justify-center" aria-hidden="true">
-          <div class="absolute w-44 h-36 rounded-full bg-emerald-500/10 blur-2xl"></div>
-          <canvas id="bear-canvas" class="bear-canvas relative z-10" width="720" height="720"></canvas>
-          <video id="bear-video-scrubber" class="bear-video-source" preload="auto" muted playsinline tabindex="-1">
-            <source src="/bear-look-v2.webm" type="video/webm">
-          </video>
+          <div class="absolute w-52 h-44 rounded-full bg-emerald-400/15 blur-3xl"></div>
+          <div class="bear-circle relative z-10">
+            <video id="bear-video-scrubber" class="bear-video-element" preload="auto" muted playsinline tabindex="-1">
+              <source src="/bear-circle.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-4xl">
@@ -1619,29 +1642,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
     function initBearVideoScrubber() {
       const video = document.getElementById('bear-video-scrubber');
-      const canvas = document.getElementById('bear-canvas');
-      const context = canvas?.getContext('2d');
-      if (!video || !canvas || !context) return;
-
-      const silhouette = new Image();
-      let silhouetteReady = false;
-      silhouette.decoding = 'async';
-      silhouette.src = '/bear-look-mask-v2.png';
-      silhouette.addEventListener('load', () => {
-        silhouetteReady = true;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(silhouette, 0, 0, canvas.width, canvas.height);
-      });
-
-      const drawCutoutFrame = () => {
-        if (!silhouetteReady || video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.globalCompositeOperation = 'source-over';
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        context.globalCompositeOperation = 'destination-in';
-        context.drawImage(silhouette, 0, 0, canvas.width, canvas.height);
-        context.globalCompositeOperation = 'source-over';
-      };
+      if (!video) return;
 
       const isTouchDevice = navigator.maxTouchPoints > 0 || window.matchMedia('(hover: none), (pointer: coarse)').matches;
       video.muted = true;
@@ -1653,11 +1654,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         const playMobileLoop = () => video.play().catch(() => {});
         if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) playMobileLoop();
         else video.addEventListener('canplay', playMobileLoop, { once: true });
-        const drawMobileFrame = () => {
-          drawCutoutFrame();
-          window.requestAnimationFrame(drawMobileFrame);
-        };
-        window.requestAnimationFrame(drawMobileFrame);
         return;
       }
 
@@ -1690,7 +1686,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
           if (!video.seeking && Math.abs(video.currentTime - smoothTime) > 1 / 60) {
             video.currentTime = smoothTime;
           }
-          drawCutoutFrame();
         }
         window.requestAnimationFrame(animate);
       };
