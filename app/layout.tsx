@@ -31,22 +31,22 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s · Юрий Жильников",
     },
     description:
-      "Портфолио Юрия Жильникова: лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.",
+      "Портфолио Юрия Жильникова: лендинги, многостраничные сайты, редизайн и сборка на Tilda.",
     icons: {
       icon: "/favicon.png",
       shortcut: "/favicon.png",
     },
     openGraph: {
       title: "Юрий Жильников — веб-дизайн и сайты на Tilda",
-      description: "Лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.",
-      images: [{ url: `${origin}/og.png`, width: 1729, height: 910 }],
+      description: "Лендинги, многостраничные сайты, редизайн и сборка на Tilda.",
+      images: [{ url: `${origin}/og.png`, width: 1672, height: 941 }],
       locale: "ru_RU",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: "Юрий Жильников — веб-дизайн и сайты на Tilda",
-      description: "Лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.",
+      description: "Лендинги, многостраничные сайты, редизайн и сборка на Tilda.",
       images: [`${origin}/og.png`],
     },
   };
