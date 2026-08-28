@@ -184,6 +184,10 @@ img { display: block; max-width: 100%; }
   background: var(--project-bg);
 }
 .gallery-item--dark { background: #111018; }
+.gallery-item--mobile {
+  width: min(100%, 420px);
+  justify-self: center;
+}
 .gallery-item img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 22px 54px -38px rgba(9, 30, 16, 0.7); }
 .gallery-grid--phones .gallery-item img { border-radius: 24px; }
 .gallery-item figcaption { padding: 16px 4px 2px; color: var(--muted); font-size: 13px; line-height: 1.5; }
@@ -261,6 +265,7 @@ img { display: block; max-width: 100%; }
   .case-cover__window { border-radius: 12px; }
   .gallery-grid--phones { grid-template-columns: 1fr; }
   .gallery-item { border-radius: 20px; }
+  .gallery-item--mobile { width: min(100%, 300px); }
   .gallery-item img {
     width: min(100%, 260px);
     margin-inline: auto;

@@ -182,7 +182,10 @@ function renderCase() {
       <section class="case-gallery case-shell">
         <div class="case-gallery__heading"><div class="section-kicker">${t.galleryKicker}</div><h2>${t.galleryTitle}</h2><p>${t.galleryLead}</p></div>
         <div class="gallery-grid ${id === "flux" ? "gallery-grid--phones" : ""}">
-          ${project.gallery.map((item) => `<figure class="gallery-item ${project.dark ? "gallery-item--dark" : ""}"><img src="${item[0]}" alt="${pick([item[1], item[2]], lang)}" loading="lazy"><figcaption>${pick([item[1], item[2]], lang)}</figcaption></figure>`).join("")}
+          ${project.gallery.map((item) => {
+            const isMobileMockup = item[0].includes("-mobile.webp") || id === "flux";
+            return `<figure class="gallery-item ${project.dark ? "gallery-item--dark" : ""} ${isMobileMockup ? "gallery-item--mobile" : ""}"><img src="${item[0]}" alt="${pick([item[1], item[2]], lang)}" loading="lazy"><figcaption>${pick([item[1], item[2]], lang)}</figcaption></figure>`;
+          }).join("")}
         </div>
       </section>
       <section class="case-outcome case-shell">
