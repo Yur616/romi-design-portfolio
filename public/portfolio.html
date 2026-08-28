@@ -234,42 +234,43 @@
       padding: 0 !important;
       border: 0 !important;
       background-color: #f4f7f5 !important;
-      background-position: center !important;
+      background-position: center 24px !important;
       background-repeat: no-repeat !important;
-      background-size: cover !important;
+      background-size: calc(100% - 48px) auto !important;
+      box-shadow: inset 0 0 0 1px rgba(69, 112, 81, 0.08);
     }
     .project-card > div:first-child > div:first-child > div {
       display: none !important;
     }
     .project-card[onclick="openModal('aura')"] > div:first-child > div:first-child {
-      background-color: #050505 !important;
-      background-image: url('/projects/aura.png') !important;
+      background-color: #e8f1ea !important;
+      background-image: url('/cases/aura-main.webp') !important;
     }
     .project-card[onclick="openModal('lapadoctor')"] > div:first-child > div:first-child {
-      background-color: #6a4b38 !important;
-      background-image: url('/projects/lapadoctor.png') !important;
+      background-color: #edf4ee !important;
+      background-image: url('/cases/lapadoctor-desktop.webp') !important;
     }
     .project-card[onclick="openModal('flux')"] > div:first-child > div:first-child {
-      background-color: #11111d !important;
-      background-image: url('/projects/flux-generate.png') !important;
+      background-color: #eceaf6 !important;
+      background-image: url('/cases/flux-hook.webp') !important;
       background-position: center !important;
-      background-size: auto 100% !important;
+      background-size: auto 86% !important;
     }
     .project-card[onclick="openModal('kultur')"] > div:first-child > div:first-child {
-      background-color: #e8e3da !important;
-      background-image: url('/projects/kultur.png') !important;
+      background-color: #f3f0e9 !important;
+      background-image: url('/cases/kultur-desktop.webp') !important;
     }
     .project-card[onclick="openModal('yandexpet')"] > div:first-child > div:first-child {
-      background-color: #111111 !important;
-      background-image: url('/projects/yandex-pet-day.png') !important;
+      background-color: #f5f3df !important;
+      background-image: url('/cases/yandex-pet-day.webp') !important;
     }
     .project-card[onclick="openModal('prostolaser')"] > div:first-child > div:first-child {
-      background-color: #ffffff !important;
-      background-image: url('/projects/prosto-laser.png') !important;
+      background-color: #f8eef1 !important;
+      background-image: url('/cases/prosto-laser.webp') !important;
     }
     .project-card[onclick="openModal('phonelab')"] > div:first-child > div:first-child {
-      background-color: #102033 !important;
-      background-image: url('/projects/phonelab.png') !important;
+      background-color: #e9f1f3 !important;
+      background-image: url('/cases/phonelab.webp') !important;
     }
     .bear-stage {
       height: clamp(8.75rem, 21vh, 11.25rem);
@@ -1816,43 +1817,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     };
 
     function openModal(id) {
-      const data = caseDataSafe[currentLang]?.[id] || caseDataSafe.ru[id];
-      const image = projectImages[id];
-      if (!data || !image) return;
-      const container = document.getElementById('modal-content');
-      container.innerHTML = `
-        <div class="border-b border-white/10 pb-4">
-          <div class="text-xs font-mono text-emerald-400 mb-1">${data.role}</div>
-          <h3 class="font-display font-bold text-2xl text-white">${data.title}</h3>
-        </div>
-        <figure class="rounded-2xl overflow-hidden bg-bloom-bg shadow-inner">
-          <img src="${image}" alt="${data.title}" class="w-full max-h-[72vh] object-contain" loading="eager">
-        </figure>
-        <div class="space-y-4 text-sm font-light text-bloom-muted leading-relaxed">
-          <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_challenge}</span>
-            <p>${data.challenge}</p>
-          </div>
-          <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_solution}</span>
-            <p>${data.solution}</p>
-          </div>
-          <div>
-            <span class="font-mono text-xs text-white uppercase font-bold block mb-1">${i18n[currentLang].modal_deliverables}</span>
-            <p>${data.deliverables}</p>
-          </div>
-          <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-white">
-            <span class="font-mono text-xs text-emerald-400 uppercase font-bold block mb-1">${i18n[currentLang].modal_result}</span>
-            <p class="font-medium">${data.result}</p>
-          </div>
-        </div>
-        <div class="pt-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <a href="${image}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg border border-emerald-500/30 hover:border-emerald-500 text-emerald-400 text-center text-xs font-mono font-bold uppercase transition-all">${i18n[currentLang].modal_open_mockup}</a>
-          <a href="#contact" onclick="closeModal()" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-mono font-bold uppercase transition-all">${i18n[currentLang].modal_cta}</a>
-        </div>
-      `;
-      document.getElementById('case-modal').classList.remove('hidden');
-      document.getElementById('case-modal').classList.add('flex');
+      const availableCases = ['aura', 'lapadoctor', 'flux', 'kultur', 'yandexpet', 'prostolaser', 'phonelab'];
+      if (!availableCases.includes(id)) return;
+      window.location.href = `/projects/${id}.html?lang=${currentLang}`;
     }
 
     // Делает всю карточку проекта доступной не только мышью, но и клавиатурой.
