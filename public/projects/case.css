@@ -174,6 +174,7 @@ img { display: block; max-width: 100%; }
 .case-gallery__heading { max-width: 760px; margin: 0 auto 44px; text-align: center; }
 .case-gallery__heading p { margin: 16px auto 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 .gallery-grid { display: grid; gap: 28px; }
+.gallery-grid:not(.gallery-grid--phones) { max-width: 1080px; margin-inline: auto; }
 .gallery-grid--phones { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
 .gallery-item {
   margin: 0;
@@ -227,9 +228,7 @@ img { display: block; max-width: 100%; }
   .story-card { min-height: 0; }
 }
 
-@media (max-width: 560px) {
-  .case-shell,
-  .case-header__inner { width: min(100% - 24px, 1240px); }
+@media (max-width: 720px) {
   .case-header__inner {
     min-height: auto;
     padding: 12px 0;
@@ -252,11 +251,24 @@ img { display: block; max-width: 100%; }
     padding: 0 8px;
     font-size: 11px;
   }
+}
+
+@media (max-width: 560px) {
+  .case-shell,
+  .case-header__inner { width: min(100% - 24px, 1240px); }
   .case-hero { padding-top: 52px; }
   .case-cover { padding: 10px; border-radius: 20px; }
   .case-cover__window { border-radius: 12px; }
   .gallery-grid--phones { grid-template-columns: 1fr; }
   .gallery-item { border-radius: 20px; }
+  .gallery-item img {
+    width: min(100%, 260px);
+    margin-inline: auto;
+  }
+  .gallery-item figcaption {
+    width: min(100%, 260px);
+    margin-inline: auto;
+  }
   .case-footer__inner { flex-direction: column; }
 }
 
