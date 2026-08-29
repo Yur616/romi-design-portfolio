@@ -44,12 +44,15 @@ test("the all-projects page contains every case and both languages", async () =>
   assert.match(html, /language === 'en'/);
 });
 
-test("portfolio intro collapses the full-screen bear into the hero mascot", async () => {
+test("editorial preloader exits safely and does not block deep links", async () => {
   const html = await readFile(new URL("../public/portfolio.html", import.meta.url), "utf8");
 
-  assert.match(html, /id="bear-intro"/);
-  assert.match(html, /function initBearIntro\(\)/);
-  assert.match(html, /window\.setTimeout\(collapseIntoMascot, prefersReducedMotion \? 180 : 2000\)/);
-  assert.match(html, /targetRect\.width \/ sourceRect\.width/);
-  assert.match(html, /targetRect\.height \/ sourceRect\.height/);
+  assert.match(html, /id="site-preloader"/);
+  assert.match(html, /ЮРИЙ ЖИЛЬНИКОВ/);
+  assert.match(html, /Product &amp; Web Designer/);
+  assert.match(html, /cubic-bezier\(0\.19, 1, 0\.22, 1\)/);
+  assert.match(html, /window\.location\.hash !== '#top'/);
+  assert.match(html, /loadElapsed > 3000/);
+  assert.match(html, /window\.setTimeout\(hideImmediately, 3400\)/);
+  assert.match(html, /preloader\.hidden = true/);
 });
