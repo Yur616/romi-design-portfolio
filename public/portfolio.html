@@ -282,23 +282,18 @@
       width: clamp(10.5rem, 22vw, 14rem);
       aspect-ratio: 1;
       overflow: hidden;
-      border: 1px solid rgba(112, 156, 125, 0.24);
+      transform: translateZ(0);
+      will-change: transform;
+      backface-visibility: hidden;
+      border: 0;
       border-radius: 50%;
       background:
         radial-gradient(circle at 38% 26%, rgba(255, 255, 255, 0.72), transparent 34%),
         linear-gradient(145deg, #e4f4e8 0%, #cce9d3 58%, #b8ddc1 100%);
-      box-shadow:
-        0 22px 55px -32px rgba(55, 88, 65, 0.58),
-        inset 0 0 0 10px rgba(255, 255, 255, 0.22);
+      box-shadow: 0 22px 55px -32px rgba(55, 88, 65, 0.58);
     }
     .bear-circle::after {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      border-radius: inherit;
-      pointer-events: none;
+      content: none;
     }
     .bear-video-element {
       display: block;
@@ -1645,6 +1640,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       if (!video) return;
 
       const isTouchDevice = navigator.maxTouchPoints > 0 || window.matchMedia('(hover: none), (pointer: coarse)').matches;
+      const HAVE_FUTURE_DATA = HTMLMediaElement.HAVE_FUTURE_DATA;
       video.muted = true;
       video.defaultMuted = true;
 
@@ -1652,23 +1648,20 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         video.loop = true;
         video.playbackRate = 0.55;
         const playMobileLoop = () => video.play().catch(() => {});
-        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) playMobileLoop();
+        if (video.readyState >= HAVE_FUTURE_DATA) playMobileLoop();
         else video.addEventListener('canplay', playMobileLoop, { once: true });
         return;
       }
 
+      // Основные настройки скорости: чем выше SCRUB_EASE, тем быстрее отклик.
+      const SCRUB_EASE = 0.18;
+      const SEEK_THRESHOLD = 0.01;
+      const TIMELINE_PADDING = 0.04;
       let targetProgress = 0.5;
       let smoothTime = 0;
-      let metadataReady = false;
+      let trackingStarted = false;
       const clamp01 = (value) => Math.min(1, Math.max(0, value));
       const lerp = (from, to, amount) => from + (to - from) * amount;
-
-      const setInitialFrame = () => {
-        if (!Number.isFinite(video.duration) || video.duration <= 0) return;
-        metadataReady = true;
-        smoothTime = video.duration * targetProgress;
-        video.currentTime = smoothTime;
-      };
 
       const updateTarget = (event) => {
         const xProgress = clamp01(event.clientX / window.innerWidth);
@@ -1680,23 +1673,30 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       };
 
       const animate = () => {
-        if (metadataReady && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA && Number.isFinite(video.duration)) {
-          const timelineEnd = Math.max(0, video.duration - 0.04);
-          smoothTime = lerp(smoothTime, targetProgress * timelineEnd, 0.085);
-          if (!video.seeking && Math.abs(video.currentTime - smoothTime) > 1 / 60) {
+        if (video.readyState >= HAVE_FUTURE_DATA && Number.isFinite(video.duration)) {
+          const timelineEnd = Math.max(0, video.duration - TIMELINE_PADDING);
+          smoothTime = lerp(smoothTime, targetProgress * timelineEnd, SCRUB_EASE);
+          // currentTime меняется только в rAF и только при заметной разнице.
+          if (!video.seeking && Math.abs(video.currentTime - smoothTime) > SEEK_THRESHOLD) {
             video.currentTime = smoothTime;
           }
         }
         window.requestAnimationFrame(animate);
       };
 
-      video.pause();
-      if (video.readyState >= HTMLMediaElement.HAVE_METADATA) setInitialFrame();
-      else video.addEventListener('loadedmetadata', setInitialFrame, { once: true });
-      window.addEventListener('pointermove', updateTarget, { passive: true });
-      document.documentElement.addEventListener('mouseleave', () => { targetProgress = 0.5; });
-      window.addEventListener('blur', () => { targetProgress = 0.5; });
-      window.requestAnimationFrame(animate);
+      const startTracking = () => {
+        if (trackingStarted || video.readyState < HAVE_FUTURE_DATA || !Number.isFinite(video.duration)) return;
+        trackingStarted = true;
+        video.pause();
+        smoothTime = video.duration * targetProgress;
+        window.addEventListener('pointermove', updateTarget, { passive: true });
+        document.documentElement.addEventListener('mouseleave', () => { targetProgress = 0.5; });
+        window.addEventListener('blur', () => { targetProgress = 0.5; });
+        window.requestAnimationFrame(animate);
+      };
+
+      if (video.readyState >= HAVE_FUTURE_DATA) startTracking();
+      else video.addEventListener('canplay', startTracking, { once: true });
     }
 
     function toggleMobileMenu() {
