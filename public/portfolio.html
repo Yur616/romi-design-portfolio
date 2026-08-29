@@ -522,14 +522,14 @@
       will-change: transform;
       backface-visibility: hidden;
       background: transparent;
-      box-shadow: none;
+      box-shadow: 0 20px 45px -34px rgba(65, 55, 35, 0.55);
     }
     .bear-media canvas {
       display: block;
       width: 100%;
       height: 100%;
-      mix-blend-mode: normal;
-      filter: none;
+      mix-blend-mode: multiply;
+      filter: contrast(105%);
       pointer-events: none;
       background: transparent;
     }
@@ -2061,12 +2061,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         if (order === 0) image.fetchPriority = 'high';
         frames[index] = image;
         image.addEventListener('load', () => {
-          if (index === centerIndex) {
-            prepareTransparentFrame(image, index);
-          } else {
-            processingQueue.push({ image, index });
-            scheduleFrameProcessing();
-          }
+          processedFrames[index] = image;
+          if (index === Math.round(smoothFrame) || lastDrawnFrame < 0) drawFrame(index, true);
         }, { once: true });
         image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
       });
