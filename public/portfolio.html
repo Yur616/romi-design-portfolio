@@ -10,6 +10,7 @@
   <link rel="preload" href="/bear-frames/031.webp" as="image" type="image/webp">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -506,97 +507,53 @@
       }
     }
 
-    /* Editorial-заставка: короткая пауза, пока Hero и кадры маскота готовятся. */
+    /* Премиальная интро-сцена: тот же кадр плавно садится в Hero без подмены. */
     .site-preloader {
       position: fixed;
       inset: 0;
       z-index: 1000;
-      display: grid;
-      place-items: center;
       overflow: hidden;
-      padding: 1.5rem;
-      background: #050505;
-      color: #fff;
+      background: #020202;
       pointer-events: auto;
       opacity: 1;
       visibility: visible;
-      transition:
-        opacity 620ms cubic-bezier(0.19, 1, 0.22, 1),
-        visibility 0s linear 620ms;
-      animation: site-preloader-failsafe 180ms ease 3.4s forwards;
+      animation: site-preloader-failsafe 180ms ease 4.2s forwards;
     }
-    .site-preloader__copy {
-      width: min(100%, 84rem);
-      text-align: center;
-    }
-    .site-preloader__title,
-    .site-preloader__role {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-      will-change: opacity, transform;
-      animation: site-preloader-copy-in 1050ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    }
-    .site-preloader__title {
-      font-family: "Unbounded", sans-serif;
-      font-size: clamp(2rem, 6.8vw, 6.6rem);
-      font-weight: 700;
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      text-wrap: balance;
-      animation-delay: 80ms;
-    }
-    .site-preloader__title sup {
-      display: inline-block;
-      margin-left: 0.12em;
-      font-size: 0.22em;
-      font-weight: 500;
-      line-height: 1;
-      vertical-align: top;
-      transform: translateY(0.45em);
-      letter-spacing: 0;
-    }
-    .site-preloader__role {
-      margin-top: clamp(1rem, 2.2vw, 1.5rem);
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(0.72rem, 1.05vw, 0.92rem);
-      line-height: 1.5;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.62);
-      animation-delay: 240ms;
-    }
-    .site-preloader.is-leaving {
-      opacity: 0;
-      visibility: hidden;
+    .site-preloader::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(122, 72, 40, 0.17), transparent 42%);
+      opacity: 0.8;
       pointer-events: none;
-      animation: none;
+    }
+    .site-preloader__mascot {
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      border-radius: 50%;
+      opacity: 0;
+      transform-origin: 50% 50%;
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+      pointer-events: none;
+      filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.32));
+    }
+    .site-preloader__mascot canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
     }
     .site-preloader[hidden] { display: none; }
     body.preloader-active { overflow: hidden; }
-    body.preloader-active #top {
-      opacity: 0;
-      transform: translate3d(0, 16px, 0);
-    }
-    #top {
-      transition:
-        opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
-        transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
-    body.preloader-finished #top {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-    @keyframes site-preloader-copy-in {
-      to { opacity: 1; transform: translate3d(0, 0, 0); }
-    }
     @keyframes site-preloader-failsafe {
       to { opacity: 0; visibility: hidden; pointer-events: none; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .site-preloader { transition: none; animation: none; }
-      .site-preloader__title,
-      .site-preloader__role { opacity: 1; transform: none; animation: none; }
-      #top { transition: none; }
+      .site-preloader { animation: none; }
     }
 
     .bear-stage {
@@ -638,9 +595,8 @@
 </head>
 <body class="relative min-h-screen text-bloom-text antialiased">
   <div id="site-preloader" class="site-preloader" aria-hidden="true">
-    <div class="site-preloader__copy">
-      <div class="site-preloader__title">ЮРИЙ ЖИЛЬНИКОВ <sup>®</sup></div>
-      <p class="site-preloader__role">Product &amp; Web Designer</p>
+    <div id="site-preloader-mascot" class="site-preloader__mascot">
+      <canvas id="site-preloader-canvas" aria-hidden="true"></canvas>
     </div>
   </div>
   <div class="noise-overlay"></div>
@@ -2047,44 +2003,122 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
     function initSitePreloader() {
       const preloader = document.getElementById('site-preloader');
-      if (!preloader) return;
+      const mascot = document.getElementById('site-preloader-mascot');
+      const introCanvas = document.getElementById('site-preloader-canvas');
+      const target = document.querySelector('.bear-media');
+      if (!preloader || !mascot || !introCanvas || !target) {
+        document.documentElement.dataset.bearIntroComplete = 'true';
+        window.dispatchEvent(new CustomEvent('bear-intro-complete'));
+        return;
+      }
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const isDeepLink = Boolean(window.location.hash && window.location.hash !== '#top');
       const loadElapsed = performance.now();
+      let completed = false;
+      let hardStop = 0;
+      let frameWaitStop = 0;
 
-      // Единая функция завершения гарантирует, что слой больше не блокирует страницу.
-      const hideImmediately = () => {
-        preloader.classList.add('is-leaving');
-        preloader.hidden = true;
-        document.body.classList.remove('preloader-active');
-        document.body.classList.add('preloader-finished');
+      // Скраббинг слушает это событие и включается только после полного исчезновения сцены.
+      const announceCompletion = () => {
+        document.documentElement.dataset.bearIntroComplete = 'true';
+        window.dispatchEvent(new CustomEvent('bear-intro-complete'));
       };
 
-      // Не показываем интро при переходе сразу к разделу, долгой загрузке или reduced motion.
+      const hideImmediately = () => {
+        if (completed) return;
+        completed = true;
+        window.clearTimeout(hardStop);
+        window.clearTimeout(frameWaitStop);
+        preloader.hidden = true;
+        document.body.classList.remove('preloader-active');
+        announceCompletion();
+      };
+
+      // Не задерживаем пользователя при deep-link, долгой загрузке или reduced motion.
       if (isDeepLink || loadElapsed > 3000 || prefersReducedMotion) {
         hideImmediately();
         return;
       }
 
       document.body.classList.add('preloader-active');
+      hardStop = window.setTimeout(hideImmediately, 4200);
 
-      // Независимая страховка: заставка никогда не остаётся поверх интерфейса дольше 3.4 с.
-      const hardStop = window.setTimeout(hideImmediately, 3400);
-      const startOutro = () => {
-        preloader.classList.add('is-leaving');
-        document.body.classList.remove('preloader-active');
-        document.body.classList.add('preloader-finished');
+      const startTimeline = () => {
+        if (completed || introCanvas.dataset.ready !== 'true') return;
+        window.clearTimeout(frameWaitStop);
 
-        // После CSS-fade удаляем слой из раскладки и освобождаем таймер-страховку.
-        window.setTimeout(() => {
-          preloader.hidden = true;
-          window.clearTimeout(hardStop);
-        }, 640);
+        const targetRect = target.getBoundingClientRect();
+        if (!targetRect.width || !targetRect.height) {
+          hideImmediately();
+          return;
+        }
+
+        // Клон канваса получает точный размер финального Hero-контейнера.
+        Object.assign(mascot.style, {
+          left: `${targetRect.left}px`,
+          top: `${targetRect.top}px`,
+          width: `${targetRect.width}px`,
+          height: `${targetRect.height}px`
+        });
+
+        const targetCenterX = targetRect.left + targetRect.width / 2;
+        const targetCenterY = targetRect.top + targetRect.height / 2;
+        const startX = window.innerWidth / 2 - targetCenterX;
+        const startY = window.innerHeight / 2 - targetCenterY;
+        const viewportScale = Math.min(
+          (window.innerWidth * 0.76) / targetRect.width,
+          (window.innerHeight * 0.82) / targetRect.height
+        );
+        const startScale = Math.min(3.2, Math.max(1.75, viewportScale));
+
+        const finishTimeline = () => {
+          preloader.style.pointerEvents = 'none';
+          hideImmediately();
+        };
+
+        if (window.gsap) {
+          // 0–0.5 с: мягкое появление большого медведя в центре экрана.
+          window.gsap.set(mascot, { x: startX, y: startY, scale: startScale, opacity: 0 });
+          window.gsap.timeline({ defaults: { overwrite: 'auto' } })
+            .to(mascot, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.05)
+            // 0.5–2.5 с: персонаж с «массой» садится в реальную позицию Hero.
+            .to(mascot, { x: 0, y: 0, scale: 1, duration: 2, ease: 'power4.inOut' }, 0.5)
+            // 2.5–3.0 с: чёрная сцена растворяется, открывая готовый интерфейс.
+            .to(mascot, { opacity: 0, duration: 0.18, ease: 'power1.out' }, 2.5)
+            .to(preloader, { opacity: 0, duration: 0.5, ease: 'power2.out' }, 2.5)
+            .call(finishTimeline, [], 3.02);
+          return;
+        }
+
+        // Безопасный fallback, если CDN недоступен: сохраняет те же фазы без блокировки сайта.
+        mascot.animate([
+          { transform: `translate3d(${startX}px, ${startY}px, 0) scale(${startScale})`, opacity: 0 },
+          { transform: `translate3d(${startX}px, ${startY}px, 0) scale(${startScale})`, opacity: 1, offset: 0.16 },
+          { transform: 'translate3d(0, 0, 0) scale(1)', opacity: 1 }
+        ], { duration: 2500, easing: 'cubic-bezier(0.76, 0, 0.24, 1)', fill: 'forwards' });
+        mascot.animate([{ opacity: 1 }, { opacity: 0 }], {
+          delay: 2500,
+          duration: 180,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+        const fade = preloader.animate([{ opacity: 1 }, { opacity: 0 }], {
+          delay: 2500,
+          duration: 500,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+        fade.finished.then(finishTimeline, hideImmediately);
       };
 
-      // Отсчёт идёт от начала навигации: ~2.4 с показа + 0.62 с растворения.
-      window.setTimeout(startOutro, Math.max(0, 2400 - loadElapsed));
+      window.addEventListener('bear-intro-frame-ready', startTimeline, { once: true });
+      if (introCanvas.dataset.ready === 'true') {
+        startTimeline();
+      } else {
+        // Если даже при preload центральный кадр не готов быстро, сразу открываем сайт.
+        frameWaitStop = window.setTimeout(hideImmediately, 850);
+      }
     }
 
     function initBearFrameSequence() {
@@ -2107,11 +2141,55 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const processedFrames = new Array(FRAME_COUNT);
       const processingQueue = [];
       let processingScheduled = false;
+      let scrubbingStarted = false;
 
       const smoothstep = (edge0, edge1, value) => {
         const progress = clamp((value - edge0) / (edge1 - edge0), 0, 1);
         return progress * progress * (3 - 2 * progress);
       };
+
+      // Рисуем тот же очищенный центральный кадр в интро-канвас с crop как object-fit: cover.
+      function drawIntroFrame(drawable) {
+        const introCanvas = document.getElementById('site-preloader-canvas');
+        const introContext = introCanvas?.getContext('2d', { alpha: true, desynchronized: true });
+        if (!introCanvas || !introContext) return;
+
+        introCanvas.width = 460;
+        introCanvas.height = 500;
+        const drawableWidth = drawable.naturalWidth || drawable.width;
+        const drawableHeight = drawable.naturalHeight || drawable.height;
+        const sourceRatio = drawableWidth / drawableHeight;
+        const canvasRatio = introCanvas.width / introCanvas.height;
+        let sourceX = 0;
+        let sourceY = 0;
+        let sourceWidth = drawableWidth;
+        let sourceHeight = drawableHeight;
+
+        if (sourceRatio > canvasRatio) {
+          sourceWidth = drawableHeight * canvasRatio;
+          sourceX = (drawableWidth - sourceWidth) / 2;
+        } else {
+          sourceHeight = drawableWidth / canvasRatio;
+          sourceY = (drawableHeight - sourceHeight) / 2;
+        }
+
+        introContext.clearRect(0, 0, introCanvas.width, introCanvas.height);
+        introContext.imageSmoothingEnabled = true;
+        introContext.imageSmoothingQuality = 'high';
+        introContext.drawImage(
+          drawable,
+          sourceX,
+          sourceY,
+          sourceWidth,
+          sourceHeight,
+          0,
+          0,
+          introCanvas.width,
+          introCanvas.height
+        );
+        introCanvas.dataset.ready = 'true';
+        window.dispatchEvent(new CustomEvent('bear-intro-frame-ready'));
+      }
 
       // Удаляем бежевый фон по его градиенту, сохраняя собственные оттенки шерсти.
       function prepareTransparentFrame(image, index) {
@@ -2170,6 +2248,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
         surfaceContext.putImageData(frameData, 0, 0);
         processedFrames[index] = surface;
+        if (index === Math.round(CENTER_FRAME)) drawIntroFrame(surface);
         if (index === Math.round(smoothFrame) || lastDrawnFrame < 0) drawFrame(index, true);
       }
 
@@ -2204,8 +2283,13 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         if (order === 0) image.fetchPriority = 'high';
         frames[index] = image;
         image.addEventListener('load', () => {
-          processedFrames[index] = image;
-          if (index === Math.round(smoothFrame) || lastDrawnFrame < 0) drawFrame(index, true);
+          if (index === centerIndex) {
+            // Центральный кадр нужен интро немедленно, остальные очищаем в idle-время.
+            prepareTransparentFrame(image, index);
+          } else {
+            processingQueue.push({ image, index });
+            scheduleFrameProcessing();
+          }
         }, { once: true });
         image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
       });
@@ -2298,10 +2382,20 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         return;
       }
 
-      window.addEventListener('pointermove', updateTarget, { passive: true });
-      document.documentElement.addEventListener('mouseleave', () => { targetFrame = CENTER_FRAME; });
-      window.addEventListener('blur', () => { targetFrame = CENTER_FRAME; });
-      window.requestAnimationFrame(animate);
+      function startScrubbing() {
+        if (scrubbingStarted) return;
+        scrubbingStarted = true;
+        window.addEventListener('pointermove', updateTarget, { passive: true });
+        document.documentElement.addEventListener('mouseleave', () => { targetFrame = CENTER_FRAME; });
+        window.addEventListener('blur', () => { targetFrame = CENTER_FRAME; });
+        window.requestAnimationFrame(animate);
+      }
+
+      if (document.documentElement.dataset.bearIntroComplete === 'true') {
+        startScrubbing();
+      } else {
+        window.addEventListener('bear-intro-complete', startScrubbing, { once: true });
+      }
     }
 
     function toggleMobileMenu() {
