@@ -274,42 +274,9 @@
     }
     .bear-stage {
       height: clamp(11rem, 25vh, 14.5rem);
-      isolation: isolate;
-      background-color: transparent;
-    }
-    .bear-circle {
-      position: relative;
-      width: clamp(10.5rem, 22vw, 14rem);
-      aspect-ratio: 1;
-      overflow: hidden;
-      transform: translateZ(0);
-      will-change: transform;
-      backface-visibility: hidden;
-      border: 0;
-      border-radius: 50%;
-      background: #cbbd91;
-      box-shadow: 0 22px 55px -32px rgba(55, 88, 65, 0.58);
-    }
-    .bear-circle::after {
-      content: none;
-    }
-    .bear-video-element {
-      display: block;
-      width: 112%;
-      height: 112%;
-      margin: -6%;
-      object-fit: cover;
-      object-position: center;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-      mix-blend-mode: multiply;
-      filter: contrast(108%) saturate(96%);
-      background-color: transparent !important;
     }
     @media (max-width: 640px) {
       .bear-stage { height: 10.75rem; }
-      .bear-circle { width: 10.25rem; }
     }
   </style>
 </head>
@@ -405,13 +372,7 @@
           </a>
         </div>
 
-        <div id="bear-stage" class="bear-stage relative my-3 sm:my-4 flex items-center justify-center" aria-hidden="true">
-          <div class="bear-circle relative z-10">
-            <video id="bear-video-scrubber" class="bear-video-element" preload="auto" muted playsinline tabindex="-1">
-              <source src="/bear-circle.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
+        <div id="bear-stage" class="bear-stage relative my-3 sm:my-4" aria-hidden="true"></div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-4xl">
           <div class="rounded-xl bg-bloom-card/70 px-5 py-3 text-center shadow-sm">
@@ -1593,7 +1554,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }
       updateClock();
       setInterval(updateClock, 1000);
-      initBearVideoScrubber();
       initFloatingCta();
     });
 
@@ -1630,70 +1590,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         contactVisible = entry.isIntersecting;
         updateVisibility();
       }, { threshold: 0.15 }).observe(contactSection);
-    }
-
-    function initBearVideoScrubber() {
-      const video = document.getElementById('bear-video-scrubber');
-      if (!video) return;
-
-      const isTouchDevice = navigator.maxTouchPoints > 0 || window.matchMedia('(hover: none), (pointer: coarse)').matches;
-      const HAVE_FUTURE_DATA = HTMLMediaElement.HAVE_FUTURE_DATA;
-      video.muted = true;
-      video.defaultMuted = true;
-
-      if (isTouchDevice) {
-        video.loop = true;
-        video.playbackRate = 0.55;
-        const playMobileLoop = () => video.play().catch(() => {});
-        if (video.readyState >= HAVE_FUTURE_DATA) playMobileLoop();
-        else video.addEventListener('canplay', playMobileLoop, { once: true });
-        return;
-      }
-
-      // Основные настройки скорости: чем выше SCRUB_EASE, тем быстрее отклик.
-      const SCRUB_EASE = 0.18;
-      const SEEK_THRESHOLD = 0.01;
-      const TIMELINE_PADDING = 0.04;
-      let targetProgress = 0.5;
-      let smoothTime = 0;
-      let trackingStarted = false;
-      const clamp01 = (value) => Math.min(1, Math.max(0, value));
-      const lerp = (from, to, amount) => from + (to - from) * amount;
-
-      const updateTarget = (event) => {
-        const xProgress = clamp01(event.clientX / window.innerWidth);
-        const yProgress = clamp01(event.clientY / window.innerHeight);
-        // X maps 0…1 directly to the full timeline. Y adds a gentle bias that
-        // disappears at both X edges, keeping left = 0 and right = duration.
-        const verticalBias = (0.5 - yProgress) * 0.14 * Math.sin(Math.PI * xProgress);
-        targetProgress = clamp01(xProgress + verticalBias);
-      };
-
-      const animate = () => {
-        if (video.readyState >= HAVE_FUTURE_DATA && Number.isFinite(video.duration)) {
-          const timelineEnd = Math.max(0, video.duration - TIMELINE_PADDING);
-          smoothTime = lerp(smoothTime, targetProgress * timelineEnd, SCRUB_EASE);
-          // currentTime меняется только в rAF и только при заметной разнице.
-          if (!video.seeking && Math.abs(video.currentTime - smoothTime) > SEEK_THRESHOLD) {
-            video.currentTime = smoothTime;
-          }
-        }
-        window.requestAnimationFrame(animate);
-      };
-
-      const startTracking = () => {
-        if (trackingStarted || video.readyState < HAVE_FUTURE_DATA || !Number.isFinite(video.duration)) return;
-        trackingStarted = true;
-        video.pause();
-        smoothTime = video.duration * targetProgress;
-        window.addEventListener('pointermove', updateTarget, { passive: true });
-        document.documentElement.addEventListener('mouseleave', () => { targetProgress = 0.5; });
-        window.addEventListener('blur', () => { targetProgress = 0.5; });
-        window.requestAnimationFrame(animate);
-      };
-
-      if (video.readyState >= HAVE_FUTURE_DATA) startTracking();
-      else video.addEventListener('canplay', startTracking, { once: true });
     }
 
     function toggleMobileMenu() {
