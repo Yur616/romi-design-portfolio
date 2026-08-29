@@ -82,7 +82,9 @@ const scribbles = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"];
 
 export function PortfolioExperience() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("Все");
-  const [message, setMessage] = useState("Здравствуйте! Я Роми.");
+  const [message, setMessage] = useState(
+    () => `${getTimedGreeting()}! Я Роми. Рад вас видеть.`,
+  );
   const [guideMode, setGuideMode] = useState(false);
   const [isWalking, setIsWalking] = useState(false);
   const [inviteVisible, setInviteVisible] = useState(false);
@@ -98,7 +100,6 @@ export function PortfolioExperience() {
   };
 
   useEffect(() => {
-    setMessage(`${getTimedGreeting()}! Я Роми. Рад вас видеть.`);
     const helloTimer = window.setTimeout(
       () => setMessage("Хотите, я проведу вас по сайту?"),
       2600,

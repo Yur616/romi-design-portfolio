@@ -43,3 +43,13 @@ test("the all-projects page contains every case and both languages", async () =>
   assert.match(html, /descriptions:/);
   assert.match(html, /language === 'en'/);
 });
+
+test("portfolio intro collapses the full-screen bear into the hero mascot", async () => {
+  const html = await readFile(new URL("../public/portfolio.html", import.meta.url), "utf8");
+
+  assert.match(html, /id="bear-intro"/);
+  assert.match(html, /function initBearIntro\(\)/);
+  assert.match(html, /window\.setTimeout\(collapseIntoMascot, prefersReducedMotion \? 180 : 2000\)/);
+  assert.match(html, /targetRect\.width \/ sourceRect\.width/);
+  assert.match(html, /targetRect\.height \/ sourceRect\.height/);
+});
