@@ -273,10 +273,41 @@
       background-image: url('/cases/phonelab.webp') !important;
     }
     .bear-stage {
-      height: clamp(11rem, 25vh, 14.5rem);
+      height: clamp(15.5rem, 30vh, 17rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bear-media {
+      width: 250px;
+      height: 250px;
+      flex: 0 0 250px;
+      overflow: hidden;
+      pointer-events: none;
+      transform: translateY(12px) translateZ(0);
+      will-change: transform;
+      backface-visibility: hidden;
+      background: transparent;
+    }
+    .bear-media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      mix-blend-mode: multiply;
+      filter: contrast(105%);
+      pointer-events: none;
+      background: transparent;
     }
     @media (max-width: 640px) {
-      .bear-stage { height: 10.75rem; }
+      .bear-stage { height: 14.25rem; }
+      .bear-media {
+        width: 220px;
+        height: 220px;
+        flex-basis: 220px;
+        transform: translateY(8px) translateZ(0);
+      }
     }
   </style>
 </head>
@@ -372,7 +403,13 @@
           </a>
         </div>
 
-        <div id="bear-stage" class="bear-stage relative my-3 sm:my-4" aria-hidden="true"></div>
+        <div id="bear-stage" class="bear-stage relative my-3 sm:my-4" aria-hidden="true">
+          <div class="bear-media">
+            <video autoplay loop muted playsinline preload="auto" tabindex="-1" disablepictureinpicture>
+              <source src="/bear-mascot.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-4xl">
           <div class="rounded-xl bg-bloom-card/70 px-5 py-3 text-center shadow-sm">
