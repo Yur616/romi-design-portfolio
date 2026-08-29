@@ -44,20 +44,15 @@ test("the all-projects page contains every case and both languages", async () =>
   assert.match(html, /language === 'en'/);
 });
 
-test("premium bear intro lands in Hero before cursor scrubbing starts", async () => {
+test("editorial preloader exits safely and does not block deep links", async () => {
   const html = await readFile(new URL("../public/portfolio.html", import.meta.url), "utf8");
 
   assert.match(html, /id="site-preloader"/);
-  assert.match(html, /id="site-preloader-canvas"/);
-  assert.match(html, /gsap@3\.13\.0/);
-  assert.match(html, /ease: 'power4\.inOut'/);
-  assert.match(html, /duration: 2, ease: 'power4\.inOut'/);
-  assert.match(html, /duration: 0\.5, ease: 'power2\.out'/);
-  assert.match(html, /bear-intro-frame-ready/);
-  assert.match(html, /bear-intro-complete/);
-  assert.match(html, /dataset\.bearIntroComplete === 'true'/);
+  assert.match(html, /ЮРИЙ ЖИЛЬНИКОВ/);
+  assert.match(html, /Product &amp; Web Designer/);
+  assert.match(html, /cubic-bezier\(0\.19, 1, 0\.22, 1\)/);
   assert.match(html, /window\.location\.hash !== '#top'/);
   assert.match(html, /loadElapsed > 3000/);
-  assert.match(html, /window\.setTimeout\(hideImmediately, 4200\)/);
+  assert.match(html, /window\.setTimeout\(hideImmediately, 3400\)/);
   assert.match(html, /preloader\.hidden = true/);
 });
