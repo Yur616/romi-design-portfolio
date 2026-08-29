@@ -56,3 +56,15 @@ test("editorial preloader exits safely and does not block deep links", async () 
   assert.match(html, /window\.setTimeout\(hideImmediately, 3400\)/);
   assert.match(html, /preloader\.hidden = true/);
 });
+
+test("GitHub Pages deployment preserves project-subpath asset links", async () => {
+  const workflow = await readFile(new URL("../.github/workflows/pages.yml", import.meta.url), "utf8");
+  const prepareScript = await readFile(new URL("../scripts/prepare-github-pages.mjs", import.meta.url), "utf8");
+
+  assert.match(workflow, /actions\/upload-pages-artifact@v4/);
+  assert.match(workflow, /actions\/deploy-pages@v4/);
+  assert.match(workflow, /node scripts\/prepare-github-pages\.mjs/);
+  assert.match(prepareScript, /const repositoryName = "romi-design-portfolio"/);
+  assert.match(prepareScript, /copyFile\(join\(publicDirectory, "portfolio\.html"\), join\(outputDirectory, "index\.html"\)\)/);
+  assert.match(prepareScript, /romi-design-portfolio\\\//);
+});
