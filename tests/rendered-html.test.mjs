@@ -30,3 +30,16 @@ test("case pages use real exported project screens", async () => {
     await access(new URL(`../public${asset}`, import.meta.url));
   }
 });
+
+test("the all-projects page contains every case and both languages", async () => {
+  const html = await readFile(new URL("../public/projects.html", import.meta.url), "utf8");
+
+  for (const id of projectIds) {
+    assert.match(html, new RegExp(`data-project-id="${id}"`));
+    assert.match(html, new RegExp(`/projects/${id}\\.html\\?lang=ru`));
+  }
+  assert.match(html, /const copy =/);
+  assert.match(html, /titles:/);
+  assert.match(html, /descriptions:/);
+  assert.match(html, /language === 'en'/);
+});

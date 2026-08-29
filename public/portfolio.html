@@ -278,7 +278,7 @@
     #about,
     #services,
     #calculator {
-      padding-block: clamp(7rem, 10vw, 9rem) !important;
+      padding-block: clamp(7.5rem, 9vw, 8rem) !important;
       background: transparent !important;
       border: 0 !important;
     }
@@ -371,11 +371,40 @@
       background: #E7EFE9 !important;
       color: #20362A !important;
     }
+    #work .portfolio-filters,
+    #work .project-card:nth-of-type(n + 3) {
+      display: none !important;
+    }
+    .all-projects-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 3.25rem;
+      padding: 0.85rem 1.35rem;
+      border: 1px solid #DCE6DE;
+      border-radius: 999px;
+      background: #F7F9F7;
+      color: #20362A;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background-color 320ms ease-out, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .all-projects-link:hover {
+      background: #EAF1EC;
+      transform: translateY(-2px);
+    }
 
     #services .grid > .glass-card {
       min-height: 21rem;
       padding: clamp(1.6rem, 2.5vw, 2rem) !important;
       border-radius: 1.5rem !important;
+      transform-origin: center;
+      transition:
+        background-color 420ms ease-out,
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1) !important;
     }
     #services .grid > .glass-card > div:first-child > div:first-child {
       border: 0 !important;
@@ -426,19 +455,26 @@
       background: #E9F1EB !important;
     }
 
-    /* Последовательное появление: заголовок → текст → карточки. */
+    /* Мягкое последовательное появление: заголовок → текст → карточки. */
     .reveal-enabled .reveal-item {
       opacity: 0;
-      transform: translate3d(0, 28px, 0) !important;
+      transform: translate3d(0, 18px, 0) !important;
       transition:
-        opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 1150ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1150ms cubic-bezier(0.22, 1, 0.36, 1);
       transition-delay: var(--reveal-delay, 0ms);
       will-change: opacity, transform;
     }
     .reveal-enabled .reveal-item.is-visible {
       opacity: 1;
       transform: translate3d(0, 0, 0) !important;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      #services .grid > .glass-card.reveal-item.is-visible:hover,
+      #services .grid > .glass-card:not(.reveal-item):hover {
+        background: #EEF3EF !important;
+        transform: scale(1.035) translateZ(0) !important;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal-enabled .reveal-item,
@@ -486,14 +522,14 @@
       will-change: transform;
       backface-visibility: hidden;
       background: transparent;
-      box-shadow: 0 20px 45px -34px rgba(65, 55, 35, 0.55);
+      box-shadow: none;
     }
     .bear-media canvas {
       display: block;
       width: 100%;
       height: 100%;
-      mix-blend-mode: multiply;
-      filter: contrast(105%);
+      mix-blend-mode: normal;
+      filter: none;
       pointer-events: none;
       background: transparent;
     }
@@ -643,7 +679,7 @@
           </p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-2.5 mb-12">
+        <div class="portfolio-filters flex flex-wrap justify-center gap-2.5 mb-12">
 <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (7)</button>
           <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
           <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
@@ -878,6 +914,12 @@
               </span>
             </div>
           </div>
+          <div class="col-span-full mt-5 flex justify-center">
+            <a class="all-projects-link" data-projects-link href="/projects.html?lang=ru">
+              <span data-i18n="work_all_projects">Смотреть все проекты</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1077,24 +1119,23 @@
           <p class="text-bloom-muted text-sm max-w-xl mx-auto font-light text-center" data-i18n="calc_subheading">
             Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.
           </p>
-          <p class="text-emerald-400/80 text-xs max-w-xl mx-auto mt-3 font-mono text-center" data-i18n="calc_note">Если бюджет ограничен, подберём подходящий объём работ.</p>
         </div>
 
         <div class="glass-card rounded-2xl p-8 space-y-8 max-w-4xl mx-auto">
           <div>
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_type_label">1. Тип проекта:</label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <button type="button" onclick="setCalcOption('type', 'landing', 18000, 8)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
+              <button type="button" onclick="setCalcOption('type', 'landing', 18000, 4)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
                 <div class="font-bold text-sm text-white" data-i18n="calc_landing">Лендинг / Промо</div>
-                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_landing_meta">от 18 000 ₽ • 7–10 дней</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_landing_meta">от 18 000 ₽ • 2–5 дней</div>
               </button>
-              <button type="button" onclick="setCalcOption('type', 'corp', 30000, 15)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
+              <button type="button" onclick="setCalcOption('type', 'corp', 30000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
                 <div class="font-bold text-sm text-white" data-i18n="calc_multipage">Многостраничный сайт</div>
-                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_multipage_meta">от 30 000 ₽ • 12–18 дней</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_multipage_meta">от 30 000 ₽ • 12–25 дней</div>
               </button>
-              <button type="button" onclick="setCalcOption('type', 'store', 40000, 20)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="store">
+              <button type="button" onclick="setCalcOption('type', 'store', 40000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="store">
                 <div class="font-bold text-sm text-white" data-i18n="calc_store">Магазин на Tilda</div>
-                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_store_meta">от 40 000 ₽ • 18–25 дней</div>
+                <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_store_meta">от 40 000 ₽ • 12–25 дней</div>
               </button>
             </div>
           </div>
@@ -1103,10 +1144,10 @@
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_scope_label">2. Дополнительные опции:</label>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 hover:border-white/20 transition-all">
-                <input id="addon-tilda" type="checkbox" onchange="toggleAddon('dev', 8000, 4, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
+                <input id="addon-tilda" type="checkbox" onchange="toggleAddon('dev', 8000, 2, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
                 <label for="addon-tilda" class="flex-1 cursor-pointer">
                   <div class="text-sm font-semibold text-white" data-i18n="calc_tilda_build">Сборка на Tilda</div>
-                  <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_tilda_build_meta">+8 000 ₽ • +4 дня</div>
+                  <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_tilda_build_meta">+8 000 ₽ • +2 дня</div>
                 </label>
                 <div class="relative group/tooltip shrink-0">
                   <button type="button" class="w-7 h-7 rounded-full border border-emerald-400/40 text-emerald-300 text-xs font-bold hover:bg-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Подробнее о сборке на Tilda">?</button>
@@ -1132,8 +1173,9 @@
               <div class="text-[11px] font-mono text-bloom-muted uppercase tracking-wide" data-i18n="calc_estimate">Предварительная оценка:</div>
               <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mt-2">
                 <span id="calc-price" class="font-display font-bold text-xl sm:text-2xl text-bloom-text">от 18 000 ₽</span>
-                <span id="calc-time" class="font-mono text-xs sm:text-sm text-bloom-muted">~8 рабочих дней</span>
+                <span id="calc-time" class="font-mono text-xs sm:text-sm text-bloom-muted">~4 рабочих дня</span>
               </div>
+              <p class="mt-3 max-w-xl rounded-xl bg-white/70 px-3 py-2 text-xs leading-relaxed text-bloom-muted" data-i18n="calc_note">Если бюджет ограничен, подберём подходящий объём работ.</p>
             </div>
             <button onclick="applyCalcToContact()" class="w-full md:w-auto px-5 py-3 rounded-xl bg-bloom-accent hover:bg-bloom-accentHover text-bloom-text border border-bloom-border text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-sm">
               <span data-i18n="calc_apply">Применить к заявке ↓</span>
@@ -1143,7 +1185,7 @@
       </div>
     </section>
 
-    <section class="py-20 px-6">
+    <section id="faq" class="py-20 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
           <span>FAQ</span>
@@ -1498,7 +1540,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       stat_store: "E-commerce",
       stat_store_value: "Интернет-магазины",
       marquee: "<span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span><span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span>",
-      work_subheading: "7 проектов — от лендингов до многостраничных сайтов. В каждом показываю задачу, решение и итоговый макет.",
+      work_subheading: "Две ключевые работы с подробным разбором задачи, решения и итогового макета.",
+      work_all_projects: "Смотреть все проекты",
       filter_all: "Все проекты",
       filter_product: "Концепты",
       filter_web: "Сайты",
@@ -1550,13 +1593,13 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       s4_meta1: "✦ Перенос дизайна в Tilda",
       s4_meta2: "✦ Проверка адаптива",
       calc_landing: "Лендинг / Промо",
-      calc_landing_meta: "от 18 000 ₽ • 7–10 дней",
+      calc_landing_meta: "от 18 000 ₽ • 2–5 дней",
       calc_multipage: "Многостраничный сайт",
-      calc_multipage_meta: "от 30 000 ₽ • 12–18 дней",
+      calc_multipage_meta: "от 30 000 ₽ • 12–25 дней",
       calc_store: "Магазин на Tilda",
-      calc_store_meta: "от 40 000 ₽ • 18–25 дней",
+      calc_store_meta: "от 40 000 ₽ • 12–25 дней",
       calc_tilda_build: "Сборка на Tilda",
-      calc_tilda_build_meta: "+8 000 ₽ • +4 дня",
+      calc_tilda_build_meta: "+8 000 ₽ • +2 дня",
       calc_tilda_tip: "Перенесу утверждённый дизайн в Zero Block, настрою адаптив, формы и базовые подключения — сайт будет готов к публикации.",
       calc_branding: "Фирменный стиль и логотип",
       calc_branding_meta: "+10 000 ₽ • +3 дня",
@@ -1619,7 +1662,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       stat_store_value: "Online stores",
       marquee: "<span>✦ WEB DESIGN</span><span>✦ PROTOTYPES</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ZERO BLOCK</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span><span>✦ WEB DESIGN</span><span>✦ PROTOTYPES</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ZERO BLOCK</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span>",
       work_heading: "Selected Projects",
-      work_subheading: "Seven projects, from landing pages to multi-page websites. Each one shows the task, solution, and final mockup.",
+      work_subheading: "Two selected case studies with a clear breakdown of the challenge, solution, and final design.",
+      work_all_projects: "View all projects",
       filter_all: "All projects",
       filter_product: "Concepts",
       filter_web: "Websites",
@@ -1675,13 +1719,13 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       calc_type_label: "1. Project type:",
       calc_scope_label: "2. Additional options:",
       calc_landing: "Landing / Promo",
-      calc_landing_meta: "from ₽18,000 • 7–10 days",
+      calc_landing_meta: "from ₽18,000 • 2–5 days",
       calc_multipage: "Multi-page website",
-      calc_multipage_meta: "from ₽30,000 • 12–18 days",
+      calc_multipage_meta: "from ₽30,000 • 12–25 days",
       calc_store: "Tilda online store",
-      calc_store_meta: "from ₽40,000 • 18–25 days",
+      calc_store_meta: "from ₽40,000 • 12–25 days",
       calc_tilda_build: "Tilda build",
-      calc_tilda_build_meta: "+₽8,000 • +4 days",
+      calc_tilda_build_meta: "+₽8,000 • +2 days",
       calc_tilda_tip: "I will transfer the approved design to Zero Block, configure responsive layouts, forms, and basic connections so the site is ready to publish.",
       calc_branding: "Visual identity and logo",
       calc_branding_meta: "+₽10,000 • +3 days",
@@ -1762,6 +1806,10 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         if (title && i18n[lang][key]) title.innerHTML = i18n[lang][key];
       });
 
+      document.querySelectorAll('[data-projects-link]').forEach(link => {
+        link.setAttribute('href', `/projects.html?lang=${lang}`);
+      });
+
       updateCalcResult();
 
       const url = new URL(window.location);
@@ -1784,32 +1832,35 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }
       updateClock();
       setInterval(updateClock, 1000);
-      initScrollReveal();
       initBearFrameSequence();
       initFloatingCta();
     });
 
+    // Скрипт расположен после разметки, поэтому элементы можно скрыть до первого кадра отрисовки.
+    initScrollReveal();
+
     function initScrollReveal() {
       const revealItems = [];
-      const addItems = (elements, step = 90) => {
+      const addItems = (elements, step = 65) => {
         [...elements].forEach((element, index) => {
           if (!element || revealItems.includes(element)) return;
           element.classList.add('reveal-item');
-          element.style.setProperty('--reveal-delay', `${Math.min(index * step, 270)}ms`);
+          element.style.setProperty('--reveal-delay', `${Math.min(index * step, 180)}ms`);
           revealItems.push(element);
         });
       };
 
       const work = document.getElementById('work')?.firstElementChild;
       if (work) {
-        addItems(work.children[0]?.children || [], 90);
+        addItems(work.children[0]?.children || [], 65);
         addItems([work.children[1]], 0);
-        addItems(work.querySelectorAll('.project-card'), 90);
+        addItems(work.querySelectorAll('.project-card:not(:nth-of-type(n + 3))'), 85);
+        addItems(work.querySelectorAll('.all-projects-link'), 0);
       }
 
       const about = document.getElementById('about')?.firstElementChild;
       if (about) {
-        addItems([about.children[0], about.children[1]], 110);
+        addItems([about.children[0], about.children[1]], 75);
         const columns = about.children[2]?.children || [];
         addItems(columns[0]?.children || [], 80);
         addItems(columns[1]?.children || [], 80);
@@ -1817,14 +1868,26 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
       const services = document.getElementById('services')?.firstElementChild;
       if (services) {
-        addItems([services.children[0], services.children[1]], 110);
-        addItems(services.querySelectorAll('.grid > .glass-card'), 90);
+        addItems([services.children[0], services.children[1]], 75);
+        addItems(services.querySelectorAll('.grid > .glass-card'), 70);
       }
 
       const calculator = document.getElementById('calculator')?.firstElementChild;
       if (calculator) {
         addItems(calculator.children[0]?.children || [], 80);
         addItems(calculator.children[1]?.children || [], 90);
+      }
+
+      const faq = document.getElementById('faq')?.firstElementChild;
+      if (faq) {
+        addItems([faq.children[0], faq.children[1]], 75);
+        addItems(faq.querySelectorAll('.space-y-4 > .glass-card'), 65);
+      }
+
+      const contact = document.getElementById('contact')?.firstElementChild;
+      if (contact) {
+        addItems([contact.children[0], contact.children[1]], 75);
+        addItems(contact.querySelectorAll('.glass-card'), 65);
       }
 
       if (!revealItems.length) return;
@@ -1841,7 +1904,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
 
       revealItems.forEach(item => observer.observe(item));
     }
@@ -1897,15 +1960,115 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       let smoothFrame = CENTER_FRAME;
       let lastDrawnFrame = -1;
 
-      // Все 60 изображений создаются заранее: браузер начинает загружать секвенцию сразу.
-      const frames = Array.from({ length: FRAME_COUNT }, (_, index) => {
+      const frames = new Array(FRAME_COUNT);
+      const processedFrames = new Array(FRAME_COUNT);
+      const processingQueue = [];
+      let processingScheduled = false;
+
+      const smoothstep = (edge0, edge1, value) => {
+        const progress = clamp((value - edge0) / (edge1 - edge0), 0, 1);
+        return progress * progress * (3 - 2 * progress);
+      };
+
+      // Удаляем бежевый фон по его градиенту, сохраняя собственные оттенки шерсти.
+      function prepareTransparentFrame(image, index) {
+        const surface = document.createElement('canvas');
+        surface.width = image.naturalWidth;
+        surface.height = image.naturalHeight;
+        const surfaceContext = surface.getContext('2d', { willReadFrequently: true });
+        if (!surfaceContext) return;
+
+        surfaceContext.drawImage(image, 0, 0);
+        const frameData = surfaceContext.getImageData(0, 0, surface.width, surface.height);
+        const pixels = frameData.data;
+        const sample = (x, y) => {
+          const offset = (y * surface.width + x) * 4;
+          return [pixels[offset], pixels[offset + 1], pixels[offset + 2]];
+        };
+        const corners = [
+          sample(48, 24),
+          sample(surface.width - 48, 24),
+          sample(48, surface.height - 36),
+          sample(surface.width - 128, surface.height - 36)
+        ];
+
+        for (let y = 0; y < surface.height; y += 1) {
+          const vertical = y / Math.max(1, surface.height - 1);
+          const normalizedY = y / surface.height;
+          const subjectHalfWidth = normalizedY < 0.34 ? 0.225 : normalizedY < 0.76 ? 0.205 : 0.15;
+
+          for (let x = 0; x < surface.width; x += 1) {
+            const horizontal = x / Math.max(1, surface.width - 1);
+            const offset = (y * surface.width + x) * 4;
+            const topR = corners[0][0] + (corners[1][0] - corners[0][0]) * horizontal;
+            const topG = corners[0][1] + (corners[1][1] - corners[0][1]) * horizontal;
+            const topB = corners[0][2] + (corners[1][2] - corners[0][2]) * horizontal;
+            const bottomR = corners[2][0] + (corners[3][0] - corners[2][0]) * horizontal;
+            const bottomG = corners[2][1] + (corners[3][1] - corners[2][1]) * horizontal;
+            const bottomB = corners[2][2] + (corners[3][2] - corners[2][2]) * horizontal;
+            const backgroundR = topR + (bottomR - topR) * vertical;
+            const backgroundG = topG + (bottomG - topG) * vertical;
+            const backgroundB = topB + (bottomB - topB) * vertical;
+            const red = pixels[offset] - backgroundR;
+            const green = pixels[offset + 1] - backgroundG;
+            const blue = pixels[offset + 2] - backgroundB;
+            const colorDistance = Math.sqrt(red * red + green * green + blue * blue);
+            const horizontalDistance = Math.abs(horizontal - 0.5);
+            const subjectMask = 1 - smoothstep(subjectHalfWidth, subjectHalfWidth + 0.045, horizontalDistance);
+            const topMask = smoothstep(0.075, 0.12, normalizedY);
+            const bottomMask = 1 - smoothstep(0.89, 0.94, normalizedY);
+            const backgroundMask = normalizedY > 0.72
+              ? smoothstep(24, 66, colorDistance)
+              : smoothstep(14, 48, colorDistance);
+
+            pixels[offset + 3] = Math.round(255 * backgroundMask * subjectMask * topMask * bottomMask);
+          }
+        }
+
+        surfaceContext.putImageData(frameData, 0, 0);
+        processedFrames[index] = surface;
+        if (index === Math.round(smoothFrame) || lastDrawnFrame < 0) drawFrame(index, true);
+      }
+
+      function processNextFrame(deadline) {
+        processingScheduled = false;
+        while (processingQueue.length && (!deadline || deadline.didTimeout || deadline.timeRemaining() > 5)) {
+          const { image, index } = processingQueue.shift();
+          prepareTransparentFrame(image, index);
+          if (!deadline) break;
+        }
+        if (processingQueue.length) scheduleFrameProcessing();
+      }
+
+      function scheduleFrameProcessing() {
+        if (processingScheduled) return;
+        processingScheduled = true;
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(processNextFrame, { timeout: 500 });
+        } else {
+          window.setTimeout(() => processNextFrame(), 0);
+        }
+      }
+
+      // Центральный кадр загружается первым, соседние — по мере удаления от него.
+      const centerIndex = Math.round(CENTER_FRAME);
+      const loadOrder = Array.from({ length: FRAME_COUNT }, (_, index) => index)
+        .sort((a, b) => Math.abs(a - centerIndex) - Math.abs(b - centerIndex));
+
+      loadOrder.forEach((index, order) => {
         const image = new Image();
         image.decoding = 'async';
-        image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
+        if (order === 0) image.fetchPriority = 'high';
+        frames[index] = image;
         image.addEventListener('load', () => {
-          if (index === Math.round(smoothFrame)) drawFrame(index, true);
+          if (index === centerIndex) {
+            prepareTransparentFrame(image, index);
+          } else {
+            processingQueue.push({ image, index });
+            scheduleFrameProcessing();
+          }
         }, { once: true });
-        return image;
+        image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
       });
 
       function resizeCanvas() {
@@ -1923,30 +2086,46 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
       function drawFrame(index, force = false) {
         const safeIndex = clamp(index, 0, FRAME_COUNT - 1);
-        const image = frames[safeIndex];
-        if (!image?.complete || !image.naturalWidth || (!force && safeIndex === lastDrawnFrame)) return;
+        let drawable = processedFrames[safeIndex];
+        let drawableIndex = safeIndex;
+        if (!drawable) {
+          for (let distance = 1; distance < FRAME_COUNT && !drawable; distance += 1) {
+            const before = safeIndex - distance;
+            const after = safeIndex + distance;
+            if (before >= 0 && processedFrames[before]) {
+              drawable = processedFrames[before];
+              drawableIndex = before;
+            } else if (after < FRAME_COUNT && processedFrames[after]) {
+              drawable = processedFrames[after];
+              drawableIndex = after;
+            }
+          }
+        }
+        if (!drawable || (!force && drawableIndex === lastDrawnFrame)) return;
 
         // Аналог object-fit: cover — лишние края кадра обрезаются симметрично.
-        const sourceRatio = image.naturalWidth / image.naturalHeight;
+        const drawableWidth = drawable.naturalWidth || drawable.width;
+        const drawableHeight = drawable.naturalHeight || drawable.height;
+        const sourceRatio = drawableWidth / drawableHeight;
         const canvasRatio = canvas.width / canvas.height;
         let sourceX = 0;
         let sourceY = 0;
-        let sourceWidth = image.naturalWidth;
-        let sourceHeight = image.naturalHeight;
+        let sourceWidth = drawableWidth;
+        let sourceHeight = drawableHeight;
 
         if (sourceRatio > canvasRatio) {
-          sourceWidth = image.naturalHeight * canvasRatio;
-          sourceX = (image.naturalWidth - sourceWidth) / 2;
+          sourceWidth = drawableHeight * canvasRatio;
+          sourceX = (drawableWidth - sourceWidth) / 2;
         } else {
-          sourceHeight = image.naturalWidth / canvasRatio;
-          sourceY = (image.naturalHeight - sourceHeight) / 2;
+          sourceHeight = drawableWidth / canvasRatio;
+          sourceY = (drawableHeight - sourceHeight) / 2;
         }
 
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.imageSmoothingEnabled = true;
         context.imageSmoothingQuality = 'high';
         context.drawImage(
-          image,
+          drawable,
           sourceX,
           sourceY,
           sourceWidth,
@@ -1956,7 +2135,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
           canvas.width,
           canvas.height
         );
-        lastDrawnFrame = safeIndex;
+        lastDrawnFrame = drawableIndex;
       }
 
       function updateTarget(event) {
@@ -2117,7 +2296,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     }
 
     let basePrice = 18000;
-    let baseDays = 8;
+    let baseDays = 4;
     let addonsPrice = 0;
     let addonsDays = 0;
     let selectedType = "landing";

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Все проекты веб-дизайнера Юрия Жильникова: сайты, интерфейсы и адаптивные макеты.">
+  <title>Проекты — Юрий Жильников</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20362a;
+      --muted: #77817b;
+      --line: #dfe7e1;
+      --card: #f6f8f6;
+      --card-hover: #edf3ee;
+      --accent: #75a887;
+    }
+    * { box-sizing: border-box; }
+    html { background: #fff; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(190, 225, 200, 0.18), transparent 28rem),
+        #fff;
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      border-bottom: 1px solid rgba(223, 231, 225, 0.9);
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(18px);
+    }
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-size: 0.92rem; font-weight: 800; letter-spacing: -0.02em; }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .pill {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      font-family: "Space Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background-color 260ms ease-out, transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .pill:hover { background: #edf3ee; transform: translateY(-1px); }
+    main { padding-block: clamp(5.5rem, 9vw, 8rem); }
+    .eyebrow {
+      margin: 0 0 1.25rem;
+      color: var(--accent);
+      font: 700 0.72rem/1.4 "Space Mono", monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      text-align: center;
+      text-wrap: balance;
+    }
+    .lead {
+      max-width: 650px;
+      margin: 1.75rem auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
+      line-height: 1.75;
+      text-align: center;
+      text-wrap: balance;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: clamp(4.5rem, 8vw, 7rem);
+    }
+    .project {
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 28px;
+      background: var(--card);
+      transition: background-color 420ms ease-out, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .project-link { display: block; height: 100%; padding: 20px; }
+    .project-visual {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-radius: 19px;
+      background: #e9efea;
+    }
+    .project-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transform: scale(1.001) translateZ(0);
+      transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .project-copy { padding: 24px 4px 6px; }
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--accent);
+      font: 700 0.68rem/1.5 "Space Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .project-meta span:last-child { color: var(--muted); }
+    h2 { margin: 14px 0 10px; font-size: clamp(1.35rem, 2.1vw, 1.9rem); line-height: 1.18; letter-spacing: -0.035em; }
+    .project-copy p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .project-arrow { display: inline-block; margin-top: 18px; font-size: 1.15rem; transition: transform 360ms ease-out; }
+    @media (hover: hover) and (pointer: fine) {
+      .project:hover { background: var(--card-hover); transform: translateY(-4px); }
+      .project:hover img { transform: scale(1.045) translateZ(0); }
+      .project:hover .project-arrow { transform: translate(4px, -4px); }
+    }
+    .reveal-ready .reveal {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0);
+      transition: opacity 1150ms cubic-bezier(0.22, 1, 0.36, 1), transform 1150ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--delay, 0ms);
+    }
+    .reveal-ready .reveal.visible { opacity: 1; transform: translate3d(0, 0, 0); }
+    footer { padding: 40px 0 56px; color: var(--muted); font: 0.7rem/1.6 "Space Mono", monospace; text-align: center; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .brand { font-size: 0.78rem; }
+      .header-inner { min-height: 64px; }
+      .header-actions .pill:first-child { display: none; }
+      main { padding-block: 4.75rem; }
+      .projects-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 3.75rem; }
+      .project { border-radius: 22px; }
+      .project-link { padding: 12px; }
+      .project-visual { border-radius: 15px; }
+      .project-copy { padding: 20px 6px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      .reveal-ready .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" data-home-link href="/portfolio.html?lang=ru">Юрий Жильников</a>
+      <div class="header-actions">
+        <a class="pill" data-home-link href="/portfolio.html?lang=ru#work" data-copy="back">← На главную</a>
+        <button class="pill" id="language-button" type="button" aria-label="Сменить язык">RU / EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+      <div class="reveal">
+        <p class="eyebrow" data-copy="eyebrow">Все работы</p>
+        <h1 data-copy="title">Мои проекты</h1>
+        <p class="lead" data-copy="lead">Сайты и интерфейсы с продуманной структурой, выразительной подачей и адаптацией под разные устройства.</p>
+      </div>
+
+      <section class="projects-grid" aria-label="Проекты">
+        <article class="project reveal" data-project-id="aura">
+          <a class="project-link" href="/projects/aura.html?lang=ru">
+            <div class="project-visual"><img src="/cases/aura-main.webp" alt="Макет проекта AURA" loading="eager"></div>
+            <div class="project-copy"><div class="project-meta"><span>Product design</span><span>2026</span></div><h2 data-title="aura">AURA — платформа взаимопомощи</h2><p data-desc="aura">Интерфейс цифрового сервиса с безопасными сценариями и эмоциональной визуальной системой.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="lapadoctor">
+          <a class="project-link" href="/projects/lapadoctor.html?lang=ru">
+            <div class="project-visual"><img src="/cases/lapadoctor-desktop.webp" alt="Макет проекта ЛапаДоктор" loading="eager"></div>
+            <div class="project-copy"><div class="project-meta"><span>Web design</span><span>2026</span></div><h2 data-title="lapadoctor">ЛапаДоктор — сайт ветеринарной службы</h2><p data-desc="lapadoctor">Многостраничный сайт с понятной записью, услугами и адаптивной версией для телефона.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="flux">
+          <a class="project-link" href="/projects/flux.html?lang=ru">
+            <div class="project-visual"><img src="/cases/flux-hook.webp" alt="Макет проекта FLUX AI" loading="lazy"></div>
+            <div class="project-copy"><div class="project-meta"><span>Mobile UI</span><span>2026</span></div><h2 data-title="flux">FLUX AI — мобильный интерфейс</h2><p data-desc="flux">Сценарии генерации контента, onboarding и paywall в единой мобильной системе.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="kultur">
+          <a class="project-link" href="/projects/kultur.html?lang=ru">
+            <div class="project-visual"><img src="/cases/kultur-desktop.webp" alt="Макет проекта KULTUR" loading="lazy"></div>
+            <div class="project-copy"><div class="project-meta"><span>Editorial web</span><span>2026</span></div><h2 data-title="kultur">KULTUR — спецпроект о Японии</h2><p data-desc="kultur">Редакционный лонгрид с сильной типографикой, ритмом и атмосферной подачей.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="yandexpet">
+          <a class="project-link" href="/projects/yandexpet.html?lang=ru">
+            <div class="project-visual"><img src="/cases/yandex-pet-day.webp" alt="Макет проекта Yandex Pet Day" loading="lazy"></div>
+            <div class="project-copy"><div class="project-meta"><span>Event website</span><span>2026</span></div><h2 data-title="yandexpet">Yandex Pet Day — промо-сайт конференции</h2><p data-desc="yandexpet">Яркая событийная страница с программой, билетами и интерактивной подачей.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="prostolaser">
+          <a class="project-link" href="/projects/prostolaser.html?lang=ru">
+            <div class="project-visual"><img src="/cases/prosto-laser.webp" alt="Макет проекта Prosto Laser" loading="lazy"></div>
+            <div class="project-copy"><div class="project-meta"><span>Redesign</span><span>2026</span></div><h2 data-title="prostolaser">Prosto Laser — редизайн сайта клиники</h2><p data-desc="prostolaser">Обновлённая структура коммерческого сайта и более понятный путь к записи.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+        <article class="project reveal" data-project-id="phonelab">
+          <a class="project-link" href="/projects/phonelab.html?lang=ru">
+            <div class="project-visual"><img src="/cases/phonelab.webp" alt="Макет проекта PhoneLab" loading="lazy"></div>
+            <div class="project-copy"><div class="project-meta"><span>E-commerce</span><span>2026</span></div><h2 data-title="phonelab">PhoneLab — интернет-магазин техники</h2><p data-desc="phonelab">Концепция магазина с выразительной главной, каталогом и продуктовой навигацией.</p><span class="project-arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer><div class="shell" data-copy="footer">© 2026 Юрий Жильников. Все проекты.</div></footer>
+
+  <script>
+    const copy = {
+      ru: {
+        metaTitle: 'Проекты — Юрий Жильников',
+        metaDescription: 'Все проекты веб-дизайнера Юрия Жильникова: сайты, интерфейсы и адаптивные макеты.',
+        back: '← На главную', eyebrow: 'Все работы', title: 'Мои проекты',
+        lead: 'Сайты и интерфейсы с продуманной структурой, выразительной подачей и адаптацией под разные устройства.',
+        footer: '© 2026 Юрий Жильников. Все проекты.',
+        titles: {
+          aura: 'AURA — платформа взаимопомощи', lapadoctor: 'ЛапаДоктор — сайт ветеринарной службы',
+          flux: 'FLUX AI — мобильный интерфейс', kultur: 'KULTUR — спецпроект о Японии',
+          yandexpet: 'Yandex Pet Day — промо-сайт конференции', prostolaser: 'Prosto Laser — редизайн сайта клиники',
+          phonelab: 'PhoneLab — интернет-магазин техники'
+        },
+        descriptions: {
+          aura: 'Интерфейс цифрового сервиса с безопасными сценариями и эмоциональной визуальной системой.',
+          lapadoctor: 'Многостраничный сайт с понятной записью, услугами и адаптивной версией для телефона.',
+          flux: 'Сценарии генерации контента, onboarding и paywall в единой мобильной системе.',
+          kultur: 'Редакционный лонгрид с сильной типографикой, ритмом и атмосферной подачей.',
+          yandexpet: 'Яркая событийная страница с программой, билетами и интерактивной подачей.',
+          prostolaser: 'Обновлённая структура коммерческого сайта и более понятный путь к записи.',
+          phonelab: 'Концепция магазина с выразительной главной, каталогом и продуктовой навигацией.'
+        }
+      },
+      en: {
+        metaTitle: 'Projects — Yuriy Zhilnikov',
+        metaDescription: 'All web design projects by Yuriy Zhilnikov: websites, interfaces, and responsive layouts.',
+        back: '← Home', eyebrow: 'All work', title: 'My Projects',
+        lead: 'Websites and interfaces with thoughtful structure, expressive visual direction, and responsive layouts for every device.',
+        footer: '© 2026 Yuriy Zhilnikov. All projects.',
+        titles: {
+          aura: 'AURA — Peer Support Platform', lapadoctor: 'LapaDoctor — Veterinary Service Website',
+          flux: 'FLUX AI — Mobile Interface', kultur: 'KULTUR — Japan Editorial Project',
+          yandexpet: 'Yandex Pet Day — Conference Promo Site', prostolaser: 'Prosto Laser — Clinic Website Redesign',
+          phonelab: 'PhoneLab — Technology Online Store'
+        },
+        descriptions: {
+          aura: 'A digital support service with safe user flows and an emotionally engaging visual system.',
+          lapadoctor: 'A multi-page service website with clear booking, service navigation, and a responsive mobile layout.',
+          flux: 'Content generation, onboarding, and paywall journeys combined in one coherent mobile system.',
+          kultur: 'An editorial longread with strong typography, measured pacing, and an atmospheric visual direction.',
+          yandexpet: 'A vivid event page with the schedule, ticket flow, and interactive storytelling.',
+          prostolaser: 'A clearer commercial structure and a more direct journey from interest to booking.',
+          phonelab: 'An online store concept with an expressive homepage, catalog, and clear product navigation.'
+        }
+      }
+    };
+
+    function setLanguage(language) {
+      const lang = language === 'en' ? 'en' : 'ru';
+      const content = copy[lang];
+      document.documentElement.lang = lang;
+      document.title = content.metaTitle;
+      document.querySelector('meta[name="description"]').content = content.metaDescription;
+      document.querySelectorAll('[data-copy]').forEach(element => {
+        element.textContent = content[element.dataset.copy];
+      });
+      document.querySelectorAll('[data-title]').forEach(element => {
+        element.textContent = content.titles[element.dataset.title];
+      });
+      document.querySelectorAll('[data-desc]').forEach(element => {
+        element.textContent = content.descriptions[element.dataset.desc];
+      });
+      document.querySelectorAll('[data-home-link]').forEach(link => {
+        link.href = `/portfolio.html?lang=${lang}${link.dataset.copy === 'back' ? '#work' : ''}`;
+      });
+      document.querySelectorAll('[data-project-id] a').forEach(link => {
+        link.href = `/projects/${link.closest('[data-project-id]').dataset.projectId}.html?lang=${lang}`;
+      });
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState({}, '', url);
+      document.getElementById('language-button').dataset.lang = lang;
+    }
+
+    document.documentElement.classList.add('reveal-ready');
+    const revealItems = [...document.querySelectorAll('.reveal')];
+    revealItems.forEach((item, index) => item.style.setProperty('--delay', `${Math.min(index * 65, 195)}ms`));
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+    revealItems.forEach(item => revealObserver.observe(item));
+
+    const initialLanguage = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'ru';
+    setLanguage(initialLanguage);
+    document.getElementById('language-button').addEventListener('click', event => {
+      setLanguage(event.currentTarget.dataset.lang === 'ru' ? 'en' : 'ru');
+    });
+  </script>
+</body>
+</html>
