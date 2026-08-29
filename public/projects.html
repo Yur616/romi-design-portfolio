@@ -11,21 +11,21 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #3b2519;
-      --muted: #563524;
-      --line: #b9835f;
-      --card: rgba(239, 213, 187, 0.72);
-      --card-hover: rgba(247, 226, 206, 0.9);
-      --accent: #5b301c;
+      --ink: #20362a;
+      --muted: #77817b;
+      --line: #dfe7e1;
+      --card: #f6f8f6;
+      --card-hover: #edf3ee;
+      --accent: #75a887;
     }
     * { box-sizing: border-box; }
-    html { background: #c9a17b; }
+    html { background: #fff; }
     body {
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at 12% 8%, rgba(255, 232, 207, 0.18), transparent 28rem),
-        #c9a17b;
+        radial-gradient(circle at 12% 8%, rgba(190, 225, 200, 0.18), transparent 28rem),
+        #fff;
       color: var(--ink);
       font-family: "Manrope", sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -37,8 +37,8 @@
       position: sticky;
       z-index: 20;
       top: 0;
-      border-bottom: 1px solid rgba(91, 54, 32, 0.16);
-      background: rgba(207, 168, 131, 0.88);
+      border-bottom: 1px solid rgba(223, 231, 225, 0.9);
+      background: rgba(255, 255, 255, 0.86);
       backdrop-filter: blur(18px);
     }
     .header-inner {
@@ -58,7 +58,7 @@
       padding: 0.7rem 1rem;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(244, 222, 200, 0.72);
+      background: rgba(255, 255, 255, 0.72);
       color: var(--ink);
       font-family: "Space Mono", monospace;
       font-size: 0.7rem;
@@ -66,7 +66,7 @@
       cursor: pointer;
       transition: background-color 260ms ease-out, transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .pill:hover { background: rgba(250, 233, 215, 0.9); transform: translateY(-1px); }
+    .pill:hover { background: #edf3ee; transform: translateY(-1px); }
     main { padding-block: clamp(5.5rem, 9vw, 8rem); }
     .eyebrow {
       margin: 0 0 1.25rem;
@@ -111,7 +111,7 @@
       aspect-ratio: 16 / 10;
       overflow: hidden;
       border-radius: 19px;
-      background: #d8b492;
+      background: #e9efea;
     }
     .project-visual img {
       display: block;

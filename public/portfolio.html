@@ -21,17 +21,17 @@
           },
           colors: {
             bloom: {
-              bg: '#C9A17B',
-              card: '#D9B794',
-              cardHover: '#E2C5A7',
-              border: '#B9835F',
-              accent: '#A66F4D',
-              accentHover: '#885439',
-              text: '#3B2519',
-              muted: '#563524',
-              cyan: '#DAB894',
-              emerald: '#B67E58',
-              violet: '#D8B08B'
+              bg: '#FFFFFF',
+              card: '#F6FAF7',
+              cardHover: '#EEF7F1',
+              border: '#DDEBE1',
+              accent: '#B7DEC2',
+              accentHover: '#8FC7A0',
+              text: '#20362A',
+              muted: '#708278',
+              cyan: '#CBEAD7',
+              emerald: '#A8D7B6',
+              violet: '#D7E8D6'
             }
           },
           animation: {
@@ -505,143 +505,6 @@
       }
     }
 
-    /* Тёплая палитра из фона кадров медведя. */
-    body {
-      background: #C9A17B;
-      color: #3B2519;
-      selection-background-color: #9B6646;
-      selection-color: #FFF8EF;
-    }
-    ::selection { background: #9B6646; color: #FFF8EF; }
-    .noise-overlay {
-      background-image: radial-gradient(rgba(78, 46, 28, 0.07) 1px, transparent 0);
-    }
-    .glow-sphere { display: none; }
-    .glass-nav {
-      background: rgba(207, 168, 131, 0.88);
-      border-color: rgba(91, 54, 32, 0.16);
-    }
-    .glass-card {
-      background: rgba(239, 213, 187, 0.7);
-      border-color: rgba(91, 54, 32, 0.15);
-    }
-    .glass-card:hover { border-color: rgba(91, 54, 32, 0.28); }
-    #top {
-      background: linear-gradient(180deg, #B98E69 0%, #C8A07A 58%, #D6B28D 100%);
-    }
-    [class~="text-white"] { color: #3B2519 !important; }
-    [class~="hover:text-white"]:hover { color: #2C190F !important; }
-    [class~="text-emerald-300"],
-    [class~="text-emerald-400"],
-    [class~="text-emerald-600"],
-    [class~="text-green-200"],
-    [class~="text-green-400"],
-    [class~="text-lime-200"],
-    [class~="text-lime-400"],
-    [class~="text-teal-400"],
-    [class~="text-yellow-400"],
-    [class~="text-amber-400"],
-    [class~="text-rose-400"] { color: #5B301C !important; }
-    [class~="hover:text-emerald-400"]:hover,
-    [class~="hover:text-lime-400"]:hover,
-    [class~="hover:text-yellow-400"]:hover,
-    [class~="hover:text-amber-400"]:hover,
-    [class~="hover:text-rose-400"]:hover { color: #56301E !important; }
-    [class~="bg-emerald-600"],
-    [class~="bg-lime-600"],
-    [class~="bg-yellow-600"],
-    [class~="bg-rose-600"] {
-      background-color: #76503A !important;
-      color: #FFF8EF !important;
-    }
-    [class~="hover:bg-emerald-500"]:hover,
-    [class~="hover:bg-emerald-600"]:hover,
-    [class~="hover:bg-lime-600"]:hover,
-    [class~="hover:bg-yellow-600"]:hover,
-    [class~="hover:bg-rose-600"]:hover { background-color: #5F3B29 !important; }
-    [class~="bg-emerald-500"],
-    [class~="bg-green-500"],
-    [class~="bg-emerald-400"],
-    [class~="bg-lime-400"],
-    [class~="bg-yellow-400"],
-    [class~="bg-amber-400"],
-    [class~="bg-rose-400"] { background-color: #9A6545 !important; }
-    [class~="bg-emerald-500/10"],
-    [class~="bg-emerald-600/10"],
-    [class~="bg-green-500/10"],
-    [class~="bg-lime-500/10"],
-    [class~="bg-teal-500/10"],
-    [class~="bg-yellow-500/10"],
-    [class~="bg-amber-500/10"],
-    [class~="bg-rose-500/10"] { background-color: rgba(108, 65, 40, 0.12) !important; }
-    [class~="bg-white/5"] { background-color: rgba(89, 52, 30, 0.07) !important; }
-    [class~="bg-white/10"] { background-color: rgba(89, 52, 30, 0.12) !important; }
-    [class~="hover:bg-white/10"]:hover { background-color: rgba(89, 52, 30, 0.18) !important; }
-    [class~="border-white/5"],
-    [class~="border-white/10"] { border-color: rgba(89, 52, 30, 0.13) !important; }
-    [class~="hover:border-white/20"]:hover { border-color: rgba(89, 52, 30, 0.3) !important; }
-    [class~="border-emerald-500"],
-    [class~="border-emerald-500/20"],
-    [class~="border-emerald-500/30"],
-    [class~="border-green-500/20"],
-    [class~="border-green-500/30"],
-    [class~="border-lime-500/20"],
-    [class~="border-teal-500/20"],
-    [class~="border-yellow-500/20"],
-    [class~="border-amber-500/20"],
-    [class~="border-rose-500/20"] { border-color: rgba(99, 58, 34, 0.28) !important; }
-    [class~="from-emerald-400"] {
-      --tw-gradient-from: #77472E var(--tw-gradient-from-position) !important;
-      --tw-gradient-to: rgb(119 71 46 / 0) var(--tw-gradient-to-position) !important;
-      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
-    }
-    [class~="via-teal-300"] {
-      --tw-gradient-to: rgb(160 102 67 / 0) var(--tw-gradient-to-position) !important;
-      --tw-gradient-stops: var(--tw-gradient-from), #A06643 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
-    }
-    [class~="to-green-400"] { --tw-gradient-to: #6B3D28 var(--tw-gradient-to-position) !important; }
-    [class~="from-emerald-500"],
-    [class~="from-emerald-600"] {
-      --tw-gradient-from: #A66F4D var(--tw-gradient-from-position) !important;
-      --tw-gradient-to: rgb(166 111 77 / 0) var(--tw-gradient-to-position) !important;
-      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
-    }
-    [class~="via-teal-400"] {
-      --tw-gradient-to: rgb(184 132 96 / 0) var(--tw-gradient-to-position) !important;
-      --tw-gradient-stops: var(--tw-gradient-from), #B88460 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
-    }
-    [class~="to-teal-400"],
-    [class~="to-green-500"] { --tw-gradient-to: #875338 var(--tw-gradient-to-position) !important; }
-    #work .project-card,
-    #about .glass-card,
-    #services .glass-card,
-    #calculator .glass-card { background: rgba(240, 215, 191, 0.72) !important; }
-    #work .project-card:hover,
-    #about .glass-card:hover,
-    #services .glass-card:hover,
-    #calculator .glass-card:hover { background: rgba(246, 226, 207, 0.82) !important; }
-    #work h2,
-    #about h2,
-    #services h2,
-    #calculator h2,
-    #work .project-card h3,
-    #services h3,
-    #about h3,
-    #about h4 { color: #3B2519 !important; }
-    #work h2 + p,
-    #calculator h2 + p,
-    #about p,
-    #services p { color: #563524 !important; }
-    #services .grid > .glass-card > div:first-child > div:first-child { background: rgba(122, 75, 45, 0.1) !important; }
-    #calculator .calc-btn,
-    #calculator .glass-card > div:nth-child(2) > div > div { background: rgba(255, 244, 231, 0.64) !important; border-color: rgba(99, 58, 34, 0.16) !important; }
-    #calculator .calc-btn:hover,
-    #calculator .calc-btn.active,
-    #calculator .glass-card > div:nth-child(2) > div > div:hover { background: rgba(249, 226, 204, 0.9) !important; border-color: rgba(99, 58, 34, 0.25) !important; }
-    #calculator [aria-live="polite"] { background: #DDBA96 !important; }
-    .all-projects-link { background: rgba(244, 222, 200, 0.75); border-color: rgba(99, 58, 34, 0.16); color: #3B2519; }
-    .all-projects-link:hover { background: rgba(250, 233, 215, 0.9); }
-
     .bear-stage {
       height: clamp(15.5rem, 30vh, 17rem);
       display: flex;
@@ -649,34 +512,32 @@
       justify-content: center;
     }
     .bear-media {
-      width: min(100%, 420px);
+      width: 230px;
       height: 250px;
       flex: 0 0 auto;
-      overflow: visible;
-      border-radius: 0;
+      overflow: hidden;
+      border-radius: 50%;
       pointer-events: none;
       transform: translateZ(0);
       will-change: transform;
       backface-visibility: hidden;
       background: transparent;
-      box-shadow: none;
+      box-shadow: 0 20px 45px -34px rgba(65, 55, 35, 0.55);
     }
     .bear-media canvas {
       display: block;
       width: 100%;
       height: 100%;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 17%, #000 83%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0%, #000 17%, #000 83%, transparent 100%);
-      mix-blend-mode: normal;
-      filter: none;
+      mix-blend-mode: multiply;
+      filter: contrast(105%);
       pointer-events: none;
       background: transparent;
     }
     @media (max-width: 640px) {
       .bear-stage { height: 14.25rem; }
       .bear-media {
-        width: min(100%, 336px);
-        height: 210px;
+        width: 202px;
+        height: 220px;
       }
     }
   </style>
