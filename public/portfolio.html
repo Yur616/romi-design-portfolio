@@ -291,12 +291,10 @@
       background: transparent;
       box-shadow: 0 20px 45px -34px rgba(65, 55, 35, 0.55);
     }
-    .bear-media video {
+    .bear-media canvas {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
       mix-blend-mode: multiply;
       filter: contrast(105%);
       pointer-events: none;
@@ -405,9 +403,7 @@
 
         <div id="bear-stage" class="bear-stage relative my-3 sm:my-4" aria-hidden="true">
           <div class="bear-media">
-            <video id="bear-video-scrubber" autoplay loop muted playsinline preload="auto" tabindex="-1" disablepictureinpicture>
-              <source src="/bear-mascot.mp4" type="video/mp4">
-            </video>
+            <canvas id="bear-frame-canvas" aria-hidden="true"></canvas>
           </div>
         </div>
 
@@ -1591,7 +1587,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }
       updateClock();
       setInterval(updateClock, 1000);
-      initBearVideoScrubber();
+      initBearFrameSequence();
       initFloatingCta();
     });
 
@@ -1630,68 +1626,109 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }, { threshold: 0.15 }).observe(contactSection);
     }
 
-    function initBearVideoScrubber() {
-      const video = document.getElementById('bear-video-scrubber');
-      if (!video) return;
+    function initBearFrameSequence() {
+      const canvas = document.getElementById('bear-frame-canvas');
+      const context = canvas?.getContext('2d', { alpha: true, desynchronized: true });
+      if (!canvas || !context) return;
 
-      const isMobile = window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches;
-      const HAVE_METADATA = HTMLMediaElement.HAVE_METADATA;
-      const LERP_AMOUNT = 0.15;
-      const SEEK_THRESHOLD = 0.01;
-      const TIMELINE_PADDING = 0.04;
+      const FRAME_COUNT = 60;
+      const LERP_AMOUNT = 0.18;
+      const CENTER_FRAME = (FRAME_COUNT - 1) / 2;
+      const isTouchDevice = window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches;
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+      const lerp = (from, to, amount) => from + (to - from) * amount;
 
-      video.muted = true;
-      video.defaultMuted = true;
-      video.loop = true;
+      let targetFrame = CENTER_FRAME;
+      let smoothFrame = CENTER_FRAME;
+      let lastDrawnFrame = -1;
 
-      // На телефонах курсора нет: оставляем обычное зацикленное воспроизведение.
-      if (isMobile) {
-        const playLoop = () => video.play().catch(() => {});
-        if (video.readyState >= HAVE_METADATA) playLoop();
-        else video.addEventListener('loadedmetadata', playLoop, { once: true });
+      // Все 60 изображений создаются заранее: браузер начинает загружать секвенцию сразу.
+      const frames = Array.from({ length: FRAME_COUNT }, (_, index) => {
+        const image = new Image();
+        image.decoding = 'async';
+        image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
+        image.addEventListener('load', () => {
+          if (index === Math.round(smoothFrame)) drawFrame(index, true);
+        }, { once: true });
+        return image;
+      });
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        const nextWidth = Math.max(1, Math.round(rect.width * pixelRatio));
+        const nextHeight = Math.max(1, Math.round(rect.height * pixelRatio));
+        if (canvas.width !== nextWidth || canvas.height !== nextHeight) {
+          canvas.width = nextWidth;
+          canvas.height = nextHeight;
+          lastDrawnFrame = -1;
+          drawFrame(Math.round(smoothFrame), true);
+        }
+      }
+
+      function drawFrame(index, force = false) {
+        const safeIndex = clamp(index, 0, FRAME_COUNT - 1);
+        const image = frames[safeIndex];
+        if (!image?.complete || !image.naturalWidth || (!force && safeIndex === lastDrawnFrame)) return;
+
+        // Аналог object-fit: cover — лишние края кадра обрезаются симметрично.
+        const sourceRatio = image.naturalWidth / image.naturalHeight;
+        const canvasRatio = canvas.width / canvas.height;
+        let sourceX = 0;
+        let sourceY = 0;
+        let sourceWidth = image.naturalWidth;
+        let sourceHeight = image.naturalHeight;
+
+        if (sourceRatio > canvasRatio) {
+          sourceWidth = image.naturalHeight * canvasRatio;
+          sourceX = (image.naturalWidth - sourceWidth) / 2;
+        } else {
+          sourceHeight = image.naturalWidth / canvasRatio;
+          sourceY = (image.naturalHeight - sourceHeight) / 2;
+        }
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.imageSmoothingEnabled = true;
+        context.imageSmoothingQuality = 'high';
+        context.drawImage(
+          image,
+          sourceX,
+          sourceY,
+          sourceWidth,
+          sourceHeight,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+        lastDrawnFrame = safeIndex;
+      }
+
+      function updateTarget(event) {
+        // clientX / innerWidth даёт 0…1; умножение на 59 выбирает кадр 001…060.
+        const progress = clamp(event.clientX / window.innerWidth, 0, 1);
+        targetFrame = progress * (FRAME_COUNT - 1);
+      }
+
+      function animate() {
+        smoothFrame = lerp(smoothFrame, targetFrame, LERP_AMOUNT);
+        drawFrame(Math.round(smoothFrame));
+        window.requestAnimationFrame(animate);
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+
+      if (isTouchDevice) {
+        // На сенсорных экранах оставляем спокойный центральный кадр.
+        drawFrame(Math.round(CENTER_FRAME), true);
         return;
       }
 
-      video.pause();
-      let targetProgress = 0.5;
-      let smoothTime = 0;
-      let animationStarted = false;
-      const clamp01 = (value) => Math.min(1, Math.max(0, value));
-      const lerp = (from, to, amount) => from + (to - from) * amount;
-
-      const updateTarget = (event) => {
-        // Позиция X переводится в долю 0…1: слева 0, справа 1.
-        targetProgress = clamp01(event.clientX / window.innerWidth);
-      };
-
-      const animate = () => {
-        if (video.readyState >= HAVE_METADATA && Number.isFinite(video.duration)) {
-          // Умножаем долю курсора на длительность и получаем нужную секунду видео.
-          const timelineEnd = Math.max(0, video.duration - TIMELINE_PADDING);
-          const targetTime = targetProgress * timelineEnd;
-          smoothTime = lerp(smoothTime, targetTime, LERP_AMOUNT);
-
-          // Пропускаем микроскопические изменения, чтобы не перегружать декодер.
-          if (!video.seeking && Math.abs(video.currentTime - smoothTime) > SEEK_THRESHOLD) {
-            video.currentTime = smoothTime;
-          }
-        }
-        window.requestAnimationFrame(animate);
-      };
-
-      const startScrubbing = () => {
-        if (animationStarted || video.readyState < HAVE_METADATA || !Number.isFinite(video.duration)) return;
-        animationStarted = true;
-        video.pause();
-        smoothTime = video.duration * targetProgress;
-        window.addEventListener('pointermove', updateTarget, { passive: true });
-        document.documentElement.addEventListener('mouseleave', () => { targetProgress = 0.5; });
-        window.addEventListener('blur', () => { targetProgress = 0.5; });
-        window.requestAnimationFrame(animate);
-      };
-
-      if (video.readyState >= HAVE_METADATA) startScrubbing();
-      else video.addEventListener('loadedmetadata', startScrubbing, { once: true });
+      window.addEventListener('pointermove', updateTarget, { passive: true });
+      document.documentElement.addEventListener('mouseleave', () => { targetFrame = CENTER_FRAME; });
+      window.addEventListener('blur', () => { targetFrame = CENTER_FRAME; });
+      window.requestAnimationFrame(animate);
     }
 
     function toggleMobileMenu() {
