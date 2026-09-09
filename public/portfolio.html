@@ -7,7 +7,8 @@
   <meta name="description" content="Портфолио Юрия Жильникова: лендинги, многостраничные сайты, интернет-магазины, редизайн и сборка на Tilda.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="/bear-frames/031.webp" as="image" type="image/webp">
+  <link rel="preload" href="/bear-frames/023.webp" as="image" type="image/webp" media="(max-width: 767px)">
+  <link rel="preload" href="/bear-frames/031.webp" as="image" type="image/webp" media="(min-width: 768px)">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -632,6 +633,13 @@
       .bear-media {
         width: 202px;
         height: 220px;
+        -webkit-clip-path: ellipse(50% 50% at 50% 50%);
+        clip-path: ellipse(50% 50% at 50% 50%);
+        isolation: isolate;
+      }
+      .bear-media canvas {
+        -webkit-clip-path: ellipse(50% 50% at 50% 50%);
+        clip-path: ellipse(50% 50% at 50% 50%);
       }
     }
   </style>
@@ -2095,12 +2103,14 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const FRAME_COUNT = 60;
       const LERP_AMOUNT = 0.18;
       const CENTER_FRAME = (FRAME_COUNT - 1) / 2;
+      const MOBILE_FRAME = 22; // 023.webp: фронтальная поза и взгляд прямо.
       const isTouchDevice = window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches;
+      const initialFrame = isTouchDevice ? MOBILE_FRAME : CENTER_FRAME;
       const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
       const lerp = (from, to, amount) => from + (to - from) * amount;
 
-      let targetFrame = CENTER_FRAME;
-      let smoothFrame = CENTER_FRAME;
+      let targetFrame = initialFrame;
+      let smoothFrame = initialFrame;
       let lastDrawnFrame = -1;
 
       const frames = new Array(FRAME_COUNT);
@@ -2193,8 +2203,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         }
       }
 
-      // Центральный кадр загружается первым, соседние — по мере удаления от него.
-      const centerIndex = Math.round(CENTER_FRAME);
+      // На мобильных первым загружаем фронтальный кадр, на десктопе — центр анимации.
+      const centerIndex = Math.round(initialFrame);
       const loadOrder = Array.from({ length: FRAME_COUNT }, (_, index) => index)
         .sort((a, b) => Math.abs(a - centerIndex) - Math.abs(b - centerIndex));
 
@@ -2205,7 +2215,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         frames[index] = image;
         image.addEventListener('load', () => {
           processedFrames[index] = image;
-          if (index === Math.round(smoothFrame) || lastDrawnFrame < 0) drawFrame(index, true);
+          if (index === Math.round(smoothFrame) || (!isTouchDevice && lastDrawnFrame < 0)) {
+            drawFrame(index, true);
+          }
         }, { once: true });
         image.src = `/bear-frames/${String(index + 1).padStart(3, '0')}.webp`;
       });
@@ -2293,8 +2305,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       window.addEventListener('resize', resizeCanvas, { passive: true });
 
       if (isTouchDevice) {
-        // На сенсорных экранах оставляем спокойный центральный кадр.
-        drawFrame(Math.round(CENTER_FRAME), true);
+        // На сенсорных экранах оставляем статичный фронтальный кадр.
+        drawFrame(MOBILE_FRAME, true);
         return;
       }
 
