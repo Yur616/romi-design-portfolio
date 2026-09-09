@@ -490,7 +490,8 @@
       }
     }
     @media (max-width: 767px) {
-      #top > .max-w-6xl {
+      main > section > :first-child,
+      footer > :first-child {
         transform: translate3d(var(--mobile-visual-center-offset, 0px), 0, 0);
       }
       #work,
@@ -1962,21 +1963,20 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     });
 
     function initMobileVisualViewportCentering() {
-      const heroContent = document.querySelector('#top > .max-w-6xl');
       const visualViewport = window.visualViewport;
       const mobileLayout = window.matchMedia('(max-width: 767px)');
-      if (!heroContent || !visualViewport) return;
+      if (!visualViewport) return;
 
       const updateCenter = () => {
         if (!mobileLayout.matches) {
-          heroContent.style.removeProperty('--mobile-visual-center-offset');
+          document.documentElement.style.removeProperty('--mobile-visual-center-offset');
           return;
         }
 
         const layoutCenter = document.documentElement.clientWidth / 2;
         const visibleCenter = visualViewport.offsetLeft + visualViewport.width / 2;
         const centerOffset = visibleCenter - layoutCenter;
-        heroContent.style.setProperty('--mobile-visual-center-offset', `${centerOffset}px`);
+        document.documentElement.style.setProperty('--mobile-visual-center-offset', `${centerOffset}px`);
       };
 
       visualViewport.addEventListener('resize', updateCenter, { passive: true });
