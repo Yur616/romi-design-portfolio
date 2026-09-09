@@ -494,6 +494,10 @@
       footer > :first-child {
         transform: translate3d(var(--mobile-visual-center-offset, 0px), 0, 0);
       }
+      .mobile-marquee-band {
+        width: var(--mobile-visual-viewport-width, 100%);
+        transform: translate3d(var(--mobile-visual-left, 0px), 0, 0);
+      }
       #work,
       #about,
       #services,
@@ -782,7 +786,7 @@
       </div>
     </section>
 
-    <div class="relative py-6 bg-bloom-card/60 border-y border-bloom-border overflow-hidden whitespace-nowrap">
+    <div class="mobile-marquee-band relative py-6 bg-bloom-card/60 border-y border-bloom-border overflow-hidden whitespace-nowrap">
       <div class="inline-flex animate-marquee gap-12 text-sm font-mono tracking-widest text-bloom-muted uppercase" data-i18n="marquee">
         <span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span><span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span>
       </div>
@@ -1970,6 +1974,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const updateCenter = () => {
         if (!mobileLayout.matches) {
           document.documentElement.style.removeProperty('--mobile-visual-center-offset');
+          document.documentElement.style.removeProperty('--mobile-visual-viewport-width');
+          document.documentElement.style.removeProperty('--mobile-visual-left');
           return;
         }
 
@@ -1977,6 +1983,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
         const visibleCenter = visualViewport.offsetLeft + visualViewport.width / 2;
         const centerOffset = visibleCenter - layoutCenter;
         document.documentElement.style.setProperty('--mobile-visual-center-offset', `${centerOffset}px`);
+        document.documentElement.style.setProperty('--mobile-visual-viewport-width', `${visualViewport.width}px`);
+        document.documentElement.style.setProperty('--mobile-visual-left', `${visualViewport.offsetLeft}px`);
       };
 
       visualViewport.addEventListener('resize', updateCenter, { passive: true });
