@@ -281,3 +281,11 @@ img { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+.case-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.case-action { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 22px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 700; text-align: center; }
+.case-action--primary { background: var(--accent); border-color: var(--accent); }
+.case-action:hover { background: #e4f1e8; }
+.case-action:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
+.case-next a { max-width: 100%; padding-block: 16px; line-height: 1.5; }
+@media (max-width: 560px) { .case-actions { flex-direction: column; } .case-action { width: 100%; } }

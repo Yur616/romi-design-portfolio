@@ -1,6 +1,156 @@
-const projectOrder = ["aura", "lapadoctor", "flux", "kultur", "yandexpet", "prostolaser", "phonelab"];
+const projectOrder = ["prometr", "nonmarfa", "aura", "lapadoctor", "flux", "kultur", "yandexpet", "prostolaser", "phonelab"];
 
 const caseProjects = {
+  prometr: {
+  "theme": "#eaf0f7",
+  "cover": "/cases/prometr-desktop.jpg",
+  "live": "https://equally-gorgeous-vuvuzela.tilda.ws/",
+  "meta": {
+    "type": [
+      "Коммерческий лендинг",
+      "Commercial landing page"
+    ],
+    "scope": [
+      "Сборка, адаптив и формы",
+      "Build, responsive layouts and forms"
+    ],
+    "tools": "Tilda • Zero Block"
+  },
+  "title": [
+    "Прометр — поверка счётчиков",
+    "Prometr — Water Meter Verification"
+  ],
+  "kicker": [
+    "КОММЕРЧЕСКИЙ ПРОЕКТ · TILDA",
+    "CLIENT PROJECT · TILDA"
+  ],
+  "lead": [
+    "Лендинг компании по поверке счётчиков воды в Новокузнецке. Сборка и настройка на Tilda по техническому заданию заказчика.",
+    "A landing page for a water meter verification company in Novokuznetsk. Built and configured on Tilda to the client’s specification."
+  ],
+  "challenge": [
+    "Собрать сайт по ТЗ: понятно представить услугу, стоимость и порядок работы, разместить контакты и дать посетителю возможность оставить заявку.",
+    "Build a website to the brief: explain the service, pricing and process, provide contact details, and let visitors submit an enquiry."
+  ],
+  "approach": [
+    "Собрал страницу из стандартных блоков Tilda и Zero Block, настроил форму заявки и адаптировал отображение для компьютеров, планшетов и телефонов. Структура последовательно знакомит с услугой, условиями и этапами поверки.",
+    "I built the page with standard Tilda blocks and Zero Block, configured the enquiry form, and adapted the layouts for desktop, tablet and mobile. The content introduces the service, terms and verification process in sequence."
+  ],
+  "result": [
+    "Опубликованный лендинг на Tilda с информацией об услуге и формой заявки. Работа выполнена по техническому заданию и принята заказчиком.",
+    "A published Tilda landing page with service information and an enquiry form. The project was delivered to the brief and accepted by the client."
+  ],
+  "points": [
+    [
+      "Сборка по техническому заданию",
+      "Implementation to the client’s brief"
+    ],
+    [
+      "Стандартные блоки и Zero Block",
+      "Standard blocks and Zero Block"
+    ],
+    [
+      "Адаптация для трёх типов устройств",
+      "Desktop, tablet and mobile layouts"
+    ],
+    [
+      "Настройка формы заявки",
+      "Enquiry form configuration"
+    ]
+  ],
+  "gallery": [
+    [
+      "/cases/prometr-desktop.jpg",
+      "Опубликованный лендинг: предложение, условия и порядок работы",
+      "Published landing page: offer, terms and process"
+    ],
+    [
+      "/cases/prometr-mobile.jpg",
+      "Мобильная версия лендинга",
+      "Mobile landing page"
+    ]
+  ]
+},
+  nonmarfa: {
+  "theme": "#f2eee8",
+  "cover": "/cases/nonmarfa-desktop.jpg",
+  "live": "https://nonmarfa.com/",
+  "meta": {
+    "type": [
+      "Коммерческий интернет-магазин",
+      "Commercial online store"
+    ],
+    "scope": [
+      "Сборка и настройка магазина",
+      "Store build and configuration"
+    ],
+    "tools": ["Tilda • Дополнения", "Tilda • Add-ons"]
+  },
+  "title": [
+    "NonMarfá — интернет-магазин бренда",
+    "NonMarfá — Brand Online Store"
+  ],
+  "kicker": [
+    "КОММЕРЧЕСКИЙ ПРОЕКТ · E-COMMERCE",
+    "CLIENT PROJECT · E-COMMERCE"
+  ],
+  "lead": [
+    "Сборка и настройка магазина на стандартных блоках Tilda: каталог, карточки товаров, формы, оплата, доставка и аналитика. Работа по ТЗ заказчика.",
+    "An online store built and configured with standard Tilda blocks: catalog, product pages, forms, payments, delivery and analytics. Delivered to the client’s brief."
+  ],
+  "challenge": [
+    "Собрать интернет-магазин по техническому заданию, настроить основные функции и адаптировать страницы для разных устройств. Отдельное пожелание заказчика — разместить описание и уход справа в карточке товара.",
+    "Build the store to the brief, configure its main functions, and adapt the pages for different devices. The client also requested product description and care information on the right of the product page."
+  ],
+  "approach": [
+    "Собрал сайт из стандартных блоков, настроил каталог и формы, подключил оплату, доставку и аналитику. Подготовил мобильную и планшетную версии. Для расположения описания и ухода в карточке использовал дополнения и точечную доработку кодом.",
+    "I assembled the site with standard blocks, configured the catalog and forms, and connected payments, delivery and analytics. I adapted the site for mobile and tablet. Add-ons and a targeted code adjustment placed the product description and care information as requested."
+  ],
+  "result": [
+    "Опубликованный интернет-магазин на Tilda с настроенным каталогом и подключениями. Пожелание по карточке товара реализовано. Работа выполнена по ТЗ и принята заказчиком.",
+    "A published Tilda store with its catalog and connections configured. The requested product-page layout was implemented. The work was delivered to the brief and accepted by the client."
+  ],
+  "points": [
+    [
+      "Каталог, карточки товаров и формы",
+      "Catalog, product pages and forms"
+    ],
+    [
+      "Оплата, доставка и аналитика",
+      "Payments, delivery and analytics"
+    ],
+    [
+      "Адаптация для телефонов и планшетов",
+      "Mobile and tablet layouts"
+    ],
+    [
+      "Доработка карточки по пожеланию клиента",
+      "Product-page layout tailored to the client"
+    ]
+  ],
+  "gallery": [
+    [
+      "/cases/nonmarfa-desktop.jpg",
+      "Главная страница опубликованного магазина",
+      "Published store homepage"
+    ],
+    [
+      "/cases/nonmarfa-catalog.jpg",
+      "Каталог и товарная навигация",
+      "Catalog and product navigation"
+    ],
+    [
+      "/cases/nonmarfa-product.jpg",
+      "Карточка товара: описание и уход справа",
+      "Product page: description and care on the right"
+    ],
+    [
+      "/cases/nonmarfa-mobile.jpg",
+      "Мобильная версия магазина",
+      "Mobile store layout"
+    ]
+  ]
+},
   aura: {
     theme: "#e9f2eb",
     cover: "/cases/aura-main.webp",
@@ -21,10 +171,10 @@ const caseProjects = {
   lapadoctor: {
     theme: "#edf4ee",
     cover: "/cases/lapadoctor-desktop.webp",
-    meta: { type: ["Сайт услуги", "Service website"], scope: ["Веб-дизайн и адаптив", "Web design and responsive"], tools: "Figma • Tilda" },
+    meta: { type: ["Дизайн-концепция сайта услуги", "Service website design concept"], scope: ["Веб-дизайн и адаптив", "Web design and responsive"], tools: "Figma" },
     title: ["ЛапаДоктор — ветеринар на дом", "LapaDoctor — At-home Veterinary Care"],
     kicker: ["02 // WEB DESIGN", "02 // WEB DESIGN"],
-    lead: ["Дружелюбный сайт выездной ветеринарной службы, который быстро объясняет услугу и помогает владельцу питомца перейти к записи.", "A friendly website for a mobile veterinary service that explains the offer quickly and guides pet owners toward booking."],
+    lead: ["Дизайн сайта ветеринарной службы: структура страницы, визуальное оформление, сценарий записи и макеты для компьютера и телефона.", "A veterinary service website design: page structure, visual direction, booking journey, and desktop and mobile layouts."],
     challenge: ["В стрессовой ситуации посетителю важно сразу понять, как работает выезд врача, кому подходит услуга и какое действие сделать дальше.", "In a stressful situation, visitors need to understand immediately how the home visit works, who the service is for, and what to do next."],
     approach: ["Первый экран строится вокруг понятного обещания и заметной кнопки. Дальше сайт снимает основные сомнения, показывает преимущества домашнего приёма, знакомит со специалистами и последовательно ведёт к заявке.", "The hero centers on a clear promise and prominent action. The rest of the site answers common concerns, explains the benefits of home care, introduces specialists, and leads naturally to a request."],
     result: ["Созданы полные desktop- и mobile-макеты длинного лендинга с единой визуальной системой и продуманной последовательностью блоков.", "Complete desktop and mobile layouts were created for a long-form landing page with one consistent visual system and a clear content flow."],
@@ -146,13 +296,18 @@ function renderCase() {
   document.documentElement.lang = lang;
   document.documentElement.style.setProperty("--project-bg", project.theme);
   document.title = `${pick(project.title, lang)} — ${lang === "en" ? "Yuriy Zhilnikov" : "Юрий Жильников"}`;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', pick(project.lead, lang));
+  const liveLink = project.live ? `<a class="case-action case-action--primary" href="${project.live}" target="_blank" rel="noopener noreferrer">${lang === "en" ? "Open live website ↗" : "Открыть сайт ↗"}</a>` : '';
+  const actions = project.live ? `<div class="case-actions">${liveLink}<a class="case-action" href="/portfolio.html?lang=${lang}#contact">${lang === "en" ? "Discuss a similar project" : "Обсудить похожий проект"}</a></div>` : '';
+  const galleryTitle = project.live ? (lang === "en" ? "The published website" : "Опубликованный сайт") : t.galleryTitle;
+  const galleryLead = project.live ? (lang === "en" ? "Real screenshots of the published client project." : "Реальные скриншоты опубликованного коммерческого проекта.") : t.galleryLead;
 
   document.getElementById("case-root").innerHTML = `
     <header class="case-header">
       <div class="case-header__inner">
         <a class="brand" href="/portfolio.html?lang=${lang}#work">${lang === "en" ? "YURIY ZHILNIKOV" : "ЮРИЙ ЖИЛЬНИКОВ"}<small>${lang === "en" ? "Web designer" : "Веб-дизайнер"}</small></a>
         <div class="case-header__actions">
-          <a href="/portfolio.html?lang=${lang}#work">${t.back}</a>
+          <a href="/projects.html?lang=${lang}">${t.back}</a>
           <button id="lang-switch" type="button">${lang === "en" ? "EN / RU" : "RU / EN"}</button>
           <a href="/portfolio.html?lang=${lang}#contact">${t.contact}</a>
         </div>
@@ -166,30 +321,32 @@ function renderCase() {
         <div class="case-meta">
           <div><span>${t.role}</span><strong>${pick(project.meta.type, lang)}</strong></div>
           <div><span>${t.scope}</span><strong>${pick(project.meta.scope, lang)}</strong></div>
-          <div><span>${t.tools}</span><strong>${project.meta.tools}</strong></div>
+          <div><span>${t.tools}</span><strong>${pick(project.meta.tools, lang)}</strong></div>
         </div>
+        ${actions}
       </section>
       <section class="case-cover case-shell ${project.phoneCover ? "case-cover--phone" : ""}">
         <div class="case-cover__window"><img src="${project.cover}" alt="${pick(project.title, lang)}" fetchpriority="high"></div>
       </section>
       <section class="case-story case-shell">
-        <div class="case-story__heading"><div class="section-kicker">${t.storyKicker}</div><h2>${t.storyTitle}</h2></div>
+        <div class="case-story__heading"><div class="section-kicker">${t.storyKicker}</div><h2>${project.live ? (lang === "en" ? "Brief and implementation" : "Задача и реализация") : t.storyTitle}</h2></div>
         <div class="case-story__grid">
           <article class="story-card"><span>01</span><h3>${t.challenge}</h3><p>${pick(project.challenge, lang)}</p></article>
           <article class="story-card"><span>02</span><h3>${t.approach}</h3><p>${pick(project.approach, lang)}</p></article>
         </div>
       </section>
       <section class="case-gallery case-shell">
-        <div class="case-gallery__heading"><div class="section-kicker">${t.galleryKicker}</div><h2>${t.galleryTitle}</h2><p>${t.galleryLead}</p></div>
+        <div class="case-gallery__heading"><div class="section-kicker">${project.live ? (lang === "en" ? "LIVE WEBSITE" : "ЭКРАНЫ САЙТА") : t.galleryKicker}</div><h2>${galleryTitle}</h2><p>${galleryLead}</p></div>
         <div class="gallery-grid ${id === "flux" ? "gallery-grid--phones" : ""}">
           ${project.gallery.map((item) => {
-            const isMobileMockup = item[0].includes("-mobile.webp") || id === "flux";
+            const isMobileMockup = /-mobile\.(webp|jpg)$/.test(item[0]) || id === "flux";
             return `<figure class="gallery-item ${project.dark ? "gallery-item--dark" : ""} ${isMobileMockup ? "gallery-item--mobile" : ""}"><img src="${item[0]}" alt="${pick([item[1], item[2]], lang)}" loading="lazy"><figcaption>${pick([item[1], item[2]], lang)}</figcaption></figure>`;
           }).join("")}
         </div>
       </section>
       <section class="case-outcome case-shell">
         <div class="case-outcome__grid"><div><div class="section-kicker">${t.outcomeKicker}</div><h2>${t.outcomeTitle}</h2><p>${pick(project.result, lang)}</p></div><ul>${project.points.map((point) => `<li>${pick(point, lang)}</li>`).join("")}</ul></div>
+        ${actions}
       </section>
       <nav class="case-next case-shell" aria-label="${t.next}"><a href="/projects/${nextId}.html?lang=${lang}">${t.next}: ${pick(nextProject.title, lang)} →</a></nav>
     </main>

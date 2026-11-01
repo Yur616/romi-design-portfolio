@@ -275,6 +275,14 @@
       background-image: url('/cases/phonelab.webp') !important;
     }
 
+    .commercial-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .commercial-card:focus-visible { outline: 3px solid #78b78c; outline-offset: 4px; }
+    .contact-draft { margin-top: 20px; padding: 20px; border: 1px solid #dce8df; border-radius: 16px; background: #f2f8f3; }
+    .contact-draft[hidden] { display: none; }
+    .contact-draft textarea { width: 100%; min-height: 180px; margin: 12px 0; padding: 12px; border: 1px solid #dce8df; border-radius: 10px; background: #fff; color: #20362a; font: inherit; font-size: 14px; }
+    .contact-draft-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-draft-actions a, .contact-draft-actions button { padding: 10px 16px; border: 1px solid #dce8df; border-radius: 10px; background: #fff; color: #20362a; font: inherit; font-size: 14px; cursor: pointer; }
+
     /* Editorial-система для основных смысловых блоков. */
     #work,
     #about,
@@ -672,9 +680,11 @@
   </div>
   <div class="noise-overlay"></div>
 
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
   <div class="glow-sphere w-[500px] h-[500px] bg-emerald-600/10 top-[-100px] left-[-100px]"></div>
   <div class="glow-sphere w-[600px] h-[600px] bg-lime-600/10 top-[600px] right-[-150px]"></div>
   <div class="glow-sphere w-[500px] h-[500px] bg-teal-600/10 bottom-[800px] left-[-100px]"></div>
+  </div>
 
   <div id="progress-bar" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 z-50 transition-all duration-75 w-0"></div>
 
@@ -746,9 +756,7 @@
         <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.08] tracking-tight text-white max-w-5xl mb-4" data-i18n="hero_title">
           Создаю сайты, которые ясно показывают ценность бизнеса <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent">и помогают получать заявки.</span>
         </h1>
-        <p class="text-sm sm:text-base text-bloom-muted max-w-2xl mx-auto font-light leading-relaxed mb-5" data-i18n="hero_subtitle">
-          Продумываю структуру и визуал, собираю адаптивный сайт на Tilda и готовлю его к запуску.
-        </p>
+        <p class="text-sm sm:text-base text-bloom-muted max-w-2xl mx-auto font-light leading-relaxed mb-5" data-i18n="hero_subtitle">Создаю дизайн в Figma, собираю и настраиваю сайты на Tilda по ТЗ: адаптив, формы и необходимые подключения.</p>
 
         <div class="flex flex-wrap items-center justify-center gap-3">
           <a href="#work" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm tracking-wide transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50 hover:scale-[1.02]">
@@ -770,7 +778,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-4xl">
           <div class="rounded-xl bg-bloom-card/70 px-5 py-3 text-center shadow-sm">
-            <div class="font-display font-black text-xl text-emerald-500">7</div>
+            <div class="font-display font-black text-xl text-emerald-500">9</div>
             <div class="text-[11px] text-bloom-muted font-mono uppercase tracking-wide" data-i18n="hero_fact_projects">проектов в портфолио</div>
           </div>
           <div class="rounded-xl bg-bloom-card/70 px-5 py-3 text-center shadow-sm">
@@ -802,19 +810,35 @@
           <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight text-center" data-i18n="work_heading">
             Избранные проекты
           </h2>
-          <p class="text-bloom-muted text-sm sm:text-base max-w-2xl mx-auto mt-4 font-light leading-relaxed text-center" data-i18n="work_subheading">
-            7 проектов — от лендингов до многостраничных сайтов. В каждом показываю задачу, решение и итоговый макет.
-          </p>
+          <p class="text-bloom-muted text-sm sm:text-base max-w-2xl mx-auto mt-4 font-light leading-relaxed text-center" data-i18n="work_subheading">Два коммерческих проекта: лендинг услуги и интернет-магазин. В кейсах — задачи заказчиков, мой вклад и опубликованные сайты.</p>
         </div>
 
         <div class="portfolio-filters flex flex-wrap justify-center gap-2.5 mb-12">
-<button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (7)</button>
+<button onclick="filterProjects('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-emerald-500 bg-emerald-500/10 text-white transition-all" data-filter="all" data-i18n="filter_all">Все (9)</button>
           <button onclick="filterProjects('product')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="product" data-i18n="filter_product">UX/UI & Продукт</button>
           <button onclick="filterProjects('web')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="web" data-i18n="filter_web">Веб-сервисы & Сайты</button>
           <button onclick="filterProjects('ai')" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono tracking-wider uppercase border border-bloom-border bg-bloom-card text-bloom-muted hover:text-white transition-all" data-filter="ai" data-i18n="filter_ai">AI & Mobile</button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="project-card commercial-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('prometr')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'prometr')">
+            <div>
+              <div class="commercial-visual aspect-[16/10] rounded-xl relative overflow-hidden mb-6"><img src="/cases/prometr-desktop.jpg" alt="Прометр — лендинг услуги поверки счётчиков" loading="lazy"></div>
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="client_project">Коммерческий проект</span><span>Tilda</span></div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="prometr_title">Прометр — лендинг услуги поверки счётчиков</h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="prometr_desc">Сборка по ТЗ на стандартных блоках и Zero Block, адаптив и настройка формы заявки.</p>
+            </div>
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-3"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Tilda</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Zero Block</span></div><span class="text-emerald-400 text-sm font-semibold" data-i18n="read_case">Смотреть кейс ↗</span></div>
+          </div>
+          <div class="project-card commercial-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('nonmarfa')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'nonmarfa')">
+            <div>
+              <div class="commercial-visual aspect-[16/10] rounded-xl relative overflow-hidden mb-6"><img src="/cases/nonmarfa-desktop.jpg" alt="NonMarfá — интернет-магазин бренда" loading="lazy"></div>
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="client_project">Коммерческий проект</span><span>Tilda</span></div>
+              <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="nonmarfa_title">NonMarfá — интернет-магазин бренда</h3>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="nonmarfa_desc">Сборка и настройка магазина: каталог, формы, оплата, доставка и аналитика. Адаптив и доработка карточки товара.</p>
+            </div>
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-3"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Tilda</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">E-commerce</span></div><span class="text-emerald-400 text-sm font-semibold" data-i18n="read_case">Смотреть кейс ↗</span></div>
+          </div>
           
           <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="product" onclick="openModal('aura')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'aura')">
             <div>
@@ -885,7 +909,7 @@
                     <div class="h-2 w-2/3 bg-white/10 rounded"></div>
                   </div>
                   <div class="flex justify-between items-center text-[10px] font-mono text-bloom-muted">
-                    <span>Конверсия: +42%</span>
+                    <span>Desktop и mobile</span>
                     <span>Tilda & Zero Block</span>
                   </div>
                 </div>
@@ -898,9 +922,7 @@
               <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="p2_title">
                 ЛапаДоктор — Мобильная ветеринарная служба
               </h3>
-              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p2_desc">
-                Полный брендинг, интерактивный калькулятор вызова врача, адаптивный промо-лендинг и интеграция заявок с CRM для службы помощи животным.
-              </p>
+              <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="p2_desc">Дизайн сайта ветеринарной службы: структура страницы, визуальное оформление, сценарий записи и макеты для компьютера и телефона.</p>
             </div>
 
             <div class="pt-4 border-t border-white/5 flex items-center justify-between">
@@ -1079,15 +1101,9 @@
               </div>
             </div>
             <div class="space-y-5 text-bloom-muted leading-relaxed font-light text-base">
-              <p data-i18n="about_p1">
-                Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.
-              </p>
-              <p data-i18n="about_p2">
-                Помогаю небольшим бизнесам и экспертам понятно представить услугу, вызвать доверие и привести посетителя к нужному действию.
-              </p>
-              <p data-i18n="about_p3">
-                Беру на себя структуру, прототип, дизайн, адаптив и сборку на Tilda. Без перегруженных решений — только то, что помогает задаче.
-              </p>
+              <p data-i18n="about_p1">Меня зовут Юрий Жильников. Я веб-дизайнер и специалист по сборке и настройке сайтов на Tilda из Санкт-Петербурга.</p>
+              <p data-i18n="about_p2">Помогаю реализовать сайт по техническому заданию: собираю страницы, адаптирую их для компьютеров, планшетов и телефонов, настраиваю формы и необходимые подключения.</p>
+              <p data-i18n="about_p3">Работаю со стандартными блоками и Zero Block. Для небольших магазинов настраиваю каталог, оплату, доставку и аналитику. При необходимости выполняю отдельные доработки интерфейса с помощью дополнений и кода.</p>
             </div>
 
             <div class="mt-10 pt-8 border-t border-white/5">
@@ -1172,9 +1188,7 @@
               </div>
               <span class="font-mono text-xs text-emerald-400 mb-2 block">01 // LANDINGS</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s1_title">Лендинги и промо-сайты</h3>
-              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s1_desc">
-                Лендинг с понятным предложением и заметным действием для запуска услуги, продукта или рекламы.
-              </p>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s1_desc">Дизайн лендинга или сборка на Tilda по готовому ТЗ. Адаптивные страницы и формы для обращения в компанию.</p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
               <div data-i18n="s1_meta1">✦ Дизайн и адаптив</div>
@@ -1206,13 +1220,11 @@
               </div>
               <span class="font-mono text-xs text-lime-400 mb-2 block">03 // E-COMMERCE</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s3_title">Интернет-магазины на Tilda</h3>
-              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s3_desc">
-                Небольшой магазин с понятным каталогом, карточками товаров, корзиной и оформлением заказа.
-              </p>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s3_desc">Сборка и настройка небольшого магазина на Tilda: каталог, карточки товаров, формы, оплата, доставка и аналитика.</p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
               <div data-i18n="s3_meta1">✦ Каталог и карточки товаров</div>
-              <div data-i18n="s3_meta2">✦ Корзина и подключение оплаты</div>
+              <div data-i18n="s3_meta2">✦ Оплата, доставка и аналитика</div>
             </div>
           </div>
 
@@ -1223,9 +1235,7 @@
               </div>
               <span class="font-mono text-xs text-emerald-400 mb-2 block">04 // REDESIGN & BUILD</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s4_title">Редизайн и сборка</h3>
-              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s4_desc">
-                Обновлю устаревший сайт или аккуратно перенесу готовый дизайн в Tilda Zero Block.
-              </p>
+              <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s4_desc">Соберу сайт по готовому техническому заданию или перенесу утверждённый дизайн в Tilda. Использую стандартные блоки и Zero Block.</p>
             </div>
             <div class="pt-4 border-t border-white/5 space-y-2 text-[11px] font-mono text-bloom-muted">
               <div data-i18n="s4_meta1">✦ Перенос дизайна в Tilda</div>
@@ -1244,9 +1254,7 @@
           <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3 text-center" data-i18n="calc_heading">
             Калькулятор стоимости и сроков проекта
           </h2>
-          <p class="text-bloom-muted text-sm max-w-xl mx-auto font-light text-center" data-i18n="calc_subheading">
-            Выберите параметры вашего проекта, чтобы мгновенно получить ориентировочную оценку бюджета и сроков.
-          </p>
+          <p class="text-bloom-muted text-sm max-w-xl mx-auto font-light text-center" data-i18n="calc_subheading">Выберите дизайн или магазин на Tilda. Для лендинга и многостраничного сайта сборка добавляется отдельно.</p>
         </div>
 
         <div class="glass-card rounded-2xl p-8 space-y-8 max-w-4xl mx-auto">
@@ -1254,11 +1262,11 @@
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_type_label">1. Тип проекта:</label>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <button type="button" onclick="setCalcOption('type', 'landing', 18000, 4)" class="calc-btn active p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-left transition-all" data-group="type" data-val="landing">
-                <div class="font-bold text-sm text-white" data-i18n="calc_landing">Лендинг / Промо</div>
+                <div class="font-bold text-sm text-white" data-i18n="calc_landing">Дизайн лендинга</div>
                 <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_landing_meta">от 18 000 ₽ • 2–5 дней</div>
               </button>
               <button type="button" onclick="setCalcOption('type', 'corp', 30000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="corp">
-                <div class="font-bold text-sm text-white" data-i18n="calc_multipage">Многостраничный сайт</div>
+                <div class="font-bold text-sm text-white" data-i18n="calc_multipage">Дизайн многостраничного сайта</div>
                 <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_multipage_meta">от 30 000 ₽ • 12–25 дней</div>
               </button>
               <button type="button" onclick="setCalcOption('type', 'store', 40000, 18)" class="calc-btn p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 text-left transition-all hover:border-white/20" data-group="type" data-val="store">
@@ -1271,10 +1279,10 @@
           <div>
             <label class="block text-xs font-mono uppercase text-white mb-4" data-i18n="calc_scope_label">2. Дополнительные опции:</label>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 hover:border-white/20 transition-all">
+              <div id="addon-tilda-option" class="flex items-center gap-3 p-4 rounded-xl border border-bloom-border bg-bloom-bg/60 hover:border-white/20 transition-all">
                 <input id="addon-tilda" type="checkbox" onchange="toggleAddon('dev', 8000, 2, this.checked)" class="w-4 h-4 rounded text-emerald-600 focus:ring-0 bg-bloom-card border-bloom-border">
                 <label for="addon-tilda" class="flex-1 cursor-pointer">
-                  <div class="text-sm font-semibold text-white" data-i18n="calc_tilda_build">Сборка на Tilda</div>
+                  <div class="text-sm font-semibold text-white" data-i18n="calc_tilda_build">Дополнительно: сборка на Tilda</div>
                   <div class="text-[11px] text-bloom-muted font-mono" data-i18n="calc_tilda_build_meta">+8 000 ₽ • +2 дня</div>
                 </label>
                 <div class="relative group/tooltip shrink-0">
@@ -1298,12 +1306,13 @@
 
           <div class="sticky bottom-4 z-20 p-5 rounded-2xl bg-bloom-card/95 backdrop-blur-xl border border-bloom-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-lg shadow-emerald-950/10" aria-live="polite">
             <div>
+              <p id="calc-scope" class="text-sm font-semibold text-bloom-text mb-2"></p>
               <div class="text-[11px] font-mono text-bloom-muted uppercase tracking-wide" data-i18n="calc_estimate">Предварительная оценка:</div>
               <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mt-2">
                 <span id="calc-price" class="font-display font-bold text-xl sm:text-2xl text-bloom-text">от 18 000 ₽</span>
                 <span id="calc-time" class="font-mono text-xs sm:text-sm text-bloom-muted">~4 рабочих дня</span>
               </div>
-              <p class="mt-3 max-w-xl rounded-xl bg-white/70 px-3 py-2 text-xs leading-relaxed text-bloom-muted" data-i18n="calc_note">Если бюджет ограничен, подберём подходящий объём работ.</p>
+              <p class="mt-3 max-w-xl rounded-xl bg-white/70 px-3 py-2 text-xs leading-relaxed text-bloom-muted" data-i18n="calc_note">Предварительный расчёт. Точный состав работ и сроки согласуем по ТЗ. Тариф Tilda и домен оплачиваются отдельно.</p>
             </div>
             <button onclick="applyCalcToContact()" class="w-full md:w-auto px-5 py-3 rounded-xl bg-bloom-accent hover:bg-bloom-accentHover text-bloom-text border border-bloom-border text-xs font-mono tracking-wider uppercase font-bold transition-all shadow-sm">
               <span data-i18n="calc_apply">Применить к заявке ↓</span>
@@ -1339,9 +1348,7 @@
               <span data-i18n="faq_q2">В каком формате передаются исходники?</span>
               <svg id="faq-icon-2" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div id="faq-ans-2" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a2">
-              Передаю аккуратно собранный макет в Figma: структура страниц, адаптивные версии и необходимые материалы для дальнейшей работы.
-            </div>
+            <div id="faq-ans-2" class="hidden px-6 pb-6 text-bloom-muted text-sm font-light leading-relaxed border-t border-white/5 pt-4" data-i18n="faq_a2">При заказе дизайна передаю макет в Figma и адаптивные версии. При заказе сборки — подготовленный проект на Tilda. Состав материалов и подключений согласуем по ТЗ.</div>
           </div>
 
           <div class="glass-card rounded-xl overflow-hidden">
@@ -1451,9 +1458,21 @@
               </div>
 
               <button type="submit" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/50">
-                <span data-i18n="form_submit">Обсудить проект</span>
+                <span data-i18n="form_submit">Подготовить обращение</span>
               </button>
-              <p class="text-center text-xs text-bloom-muted font-mono" data-i18n="form_response_time">Отвечу в Telegram или по почте в течение 2 часов</p>
+              <p class="text-center text-xs text-bloom-muted font-mono" data-i18n="form_response_time">Подготовьте бриф и выберите удобный способ связи.</p>
+
+              <div id="contact-draft" class="contact-draft" hidden aria-live="polite">
+                <h4 class="font-semibold" data-i18n="form_draft_title">Ваше обращение готово</h4>
+                <p class="text-sm text-bloom-muted mt-2" data-i18n="form_draft_help">Отправьте его по почте или скопируйте и напишите мне в Telegram.</p>
+                <label class="sr-only" for="contact-draft-text" data-i18n="form_draft_text">Текст обращения</label>
+                <textarea id="contact-draft-text" readonly></textarea>
+                <div class="contact-draft-actions">
+                  <a id="contact-email-draft" href="mailto:zhilnikov_yuriy@mail.ru" data-i18n="form_draft_email">Открыть письмо</a>
+                  <button type="button" onclick="copyContactDraft()" data-i18n="form_draft_copy">Скопировать текст</button>
+                  <a href="https://t.me/YuriyZhil" target="_blank" rel="noopener noreferrer" data-i18n="form_draft_telegram">Написать в Telegram</a>
+                </div>
+              </div>
             </form>
           </div>
 
@@ -1517,12 +1536,12 @@
         widget_desc: "Дизайн с опорой на данные и UX-тесты",
         work_heading: "Избранные проекты",
         work_subheading: "Каждый кейс — это продуманное решение бизнес-задач, сочетающее глубокие исследования, чистую эстетику и безупречный UX.",
-filter_all: "Все (7)",
+filter_all: "Все (9)",
         filter_product: "UX/UI & Продукт",
         filter_web: "Веб-сервисы & Сайты",
         filter_ai: "AI & Mobile",
         p1_desc: "Комплексное проектирование цифрового сервиса анонимной взаимопомощи: сквозная архитектура, эмоциональный UI и безопасные пользовательские сценарии.",
-        p2_desc: "Полный брендинг, интерактивный калькулятор вызова врача, адаптивный промо-лендинг и интеграция заявок с CRM для службы помощи животным.",
+        p2_desc: "Дизайн сайта ветеринарной службы: структура страницы, визуальное оформление, сценарий записи и макеты для компьютера и телефона.",
         p3_desc: "Проектирование мобильного приложения нового поколения для генерации визуального контента: жестовая модель, продвинутый промпт-билдер и система пресетов.",
         p4_desc: "Атмосферный веб-лонгрид с кинетической типографикой, нестандартной сеткой и плавными интерактивными микро-анимациями.",
 p5_desc: "Яркий событийный лендинг для IT-конференции с интерактивной программой, интеграцией билетного сервиса и анимированными 3D-персонажами.",
@@ -1649,6 +1668,32 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     };
 
     Object.assign(i18n.ru, {
+      client_project: "Коммерческий проект",
+      read_case: "Смотреть кейс ↗",
+      prometr_title: "Прометр — лендинг услуги поверки счётчиков",
+      nonmarfa_title: "NonMarfá — интернет-магазин бренда",
+      prometr_desc: "Сборка по ТЗ на стандартных блоках и Zero Block, адаптив и настройка формы заявки.",
+      nonmarfa_desc: "Сборка и настройка магазина: каталог, формы, оплата, доставка и аналитика. Адаптив и доработка карточки товара.",
+      p2_desc: "Дизайн сайта ветеринарной службы: структура страницы, визуальное оформление, сценарий записи и макеты для компьютера и телефона.",
+      calc_subheading: "Выберите дизайн или магазин на Tilda. Для лендинга и многостраничного сайта сборка добавляется отдельно.",
+      calc_build_included: "Включена в стоимость магазина",
+      calc_design_only: "Дизайн и адаптивные макеты · без сборки сайта",
+      calc_design_build: "Дизайн и сборка на Tilda · адаптив и формы",
+      calc_store_scope: "Магазин на Tilda · сборка уже включена",
+      form_draft_title: "Ваше обращение готово",
+      form_draft_help: "Отправьте его по почте или скопируйте и напишите мне в Telegram.",
+      form_draft_email: "Открыть письмо",
+      form_draft_copy: "Скопировать текст",
+      form_draft_telegram: "Написать в Telegram",
+      form_draft_text: "Текст обращения",
+      form_draft_ready: "Обращение подготовлено. Выберите способ отправки.",
+      form_draft_copied: "Текст скопирован — можно отправить его в Telegram.",
+      form_draft_copy_fallback: "Выделите и скопируйте текст обращения.",
+      form_draft_subject: "Обсуждение проекта — ",
+      form_draft_name: "Имя",
+      form_draft_contact: "Контакт",
+      form_draft_service: "Тип проекта",
+      form_draft_message: "Задача",
       meta_title: "Юрий Жильников — веб-дизайн и сайты на Tilda",
       meta_description: "Портфолио Юрия Жильникова: лендинги, многостраничные сайты, редизайн и сборка на Tilda.",
       header_name: "Юрий Жильников",
@@ -1658,7 +1703,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       hero_fact_tools: "основные инструменты",
       hero_fact_build: "адаптивная сборка",
       hero_title: "Создаю сайты, которые ясно показывают ценность бизнеса <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>и помогают получать заявки.</span>",
-      hero_subtitle: "Продумываю структуру и визуал, собираю адаптивный сайт на Tilda и готовлю его к запуску.",
+      hero_subtitle: "Создаю дизайн в Figma, собираю и настраиваю сайты на Tilda по ТЗ: адаптив, формы и необходимые подключения.",
       stat_format: "Формат",
       stat_format_value: "Сайты под ключ",
       stat_platform: "Платформа",
@@ -1668,7 +1713,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       stat_store: "E-commerce",
       stat_store_value: "Интернет-магазины",
       marquee: "<span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span><span>✦ ВЕБ-ДИЗАЙН</span><span>✦ ПРОТОТИПЫ</span><span>✦ ЛЕНДИНГИ</span><span>✦ МНОГОСТРАНИЧНЫЕ САЙТЫ</span><span>✦ ZERO BLOCK</span><span>✦ РЕДИЗАЙН</span><span>✦ АДАПТИВНЫЕ МАКЕТЫ</span>",
-      work_subheading: "Две ключевые работы с подробным разбором задачи, решения и итогового макета.",
+      work_subheading: "Два коммерческих проекта: лендинг услуги и интернет-магазин. В кейсах — задачи заказчиков, мой вклад и опубликованные сайты.",
       work_all_projects: "Смотреть все проекты",
       filter_all: "Все проекты",
       filter_product: "Концепты",
@@ -1682,9 +1727,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       p6_title: "Prosto Laser — редизайн сайта клиники",
       p7_title: "PhoneLab — интернет-магазин техники",
       about_heading: "Сайт должен быть понятным клиенту и полезным бизнесу.",
-      about_p1: "Меня зовут Юрий Жильников. Я веб-дизайнер из Санкт-Петербурга.",
-      about_p2: "Помогаю небольшим бизнесам и экспертам понятно представить услугу, вызвать доверие и привести посетителя к нужному действию.",
-      about_p3: "Беру на себя структуру, прототип, дизайн, адаптив и сборку на Tilda. Без перегруженных решений — только то, что помогает задаче.",
+      about_p1: "Меня зовут Юрий Жильников. Я веб-дизайнер и специалист по сборке и настройке сайтов на Tilda из Санкт-Петербурга.",
+      about_p2: "Помогаю реализовать сайт по техническому заданию: собираю страницы, адаптирую их для компьютеров, планшетов и телефонов, настраиваю формы и необходимые подключения.",
+      about_p3: "Работаю со стандартными блоками и Zero Block. Для небольших магазинов настраиваю каталог, оплату, доставку и аналитику. При необходимости выполняю отдельные доработки интерфейса с помощью дополнений и кода.",
       about_role: "Веб-дизайнер • Санкт-Петербург",
       about_available: "Открыт к новым проектам",
       floating_cta: "Обсудить проект",
@@ -1705,7 +1750,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       step4_desc: "Собираю страницы, настраиваю базовые формы и интеграции, проверяю адаптив и готовлю сайт к публикации.",
       services_heading: "Чем могу помочь вашему проекту",
       s1_title: "Лендинги и промо-сайты",
-      s1_desc: "Лендинг с понятным предложением и заметным действием для запуска услуги, продукта или рекламы.",
+      s1_desc: "Дизайн лендинга или сборка на Tilda по готовому ТЗ. Адаптивные страницы и формы для обращения в компанию.",
       s1_meta1: "✦ Дизайн и адаптив",
       s1_meta2: "✦ Сборка на Tilda",
       s2_title: "Многостраничные сайты",
@@ -1713,32 +1758,32 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       s2_meta1: "✦ Структура и прототип",
       s2_meta2: "✦ Адаптивные страницы",
       s3_title: "Интернет-магазины на Tilda",
-      s3_desc: "Небольшой магазин с понятным каталогом, карточками товаров, корзиной и оформлением заказа.",
+      s3_desc: "Сборка и настройка небольшого магазина на Tilda: каталог, карточки товаров, формы, оплата, доставка и аналитика.",
       s3_meta1: "✦ Каталог и карточки товаров",
-      s3_meta2: "✦ Корзина и подключение оплаты",
+      s3_meta2: "✦ Оплата, доставка и аналитика",
       s4_title: "Редизайн и сборка",
-      s4_desc: "Обновлю устаревший сайт или аккуратно перенесу готовый дизайн в Tilda Zero Block.",
+      s4_desc: "Соберу сайт по готовому техническому заданию или перенесу утверждённый дизайн в Tilda. Использую стандартные блоки и Zero Block.",
       s4_meta1: "✦ Перенос дизайна в Tilda",
       s4_meta2: "✦ Проверка адаптива",
-      calc_landing: "Лендинг / Промо",
+      calc_landing: "Дизайн лендинга",
       calc_landing_meta: "от 18 000 ₽ • 2–5 дней",
-      calc_multipage: "Многостраничный сайт",
+      calc_multipage: "Дизайн многостраничного сайта",
       calc_multipage_meta: "от 30 000 ₽ • 12–25 дней",
       calc_store: "Магазин на Tilda",
       calc_store_meta: "от 40 000 ₽ • 12–25 дней",
-      calc_tilda_build: "Сборка на Tilda",
+      calc_tilda_build: "Дополнительно: сборка на Tilda",
       calc_tilda_build_meta: "+8 000 ₽ • +2 дня",
       calc_tilda_tip: "Перенесу утверждённый дизайн в Zero Block, настрою адаптив, формы и базовые подключения — сайт будет готов к публикации.",
       calc_branding: "Фирменный стиль и логотип",
       calc_branding_meta: "+10 000 ₽ • +3 дня",
       calc_branding_tip: "Подберу базовую визуальную систему: цвета, шрифты и знак, чтобы сайт выглядел цельно и узнаваемо.",
-      calc_note: "Если бюджет ограничен, подберём подходящий объём работ.",
+      calc_note: "Предварительный расчёт. Точный состав работ и сроки согласуем по ТЗ. Тариф Tilda и домен оплачиваются отдельно.",
       calc_from: "от ",
       calc_estimate: "Предварительная оценка:",
       calc_apply: "Применить к заявке ↓",
       calc_days: "рабочих дней",
       faq_q3: "Можно заказать сайт под ключ?",
-      faq_a2: "Передаю аккуратно собранный макет в Figma: структура страниц, адаптивные версии и необходимые материалы для дальнейшей работы.",
+      faq_a2: "При заказе дизайна передаю макет в Figma и адаптивные версии. При заказе сборки — подготовленный проект на Tilda. Состав материалов и подключений согласуем по ТЗ.",
       faq_a3: "Да. Подготовлю дизайн, адаптивные версии и соберу сайт на Tilda, подключу домен, формы, базовые интеграции и аналитику.",
       contact_heading: "Расскажите о проекте — предложу понятное решение.",
       contact_subheading: "Коротко опишите задачу, сроки и пожелания. Я уточню детали и предложу подходящий формат и бюджет.",
@@ -1752,8 +1797,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       form_option_redesign: "Редизайн сайта",
       form_option_tilda: "Дизайн и сборка на Tilda",
       form_calc_summary: "Расчёт из калькулятора",
-      form_submit: "Обсудить проект",
-      form_response_time: "Отвечу в Telegram или по почте в течение 2 часов",
+      form_submit: "Подготовить обращение",
+      form_response_time: "Подготовьте бриф и выберите удобный способ связи.",
       footer_rights: "© 2026 Юрий Жильников. Все права защищены.",
       footer_top: "↑ Наверх",
       email_copied: "Email скопирован!",
@@ -1770,6 +1815,31 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     });
 
     Object.assign(i18n.en, {
+      client_project: "Client project",
+      read_case: "View case study ↗",
+      prometr_title: "Prometr — Service Landing Page",
+      nonmarfa_title: "NonMarfá — Brand Online Store",
+      prometr_desc: "Built to the brief with standard blocks and Zero Block, responsive layouts and enquiry form setup.",
+      nonmarfa_desc: "Store build and configuration: catalog, forms, payments, delivery and analytics. Responsive layouts and a product-page adjustment.",
+      p2_desc: "A veterinary service website design: structure, visual direction, booking journey, and desktop and mobile layouts.",
+      calc_build_included: "Included in the store price",
+      calc_design_only: "Design and responsive layouts · website build excluded",
+      calc_design_build: "Design and Tilda build · responsive layouts and forms",
+      calc_store_scope: "Tilda online store · build already included",
+      form_draft_title: "Your enquiry is ready",
+      form_draft_help: "Send it by email, or copy it and message me on Telegram.",
+      form_draft_email: "Open email draft",
+      form_draft_copy: "Copy message",
+      form_draft_telegram: "Message on Telegram",
+      form_draft_text: "Enquiry message",
+      form_draft_ready: "Your enquiry is ready. Choose how to send it.",
+      form_draft_copied: "Message copied — you can send it on Telegram.",
+      form_draft_copy_fallback: "Select and copy the enquiry text.",
+      form_draft_subject: "Project enquiry — ",
+      form_draft_name: "Name",
+      form_draft_contact: "Contact",
+      form_draft_service: "Project type",
+      form_draft_message: "Brief",
       meta_title: "Yuriy Zhilnikov — Web Design and Tilda Websites",
       meta_description: "Yuriy Zhilnikov's portfolio: landing pages, multi-page websites, redesign, and Tilda builds.",
       header_name: "Yuriy Zhilnikov",
@@ -1779,7 +1849,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       hero_fact_tools: "primary tools",
       hero_fact_build: "responsive build",
       hero_title: "I create websites that clearly communicate business value <span class='bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent'>and help generate inquiries.</span>",
-      hero_subtitle: "I plan the structure and visuals, build a responsive Tilda website, and prepare it for launch.",
+      hero_subtitle: "I design in Figma and build and configure Tilda websites to a brief: responsive layouts, forms, and the connections your project needs.",
       stat_format: "Format",
       stat_format_value: "Turnkey websites",
       stat_platform: "Platform",
@@ -1790,7 +1860,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       stat_store_value: "Online stores",
       marquee: "<span>✦ WEB DESIGN</span><span>✦ PROTOTYPES</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ZERO BLOCK</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span><span>✦ WEB DESIGN</span><span>✦ PROTOTYPES</span><span>✦ LANDING PAGES</span><span>✦ MULTI-PAGE WEBSITES</span><span>✦ ZERO BLOCK</span><span>✦ REDESIGN</span><span>✦ RESPONSIVE LAYOUTS</span>",
       work_heading: "Selected Projects",
-      work_subheading: "Two selected case studies with a clear breakdown of the challenge, solution, and final design.",
+      work_subheading: "Two client projects: a service landing page and an online store. Explore the briefs, my contribution, and the published websites.",
       work_all_projects: "View all projects",
       filter_all: "All projects",
       filter_product: "Concepts",
@@ -1804,9 +1874,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       p6_title: "Prosto Laser — Clinic Website Redesign",
       p7_title: "PhoneLab — Technology Online Store",
       about_heading: "A website should be clear to the customer and useful to the business.",
-      about_p1: "My name is Yuriy Zhilnikov. I am a web designer based in Saint Petersburg.",
-      about_p2: "I help small businesses and experts present their services clearly, build trust, and guide visitors toward the right action.",
-      about_p3: "I handle structure, prototype, design, responsive layouts, and the Tilda build. No unnecessary complexity — only what helps the project.",
+      about_p1: "My name is Yuriy Zhilnikov. I am a web designer and Tilda implementation specialist based in Saint Petersburg.",
+      about_p2: "I implement websites to a client’s specification: assemble pages, adapt them for desktop, tablet and mobile, and configure forms and connections.",
+      about_p3: "I use standard blocks and Zero Block. For small stores, I configure catalogs, payments, delivery and analytics. I also make targeted interface adjustments using add-ons and code when needed.",
       about_role: "Web Designer • Saint Petersburg",
       about_available: "Available for new projects",
       floating_cta: "Discuss a project",
@@ -1827,7 +1897,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       step4_desc: "I build the pages, connect basic forms and integrations, test responsive layouts, and prepare the site for launch.",
       services_heading: "How I Can Help Your Project",
       s1_title: "Landing Pages and Promo Sites",
-      s1_desc: "A landing page with a clear offer and prominent action for launching a service, product, or campaign.",
+      s1_desc: "Landing page design or a Tilda build to an existing brief. Responsive pages and forms for customer enquiries.",
       s1_meta1: "✦ Design and responsive layouts",
       s1_meta2: "✦ Tilda build",
       s2_title: "Multi-page Websites",
@@ -1835,36 +1905,36 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       s2_meta1: "✦ Structure and prototype",
       s2_meta2: "✦ Responsive pages",
       s3_title: "Tilda Online Stores",
-      s3_desc: "A compact online store with a clear catalog, product pages, cart, and checkout.",
+      s3_desc: "Small Tilda store build and configuration: catalog, product pages, forms, payments, delivery and analytics.",
       s3_meta1: "✦ Catalog and product pages",
-      s3_meta2: "✦ Cart and payment setup",
+      s3_meta2: "✦ Payments, delivery and analytics",
       s4_title: "Redesign and Tilda Build",
-      s4_desc: "I will refresh an outdated website or carefully transfer an approved design to Tilda Zero Block.",
+      s4_desc: "I build to a brief or transfer an approved design to Tilda, using standard blocks and Zero Block.",
       s4_meta1: "✦ Design transfer to Tilda",
       s4_meta2: "✦ Responsive QA",
       calc_heading: "Project Cost and Timeline Calculator",
-      calc_subheading: "Choose the project type and options to get a preliminary estimate.",
+      calc_subheading: "Choose website design or a Tilda store. For landing and multi-page designs, the Tilda build is a separate option.",
       calc_type_label: "1. Project type:",
       calc_scope_label: "2. Additional options:",
-      calc_landing: "Landing / Promo",
+      calc_landing: "Landing page design",
       calc_landing_meta: "from ₽18,000 • 2–5 days",
-      calc_multipage: "Multi-page website",
+      calc_multipage: "Multi-page website design",
       calc_multipage_meta: "from ₽30,000 • 12–25 days",
       calc_store: "Tilda online store",
       calc_store_meta: "from ₽40,000 • 12–25 days",
-      calc_tilda_build: "Tilda build",
+      calc_tilda_build: "Add a Tilda build",
       calc_tilda_build_meta: "+₽8,000 • +2 days",
       calc_tilda_tip: "I will transfer the approved design to Zero Block, configure responsive layouts, forms, and basic connections so the site is ready to publish.",
       calc_branding: "Visual identity and logo",
       calc_branding_meta: "+₽10,000 • +3 days",
       calc_branding_tip: "I will create a basic visual system with colors, typography, and a mark so the website feels consistent and recognizable.",
-      calc_note: "If the budget is limited, we can adjust the scope to fit.",
+      calc_note: "Preliminary estimate. Final scope and timeline are agreed against the brief. Tilda subscription and domain are paid separately.",
       calc_from: "from ",
       calc_estimate: "Preliminary estimate:",
       calc_apply: "Add to brief ↓",
       calc_days: "business days",
       faq_q3: "Can I order a turnkey website?",
-      faq_a2: "I provide an organized Figma file with page structure, responsive layouts, and the assets needed for further work.",
+      faq_a2: "For a design project, I hand over a Figma file and responsive layouts. For a build, I hand over the prepared Tilda project. Assets and connections are agreed against the brief.",
       faq_a3: "Yes. I can prepare the design and responsive layouts, build the site on Tilda, and connect the domain, forms, basic integrations, and analytics.",
       contact_heading: "Tell me about your project — I will suggest a clear solution.",
       contact_subheading: "Briefly describe the task, timeline, and preferences. I will clarify the details and suggest a suitable format and budget.",
@@ -1878,8 +1948,8 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       form_option_redesign: "Website redesign",
       form_option_tilda: "Design and Tilda build",
       form_calc_summary: "Calculator estimate",
-      form_submit: "Discuss a Project",
-      form_response_time: "I will reply via Telegram or email within 2 hours",
+      form_submit: "Prepare enquiry",
+      form_response_time: "Prepare your brief and choose how to get in touch.",
       footer_rights: "© 2026 Yuriy Zhilnikov. All rights reserved.",
       footer_top: "↑ Back to top",
       email_copied: "Email copied!",
@@ -1932,6 +2002,9 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       Object.entries(projectTitleKeys).forEach(([id, key]) => {
         const title = document.querySelector(`.project-card[onclick="openModal('${id}')"] h3`);
         if (title && i18n[lang][key]) title.innerHTML = i18n[lang][key];
+      });
+      document.querySelectorAll('.commercial-card').forEach(card => {
+        card.querySelector('img').alt = card.querySelector('h3').textContent;
       });
 
       document.querySelectorAll('[data-projects-link]').forEach(link => {
@@ -2468,7 +2541,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     };
 
     function openModal(id) {
-      const availableCases = ['aura', 'lapadoctor', 'flux', 'kultur', 'yandexpet', 'prostolaser', 'phonelab'];
+      const availableCases = ['prometr', 'nonmarfa', 'aura', 'lapadoctor', 'flux', 'kultur', 'yandexpet', 'prostolaser', 'phonelab'];
       if (!availableCases.includes(id)) return;
       window.location.href = `/projects/${id}.html?lang=${currentLang}`;
     }
@@ -2487,8 +2560,6 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
     let basePrice = 18000;
     let baseDays = 4;
-    let addonsPrice = 0;
-    let addonsDays = 0;
     let selectedType = "landing";
     const selectedAddons = new Set();
 
@@ -2509,26 +2580,31 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       updateCalcResult();
     }
 
-    // Синхронизирует выбранные дополнения с итогом и будущей заявкой.
+    function activeAddons() {
+      return [...selectedAddons].filter(addon => addon !== 'dev' || selectedType !== 'store');
+    }
+
     function toggleAddon(addon, price, days, isChecked) {
-      if (isChecked) {
-        addonsPrice += price;
-        addonsDays += days;
-        selectedAddons.add(addon);
-      } else {
-        addonsPrice -= price;
-        addonsDays -= days;
-        selectedAddons.delete(addon);
-      }
+      if (isChecked) selectedAddons.add(addon);
+      else selectedAddons.delete(addon);
       updateCalcResult();
     }
 
     function updateCalcResult() {
-      const total = basePrice + addonsPrice;
-      const days = baseDays + addonsDays;
+      const active = activeAddons();
+      const hasBuild = active.includes('dev');
+      const hasBranding = active.includes('branding');
+      const total = basePrice + (hasBuild ? 8000 : 0) + (hasBranding ? 10000 : 0);
+      const days = baseDays + (hasBuild ? 2 : 0) + (hasBranding ? 3 : 0);
       const locale = currentLang === 'en' ? 'en-US' : 'ru-RU';
-      document.getElementById('calc-price').innerText = i18n[currentLang].calc_from + total.toLocaleString(locale) + ' ₽';
-      document.getElementById('calc-time').innerText = `~${days} ${i18n[currentLang].calc_days}`;
+      const copy = i18n[currentLang];
+      document.getElementById('calc-price').innerText = copy.calc_from + total.toLocaleString(locale) + ' ₽';
+      document.getElementById('calc-time').innerText = `~${days} ${copy.calc_days}`;
+      document.getElementById('calc-scope').textContent = selectedType === 'store' ? copy.calc_store_scope : hasBuild ? copy.calc_design_build : copy.calc_design_only;
+      const checkbox = document.getElementById('addon-tilda');
+      checkbox.disabled = selectedType === 'store';
+      checkbox.checked = selectedType === 'store' || hasBuild;
+      document.querySelector('[data-i18n="calc_tilda_build_meta"]').textContent = selectedType === 'store' ? copy.calc_build_included : copy.calc_tilda_build_meta;
     }
 
     // Переносит тип проекта, дополнения, цену и срок в видимые поля формы.
@@ -2542,7 +2618,7 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       const typeKeys = { landing: 'calc_landing', corp: 'calc_multipage', store: 'calc_store' };
       const addonKeys = { dev: 'calc_tilda_build', branding: 'calc_branding' };
       const selectedTypeName = i18n[currentLang][typeKeys[selectedType]];
-      const addonsText = [...selectedAddons]
+      const addonsText = activeAddons()
         .map(addon => i18n[currentLang][addonKeys[addon]])
         .join(', ') || i18n[currentLang].calc_no_addons;
 
@@ -2551,13 +2627,13 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
       }
       if (msgInput) {
         msgInput.value = i18n[currentLang].calc_apply_message
-          .replace('{type}', selectedTypeName)
+          .replace('{type}', `${selectedTypeName} — ${document.getElementById("calc-scope").textContent}`)
           .replace('{addons}', addonsText)
           .replace('{price}', priceText)
           .replace('{time}', timeText);
       }
       if (summaryWrap && summaryInput) {
-        summaryInput.textContent = `${selectedTypeName} • ${addonsText} • ${priceText} • ${timeText}`;
+        summaryInput.textContent = `${selectedTypeName} • ${document.getElementById("calc-scope").textContent} • ${addonsText} • ${priceText} • ${timeText}`;
         summaryWrap.classList.remove('hidden');
       }
       window.location.hash = '#contact';
@@ -2600,14 +2676,29 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
 
     function handleFormSubmit(e) {
       e.preventDefault();
-      const name = document.getElementById('form-name').value;
-      const contact = document.getElementById('form-contact').value;
-      const service = document.getElementById('form-service').value;
-      const msg = document.getElementById('form-message').value;
+      const copy = i18n[currentLang];
+      const name = document.getElementById('form-name').value.trim();
+      const contact = document.getElementById('form-contact').value.trim();
+      const select = document.getElementById('form-service');
+      const service = select.options[select.selectedIndex].text;
+      const message = document.getElementById('form-message').value.trim();
+      const brief = `${copy.form_draft_name}: ${name}\n${copy.form_draft_contact}: ${contact}\n${copy.form_draft_service}: ${service}\n\n${copy.form_draft_message}:\n${message}`;
+      document.getElementById('contact-draft-text').value = brief;
+      document.getElementById('contact-email-draft').href = `mailto:zhilnikov_yuriy@mail.ru?subject=${encodeURIComponent(copy.form_draft_subject + service)}&body=${encodeURIComponent(brief)}`;
+      document.getElementById('contact-draft').hidden = false;
+      showToast(copy.form_draft_ready);
+    }
 
-      showToast(i18n[currentLang].form_success.replace('{name}', name));
-      document.getElementById('project-form').reset();
-      document.getElementById('form-calc-summary-wrap')?.classList.add('hidden');
+    async function copyContactDraft() {
+      const text = document.getElementById('contact-draft-text');
+      try {
+        await navigator.clipboard.writeText(text.value);
+        showToast(i18n[currentLang].form_draft_copied);
+      } catch {
+        text.focus();
+        text.select();
+        showToast(i18n[currentLang].form_draft_copy_fallback);
+      }
     }
   </script>
 </body>
