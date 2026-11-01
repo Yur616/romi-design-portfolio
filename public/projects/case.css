@@ -289,3 +289,5 @@ img { display: block; max-width: 100%; }
 .case-action:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
 .case-next a { max-width: 100%; padding-block: 16px; line-height: 1.5; }
 @media (max-width: 560px) { .case-actions { flex-direction: column; } .case-action { width: 100%; } }
+
+.case-status { display: inline-flex; margin-top: 16px; padding: 7px 12px; border-radius: 999px; background: #e2f0e5; color: #315c40; font-size: 12px; font-weight: 600; }

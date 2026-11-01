@@ -276,6 +276,7 @@
     }
 
     .commercial-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .commercial-status { display: inline-flex; align-self: flex-start; margin: 0 0 14px; padding: 6px 10px; border-radius: 999px; background: #e2f0e5; color: #315c40; font: 600 10px/1.4 'JetBrains Mono', monospace; letter-spacing: .02em; }
     .commercial-card:focus-visible { outline: 3px solid #78b78c; outline-offset: 4px; }
     .contact-draft { margin-top: 20px; padding: 20px; border: 1px solid #dce8df; border-radius: 16px; background: #f2f8f3; }
     .contact-draft[hidden] { display: none; }
@@ -675,7 +676,7 @@
   <div id="site-preloader" class="site-preloader" aria-hidden="true">
     <div class="site-preloader__copy">
       <div class="site-preloader__title">ЮРИЙ ЖИЛЬНИКОВ <sup>®</sup></div>
-      <p class="site-preloader__role">Product &amp; Web Designer</p>
+      <p class="site-preloader__role" data-i18n="preloader_role">Продуктовый и веб-дизайнер</p>
     </div>
   </div>
   <div class="noise-overlay"></div>
@@ -804,7 +805,7 @@
       <div class="max-w-7xl mx-auto">
         <div class="mb-14">
           <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-4">
-            <span>01 // PORTFOLIO</span>
+            <span data-i18n="section_portfolio">01 // ПОРТФОЛИО</span>
             <span class="w-8 h-[1px] bg-emerald-500/40"></span>
           </div>
           <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight text-center" data-i18n="work_heading">
@@ -824,7 +825,8 @@
           <div class="project-card commercial-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('prometr')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'prometr')">
             <div>
               <div class="commercial-visual aspect-[16/10] rounded-xl relative overflow-hidden mb-6"><img src="/cases/prometr-desktop.jpg" alt="Прометр — лендинг услуги поверки счётчиков" loading="lazy"></div>
-              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="client_project">Коммерческий проект</span><span>Tilda</span></div>
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="category_prometr">Веб-дизайн</span><span>Tilda</span></div>
+              <span class="commercial-status" data-i18n="client_project">Коммерческий проект</span>
               <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="prometr_title">Прометр — лендинг услуги поверки счётчиков</h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="prometr_desc">Сборка по ТЗ на стандартных блоках и Zero Block, адаптив и настройка формы заявки.</p>
             </div>
@@ -833,11 +835,12 @@
           <div class="project-card commercial-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="web" onclick="openModal('nonmarfa')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'nonmarfa')">
             <div>
               <div class="commercial-visual aspect-[16/10] rounded-xl relative overflow-hidden mb-6"><img src="/cases/nonmarfa-desktop.jpg" alt="NonMarfá — интернет-магазин бренда" loading="lazy"></div>
-              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="client_project">Коммерческий проект</span><span>Tilda</span></div>
+              <div class="flex items-center justify-between text-xs font-mono text-bloom-muted mb-3"><span class="text-emerald-400 uppercase tracking-wider" data-i18n="category_nonmarfa">Интернет-магазин</span><span>Tilda</span></div>
+              <span class="commercial-status" data-i18n="client_project">Коммерческий проект</span>
               <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors mb-3" data-i18n="nonmarfa_title">NonMarfá — интернет-магазин бренда</h3>
               <p class="text-bloom-muted text-sm leading-relaxed mb-6" data-i18n="nonmarfa_desc">Сборка и настройка магазина: каталог, формы, оплата, доставка и аналитика. Адаптив и доработка карточки товара.</p>
             </div>
-            <div class="pt-4 flex flex-wrap items-center justify-between gap-3"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Tilda</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">E-commerce</span></div><span class="text-emerald-400 text-sm font-semibold" data-i18n="read_case">Смотреть кейс ↗</span></div>
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-3"><div class="flex flex-wrap gap-2"><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted">Tilda</span><span class="tag-badge px-2 py-1 rounded bg-white/5 text-bloom-muted" data-i18n="category_nonmarfa">Интернет-магазин</span></div><span class="text-emerald-400 text-sm font-semibold" data-i18n="read_case">Смотреть кейс ↗</span></div>
           </div>
           
           <div class="project-card glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400" data-category="product" onclick="openModal('aura')" role="button" tabindex="0" onkeydown="handleProjectCardKey(event, 'aura')">
@@ -1077,7 +1080,7 @@
     <section id="about" class="py-24 md:py-32 px-6 bg-bloom-card/40 border-t border-bloom-border">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-4">
-          <span>02 // ABOUT</span>
+          <span data-i18n="section_about">02 // ОБО МНЕ</span>
           <span class="w-8 h-[1px] bg-emerald-500/40"></span>
         </div>
         <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-center mb-14" data-i18n="about_heading">
@@ -1172,7 +1175,7 @@
     <section id="services" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
-          <span>03 // SERVICES</span>
+          <span data-i18n="section_services">03 // УСЛУГИ</span>
           <span class="w-8 h-[1px] bg-emerald-500/40"></span>
         </div>
         <h2 class="font-display font-black text-3xl sm:text-4xl text-white tracking-tight text-center mb-16" data-i18n="services_heading">
@@ -1186,7 +1189,7 @@
               <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <span class="font-mono text-xs text-emerald-400 mb-2 block">01 // LANDINGS</span>
+              <span class="font-mono text-xs text-emerald-400 mb-2 block" data-i18n="service_landing_label">01 // ЛЕНДИНГИ</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s1_title">Лендинги и промо-сайты</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s1_desc">Дизайн лендинга или сборка на Tilda по готовому ТЗ. Адаптивные страницы и формы для обращения в компанию.</p>
             </div>
@@ -1201,7 +1204,7 @@
               <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
               </div>
-              <span class="font-mono text-xs text-teal-400 mb-2 block">02 // MULTIPAGE</span>
+              <span class="font-mono text-xs text-teal-400 mb-2 block" data-i18n="service_multipage_label">02 // МНОГОСТРАНИЧНЫЕ САЙТЫ</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s2_title">Многостраничные сайты</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s2_desc">
                 Структурированный сайт, где клиент легко находит услуги, преимущества и контакты.
@@ -1218,7 +1221,7 @@
               <div class="w-12 h-12 rounded-xl bg-lime-500/10 border border-lime-500/20 flex items-center justify-center text-lime-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
               </div>
-              <span class="font-mono text-xs text-lime-400 mb-2 block">03 // E-COMMERCE</span>
+              <span class="font-mono text-xs text-lime-400 mb-2 block" data-i18n="service_store_label">03 // ИНТЕРНЕТ-МАГАЗИНЫ</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s3_title">Интернет-магазины на Tilda</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s3_desc">Сборка и настройка небольшого магазина на Tilda: каталог, карточки товаров, формы, оплата, доставка и аналитика.</p>
             </div>
@@ -1233,7 +1236,7 @@
               <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
-              <span class="font-mono text-xs text-emerald-400 mb-2 block">04 // REDESIGN & BUILD</span>
+              <span class="font-mono text-xs text-emerald-400 mb-2 block" data-i18n="service_redesign_label">04 // РЕДИЗАЙН И СБОРКА</span>
               <h3 class="font-display font-bold text-lg text-white mb-3" data-i18n="s4_title">Редизайн и сборка</h3>
               <p class="text-bloom-muted text-xs leading-relaxed mb-6 font-light" data-i18n="s4_desc">Соберу сайт по готовому техническому заданию или перенесу утверждённый дизайн в Tilda. Использую стандартные блоки и Zero Block.</p>
             </div>
@@ -1250,7 +1253,7 @@
     <section id="calculator" class="py-20 px-6 bg-bloom-card/30 border-y border-bloom-border">
       <div class="max-w-7xl mx-auto">
         <div class="mb-12">
-          <span class="tag-badge text-emerald-400 mb-4 inline-block">INTERACTIVE ESTIMATOR</span>
+          <span class="tag-badge text-emerald-400 mb-4 inline-block" data-i18n="section_calculator">ОЦЕНКА ПРОЕКТА</span>
           <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3 text-center" data-i18n="calc_heading">
             Калькулятор стоимости и сроков проекта
           </h2>
@@ -1325,7 +1328,7 @@
     <section id="faq" class="py-20 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-3">
-          <span>FAQ</span>
+          <span data-i18n="faq_label">ВОПРОСЫ И ОТВЕТЫ</span>
         </div>
         <h2 class="font-display font-bold text-2xl sm:text-3xl text-white text-center mb-12" data-i18n="faq_heading">
           Часто задаваемые вопросы
@@ -1368,7 +1371,7 @@
     <section id="contact" class="py-24 md:py-32 px-6 bg-bloom-card/60 border-t border-bloom-border">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-3 text-emerald-400 font-mono text-xs tracking-widest uppercase mb-4">
-          <span>04 // CONTACTS</span>
+          <span data-i18n="section_contact">04 // КОНТАКТЫ</span>
           <span class="w-8 h-[1px] bg-emerald-500/40"></span>
         </div>
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -1390,7 +1393,7 @@
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
                     <div>
-                      <div class="text-[10px] font-mono text-bloom-muted uppercase">Email</div>
+                      <div class="text-[10px] font-mono text-bloom-muted uppercase" data-i18n="email_label">ПОЧТА</div>
                       <a href="mailto:zhilnikov_yuriy@mail.ru" class="text-sm font-mono font-medium text-white hover:text-emerald-400 transition-colors">zhilnikov_yuriy@mail.ru</a>
                     </div>
                   </div>
@@ -1668,6 +1671,27 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     };
 
     Object.assign(i18n.ru, {
+      section_portfolio: "01 // ПОРТФОЛИО",
+      section_about: "02 // ОБО МНЕ",
+      section_services: "03 // УСЛУГИ",
+      section_contact: "04 // КОНТАКТЫ",
+      section_calculator: "ОЦЕНКА ПРОЕКТА",
+      service_landing_label: "01 // ЛЕНДИНГИ",
+      service_multipage_label: "02 // МНОГОСТРАНИЧНЫЕ САЙТЫ",
+      service_store_label: "03 // ИНТЕРНЕТ-МАГАЗИНЫ",
+      service_redesign_label: "04 // РЕДИЗАЙН И СБОРКА",
+      preloader_role: "Продуктовый и веб-дизайнер",
+      faq_label: "ВОПРОСЫ И ОТВЕТЫ",
+      email_label: "ПОЧТА",
+      category_prometr: "Веб-дизайн",
+      category_nonmarfa: "Интернет-магазин",
+      category_aura: "Продуктовый дизайн",
+      category_lapadoctor: "Веб-дизайн",
+      category_flux: "Мобильный интерфейс",
+      category_kultur: "Редакционный веб-дизайн",
+      category_yandexpet: "Сайт мероприятия",
+      category_prostolaser: "Редизайн",
+      category_phonelab: "Интернет-магазин",
       client_project: "Коммерческий проект",
       read_case: "Смотреть кейс ↗",
       prometr_title: "Прометр — лендинг услуги поверки счётчиков",
@@ -1815,6 +1839,27 @@ p6_desc: "Large-scale redesign of a commercial interface and booking system for 
     });
 
     Object.assign(i18n.en, {
+      section_portfolio: "01 // PORTFOLIO",
+      section_about: "02 // ABOUT",
+      section_services: "03 // SERVICES",
+      section_contact: "04 // CONTACTS",
+      section_calculator: "PROJECT ESTIMATOR",
+      service_landing_label: "01 // LANDINGS",
+      service_multipage_label: "02 // MULTIPAGE",
+      service_store_label: "03 // E-COMMERCE",
+      service_redesign_label: "04 // REDESIGN & BUILD",
+      preloader_role: "Product &amp; Web Designer",
+      faq_label: "FAQ",
+      email_label: "EMAIL",
+      category_prometr: "Web design",
+      category_nonmarfa: "E-commerce",
+      category_aura: "Product design",
+      category_lapadoctor: "Web design",
+      category_flux: "Mobile UI",
+      category_kultur: "Editorial web",
+      category_yandexpet: "Event website",
+      category_prostolaser: "Redesign",
+      category_phonelab: "E-commerce",
       client_project: "Client project",
       read_case: "View case study ↗",
       prometr_title: "Prometr — Service Landing Page",

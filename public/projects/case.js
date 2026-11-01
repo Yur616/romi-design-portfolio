@@ -20,10 +20,7 @@ const caseProjects = {
     "Прометр — поверка счётчиков",
     "Prometr — Water Meter Verification"
   ],
-  "kicker": [
-    "КОММЕРЧЕСКИЙ ПРОЕКТ · TILDA",
-    "CLIENT PROJECT · TILDA"
-  ],
+  "kicker": ["ВЕБ-ДИЗАЙН · TILDA", "WEB DESIGN · TILDA"],
   "lead": [
     "Лендинг компании по поверке счётчиков воды в Новокузнецке. Сборка и настройка на Tilda по техническому заданию заказчика.",
     "A landing page for a water meter verification company in Novokuznetsk. Built and configured on Tilda to the client’s specification."
@@ -90,10 +87,7 @@ const caseProjects = {
     "NonMarfá — интернет-магазин бренда",
     "NonMarfá — Brand Online Store"
   ],
-  "kicker": [
-    "КОММЕРЧЕСКИЙ ПРОЕКТ · E-COMMERCE",
-    "CLIENT PROJECT · E-COMMERCE"
-  ],
+  "kicker": ["ИНТЕРНЕТ-МАГАЗИН · TILDA", "E-COMMERCE · TILDA"],
   "lead": [
     "Сборка и настройка магазина на стандартных блоках Tilda: каталог, карточки товаров, формы, оплата, доставка и аналитика. Работа по ТЗ заказчика.",
     "An online store built and configured with standard Tilda blocks: catalog, product pages, forms, payments, delivery and analytics. Delivered to the client’s brief."
@@ -156,7 +150,7 @@ const caseProjects = {
     cover: "/cases/aura-main.webp",
     meta: { type: ["Цифровой сервис", "Digital product"], scope: ["UX/UI-концепция", "UX/UI concept"], tools: "Figma" },
     title: ["AURA — платформа взаимопомощи", "AURA — Peer Support Platform"],
-    kicker: ["01 // PRODUCT DESIGN & UX", "01 // PRODUCT DESIGN & UX"],
+    kicker: ["ПРОДУКТОВЫЙ ДИЗАЙН · UX", "PRODUCT DESIGN · UX"],
     lead: ["Тёмная и бережная цифровая среда, в которой люди могут делиться личными историями, находить поддержку и сохранять контроль над приватностью.", "A calm, dark digital space where people can share personal stories, find support, and stay in control of their privacy."],
     challenge: ["Объединить эмоционально сложный контент, личный профиль и механику поиска поддержки в одной понятной системе — без ощущения давления или перегруженности.", "Bring emotionally sensitive content, personal profiles, and support discovery into one clear system without making the experience feel overwhelming."],
     approach: ["Интерфейс построен вокруг спокойной типографики, мягких акцентов и последовательной навигации. Главная знакомит с историями сообщества, профиль показывает личный путь, а экран «мечты» превращает связи и цели в наглядную карту.", "The interface uses calm typography, subtle accents, and consistent navigation. The homepage introduces community stories, the profile captures a personal journey, and the dream view turns goals and connections into a visual map."],
@@ -173,7 +167,7 @@ const caseProjects = {
     cover: "/cases/lapadoctor-desktop.webp",
     meta: { type: ["Дизайн-концепция сайта услуги", "Service website design concept"], scope: ["Веб-дизайн и адаптив", "Web design and responsive"], tools: "Figma" },
     title: ["ЛапаДоктор — ветеринар на дом", "LapaDoctor — At-home Veterinary Care"],
-    kicker: ["02 // WEB DESIGN", "02 // WEB DESIGN"],
+    kicker: ["ВЕБ-ДИЗАЙН", "WEB DESIGN"],
     lead: ["Дизайн сайта ветеринарной службы: структура страницы, визуальное оформление, сценарий записи и макеты для компьютера и телефона.", "A veterinary service website design: page structure, visual direction, booking journey, and desktop and mobile layouts."],
     challenge: ["В стрессовой ситуации посетителю важно сразу понять, как работает выезд врача, кому подходит услуга и какое действие сделать дальше.", "In a stressful situation, visitors need to understand immediately how the home visit works, who the service is for, and what to do next."],
     approach: ["Первый экран строится вокруг понятного обещания и заметной кнопки. Дальше сайт снимает основные сомнения, показывает преимущества домашнего приёма, знакомит со специалистами и последовательно ведёт к заявке.", "The hero centers on a clear promise and prominent action. The rest of the site answers common concerns, explains the benefits of home care, introduces specialists, and leads naturally to a request."],
@@ -191,7 +185,7 @@ const caseProjects = {
     dark: true,
     meta: { type: ["Мобильный продукт", "Mobile product"], scope: ["UX/UI и промо-экраны", "UX/UI and store visuals"], tools: "Figma" },
     title: ["FLUX AI — мобильный интерфейс", "FLUX AI — Mobile Interface"],
-    kicker: ["03 // AI & MOBILE UX/UI", "03 // AI & MOBILE UX/UI"],
+    kicker: ["МОБИЛЬНЫЙ ИНТЕРФЕЙС · ИИ", "MOBILE UI · AI"],
     lead: ["Серия экранов AI-приложения: знакомство с продуктом, персонализация, генерация изображения, загрузка, подписка и промо-материалы для App Store.", "A complete set of AI app screens covering onboarding, personalization, image generation, loading, subscription, and App Store promotion."],
     challenge: ["Разложить сложную AI-функциональность на короткие, понятные шаги и сохранить выразительный визуальный язык на небольшом мобильном экране.", "Break complex AI functionality into short, understandable steps while keeping a distinctive visual language on a small mobile screen."],
     approach: ["Сценарий начинается с эмоционального знакомства, затем уточняет интересы пользователя и приводит к генерации. Тёмная основа, фиолетовое свечение и крупные изображения связывают продуктовые и рекламные экраны в одну систему.", "The journey starts with an emotional introduction, learns the user’s interests, and moves into generation. A dark base, violet glow, and large imagery connect product and promotional screens into one system."],
@@ -214,7 +208,7 @@ const caseProjects = {
     cover: "/cases/kultur-desktop.webp",
     meta: { type: ["Редакционный сайт", "Editorial website"], scope: ["Веб-дизайн и адаптив", "Web design and responsive"], tools: "Figma" },
     title: ["Kultur — путешествие по Японии", "Kultur — Journey through Japan"],
-    kicker: ["04 // EDITORIAL WEB DESIGN", "04 // EDITORIAL WEB DESIGN"],
+    kicker: ["РЕДАКЦИОННЫЙ ВЕБ-ДИЗАЙН", "EDITORIAL WEB"],
     lead: ["Атмосферный лонгрид о традиционной Японии с выразительной фотографией, спокойным ритмом и редакционной подачей материала.", "An atmospheric long read about traditional Japan, shaped by expressive photography, calm pacing, and editorial storytelling."],
     challenge: ["Передать ощущение путешествия и культурного погружения, сохранив удобное чтение большого объёма материала на компьютере и телефоне.", "Create a sense of travel and cultural immersion while keeping long-form content comfortable to read on desktop and mobile."],
     approach: ["Крупные пейзажи задают эмоциональный ритм, контрастная антиква усиливает редакционный характер, а чередование светлых и тёмных секций помогает структурировать длинную историю.", "Large landscapes set the emotional rhythm, serif typography creates an editorial tone, and alternating light and dark sections organize the long narrative."],
@@ -230,7 +224,7 @@ const caseProjects = {
     cover: "/cases/yandex-pet-day.webp",
     meta: { type: ["Промо-сайт события", "Event promo website"], scope: ["Структура и веб-дизайн", "Structure and web design"], tools: "Figma" },
     title: ["Yandex Pet Day — промо-сайт", "Yandex Pet Day — Promo Website"],
-    kicker: ["05 // WEB DESIGN & EVENT", "05 // WEB DESIGN & EVENT"],
+    kicker: ["САЙТ МЕРОПРИЯТИЯ", "EVENT WEBSITE"],
     lead: ["Яркий промо-лендинг конференции о digital-продуктах и сервисах для животных — с программой, форматами участия и спикерами.", "A bold promo landing page for a conference about digital products and services for pets, featuring the agenda, participation formats, and speakers."],
     challenge: ["Собрать большой объём событийной информации в страницу, которая быстро объясняет тему конференции и помогает посетителю принять решение об участии.", "Organize a large amount of event information into a page that explains the conference quickly and helps visitors decide to attend."],
     approach: ["Контент разделён на контрастные карточки и крупные смысловые блоки. Чёрно-жёлтая палитра создаёт узнаваемый событийный характер, а повторяющиеся действия поддерживают путь к регистрации.", "Content is organized into high-contrast cards and large semantic blocks. The black-and-yellow palette creates a distinctive event identity, while repeated calls to action support the path to registration."],
@@ -243,7 +237,7 @@ const caseProjects = {
     cover: "/cases/prosto-laser.webp",
     meta: { type: ["Редизайн сайта", "Website redesign"], scope: ["UX-аудит и UI", "UX review and UI"], tools: "Figma" },
     title: ["Prosto Laser — редизайн клиники", "Prosto Laser — Clinic Redesign"],
-    kicker: ["06 // REDESIGN & MEDTECH", "06 // REDESIGN & MEDTECH"],
+    kicker: ["РЕДИЗАЙН", "REDESIGN"],
     lead: ["Светлый коммерческий интерфейс клиники лазерной эпиляции с понятным предложением, ценой и заметной записью на процедуру.", "A light commercial interface for a laser hair removal clinic with a clear offer, visible pricing, and a prominent booking path."],
     challenge: ["Усилить первый экран и помочь посетителю быстрее понять услугу, стоимость и преимущества, не перегружая медицинский сайт визуально.", "Strengthen the first screen and help visitors understand the service, price, and benefits without visually overloading a medical website."],
     approach: ["Иерархия перестроена вокруг главного предложения и записи. Мягкая розовая палитра, крупная типографика, карточка цены и блоки доверия делают страницу спокойной и коммерчески понятной.", "The hierarchy is rebuilt around the core offer and booking action. A soft pink palette, large typography, pricing card, and trust blocks make the page calm and commercially clear."],
@@ -257,7 +251,7 @@ const caseProjects = {
     dark: true,
     meta: { type: ["Интернет-магазин", "Online store"], scope: ["Структура и веб-дизайн", "Structure and web design"], tools: "Figma • Tilda" },
     title: ["PhoneLab — магазин техники", "PhoneLab — Technology Store"],
-    kicker: ["07 // E-COMMERCE & WEB DESIGN", "07 // E-COMMERCE & WEB DESIGN"],
+    kicker: ["ИНТЕРНЕТ-МАГАЗИН", "E-COMMERCE"],
     lead: ["Технологичная главная страница магазина электроники с крупной продуктовой подачей, категориями, преимуществами и отзывами.", "A technology-focused electronics store homepage with bold product presentation, categories, benefits, and reviews."],
     challenge: ["Показать ассортимент и преимущества магазина так, чтобы страница не превращалась в перегруженный каталог и сохраняла ясные точки входа к товарам.", "Present the assortment and store benefits without turning the homepage into an overloaded catalog, while keeping clear entry points to products."],
     approach: ["Тёмная синяя основа подчёркивает технологичность, бирюзовые акценты выделяют действия, а модульные карточки разделяют категории, цифры, преимущества и социальное доказательство.", "A dark blue base reinforces the technology theme, cyan accents highlight actions, and modular cards separate categories, metrics, benefits, and social proof."],
@@ -316,6 +310,7 @@ function renderCase() {
     <main>
       <section class="case-hero case-shell">
         <div class="case-kicker">${pick(project.kicker, lang)}</div>
+        ${project.live ? `<span class="case-status">${lang === "en" ? "Client project" : "Коммерческий проект"}</span>` : ""}
         <h1>${pick(project.title, lang)}</h1>
         <p class="case-hero__lead">${pick(project.lead, lang)}</p>
         <div class="case-meta">
